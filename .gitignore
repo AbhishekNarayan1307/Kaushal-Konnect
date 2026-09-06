@@ -44,3 +44,6 @@ venv/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Backend secrets
+backend/.env
