@@ -39,6 +39,7 @@ import {
   type Booking,
   type Worker,
 } from "@/lib/dashboard-data";
+import { getRecommendedWorkers } from "@/lib/api";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -49,7 +50,10 @@ export const Route = createFileRoute("/")({
         content:
           "Browse home services, compare verified workers by rating, price and distance, book a time slot, pay securely and manage your bookings.",
       },
-      { property: "og:title", content: "Customer Dashboard | HomeHands Services" },
+      {
+        property: "og:title",
+        content: "Customer Dashboard | HomeHands Services",
+      },
       {
         property: "og:description",
         content:
@@ -60,37 +64,122 @@ export const Route = createFileRoute("/")({
   component: CustomerDashboard,
 });
 
-const icons = { Sparkles, Wrench, Zap, Paintbrush, Hammer, Refrigerator };
+const icons = {
+  Sparkles,
+  Wrench,
+  Zap,
+  Paintbrush,
+  Hammer,
+  Refrigerator,
+};
+
+const categoryMapping: Record<string, string> = {
+  cleaning: "Cleaner",
+  plumbing: "Plumber",
+  electrical: "Electrician",
+  painting: "Painter",
+  carpentry: "Carpenter",
+  appliance: "Mechanic",
+};
 
 function CustomerDashboard() {
-  const [location, setLocation] = useState("Koramangala, Bengaluru");
+  const [userLocation, setUserLocation] = useState("South");
   const [serviceId, setServiceId] = useState("cleaning");
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState("rating");
-  const [bookings, setBookings] = useState<Booking[]>(initialBookings);
-  const [bookingWorker, setBookingWorker] = useState<Worker | null>(null);
-  const [reviewTarget, setReviewTarget] = useState<Booking | null>(null);
-  const [complaintTarget, setComplaintTarget] = useState<Booking | null>(null);
+  const [budget, setBudget] = useState("1000");
+  const [bookings, setBookings] =
+    useState<Booking[]>(initialBookings);
+  const [bookingWorker, setBookingWorker] =
+    useState<Worker | null>(null);
+  const [reviewTarget, setReviewTarget] =
+    useState<Booking | null>(null);
+  const [complaintTarget, setComplaintTarget] =
+    useState<Booking | null>(null);
+
+  const [realWorkers, setRealWorkers] = useState<Worker[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   const activeService = services.find((s) => s.id === serviceId)!;
 
-  const visibleWorkers = useMemo(() => {
-    const list = workers.filter(
-      (w) =>
-        w.serviceId === serviceId &&
-        (query.trim() === "" ||
-          w.name.toLowerCase().includes(query.toLowerCase()) ||
-          w.skills.some((s) => s.toLowerCase().includes(query.toLowerCase()))),
-    );
-    return [...list].sort((a, b) => {
-      if (sort === "price") return a.pricePerHour - b.pricePerHour;
-      if (sort === "distance") return a.distanceKm - b.distanceKm;
-      return b.rating - a.rating;
-    });
-  }, [serviceId, query, sort]);
+  const handleSearch = async (selectedServiceId = serviceId) => {
+    setIsLoading(true);
+    setApiError(null);
 
-  const upcoming = bookings.filter((b) => b.status === "Upcoming");
-  const spent = bookings.reduce((sum, b) => sum + (b.paid ? b.amount : 0), 0);
+    try {
+      const category =
+  categoryMapping[selectedServiceId] || selectedServiceId;
+
+      console.log("SEARCH:", {
+        category,
+        zone: userLocation.trim(),
+        budget: parseFloat(budget) || 1000,
+      });
+      const zone = userLocation.trim() || "South";
+
+      const budgetVal = parseFloat(budget) || 1000;
+
+      const data = await getRecommendedWorkers(
+        category,
+        zone,
+        budgetVal,
+      );
+
+      const mappedWorkers: Worker[] = data.map((w: any) => ({
+        id: String(w.worker_id),
+        name: "Verified Professional " + w.worker_id,
+        serviceId: selectedServiceId,
+        rating: w.rating,
+        reviews: w.completed_jobs,
+        pricePerHour: w.price,
+        distanceKm: w.distance_km,
+        skills: [
+          categoryMapping[serviceId] || "Professional",
+        ],
+        verified: true,
+        jobs: w.completed_jobs,
+      }));
+
+      setRealWorkers(mappedWorkers);
+    } catch (e: any) {
+      setApiError(
+        e.message ||
+          "An error occurred while fetching workers.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const visibleWorkers = useMemo(() => {
+    console.log("REAL WORKERS:", realWorkers);
+    if (realWorkers.length > 0) {
+      return [...realWorkers].sort((a, b) => {
+        if (sort === "price") {
+          return a.pricePerHour - b.pricePerHour;
+        }
+
+        if (sort === "distance") {
+          return a.distanceKm - b.distanceKm;
+        }
+
+        return b.rating - a.rating;
+      });
+    }
+
+    // Fallback to mock data if no search has been performed
+    return [];
+  }, [serviceId, query, sort, realWorkers]);
+
+  const upcoming = bookings.filter(
+    (b) => b.status === "Upcoming",
+  );
+
+  const spent = bookings.reduce(
+    (sum, b) => sum + (b.paid ? b.amount : 0),
+    0,
+  );
 
   return (
     <main className="min-h-screen bg-background pb-20">
@@ -101,11 +190,17 @@ function CustomerDashboard() {
               <span className="grid size-10 place-items-center rounded-xl bg-gradient-gold font-display text-lg font-bold text-primary-foreground">
                 H
               </span>
+
               <div>
-                <p className="font-display text-lg font-bold leading-none">HomeHands</p>
-                <p className="text-xs text-navy-foreground/60">Customer dashboard</p>
+                <p className="font-display text-lg font-bold leading-none">
+                  HomeHands
+                </p>
+                <p className="text-xs text-navy-foreground/60">
+                  Customer dashboard
+                </p>
               </div>
             </div>
+
             <div className="flex items-center gap-4">
               <Link
                 to="/worker"
@@ -113,55 +208,125 @@ function CustomerDashboard() {
               >
                 Worker view
               </Link>
+
               <Link
                 to="/coop"
                 className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
               >
                 Co-op view
               </Link>
+
               <Badge className="bg-primary/15 text-primary hover:bg-primary/15">
-                <BadgeCheck className="mr-1 size-3.5" /> Verified workers only
+                <BadgeCheck className="mr-1 size-3.5" />
+                Verified workers only
               </Badge>
             </div>
           </div>
 
           <h1 className="mt-10 max-w-xl text-4xl font-bold leading-tight sm:text-5xl">
-            Good evening, Dyllan. <span className="text-primary">What needs fixing?</span>
+            Good evening, Dyllan.{" "}
+            <span className="text-primary">
+              What needs fixing?
+            </span>
           </h1>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-[1.2fr_1fr_auto]">
+          <div className="mt-8 grid gap-3 sm:grid-cols-[1.2fr_1fr_0.8fr_auto]">
             <div className="space-y-1.5">
-              <Label htmlFor="loc" className="text-xs uppercase tracking-widest text-navy-foreground/60">
+              <Label
+                htmlFor="loc"
+                className="text-xs uppercase tracking-widest text-navy-foreground/60"
+              >
                 Your location
               </Label>
+
               <div className="relative">
-                <MapPin className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-primary" />
-                <Input
-                  id="loc"
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
-                  placeholder="Enter your address or area"
-                  className="border-navy-foreground/15 bg-navy-foreground/5 pl-9 text-navy-foreground placeholder:text-navy-foreground/40"
-                />
+              
+                <Select value={userLocation} onValueChange={setUserLocation}>
+                  <SelectTrigger
+                    id="location"
+                    className="border-navy-foreground/15 bg-navy-foreground/5 text-navy-foreground"
+                  >
+                    <SelectValue placeholder="Choose a location" />
+                  </SelectTrigger>
+
+                  <SelectContent>
+                    <SelectItem value="North">North</SelectItem>
+                    <SelectItem value="South">South</SelectItem>
+                    <SelectItem value="East">East</SelectItem>
+                    <SelectItem value="West">West</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
+
             <div className="space-y-1.5">
-              <Label htmlFor="q" className="text-xs uppercase tracking-widest text-navy-foreground/60">
-                Search worker or skill
+              <Label
+                htmlFor="service"
+                className="text-xs uppercase tracking-widest text-navy-foreground/60"
+              >
+                Select service
               </Label>
+
+              <Select
+                value={serviceId}
+                onValueChange={(value) => {
+                  setServiceId(value);
+                  setRealWorkers([]);
+                  setApiError(null);
+                }}
+              >
+                <SelectTrigger
+                  id="service"
+                  className="border-navy-foreground/15 bg-navy-foreground/5 text-navy-foreground"
+                >
+                  <SelectValue placeholder="Choose a service" />
+                </SelectTrigger>
+
+                <SelectContent>
+                  {services.map((service) => (
+                    <SelectItem key={service.id} value={service.id}>
+                      {service.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-1.5">
+              <Label
+                htmlFor="budget"
+                className="text-xs uppercase tracking-widest text-navy-foreground/60"
+              >
+                Your budget
+              </Label>
+
               <div className="relative">
-                <Search className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-primary" />
+                <Receipt className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-primary" />
+
                 <Input
-                  id="q"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder="e.g. deep clean"
+                  id="budget"
+                  type="number"
+                  value={budget}
+                  onChange={(e) =>
+                    setBudget(e.target.value)
+                  }
+                  placeholder="Max budget"
                   className="border-navy-foreground/15 bg-navy-foreground/5 pl-9 text-navy-foreground placeholder:text-navy-foreground/40"
                 />
               </div>
             </div>
+
             <div className="flex items-end">
-              <Button className="w-full shadow-gold sm:w-auto">Find workers</Button>
+              <Button
+                className="w-full shadow-gold sm:w-auto"
+                onClick={() => {
+                  console.log("FIND WORKERS CLICKED");
+                  handleSearch();
+                }}
+                disabled={isLoading}
+              >
+                {isLoading ? "Searching..." : "Find workers"}
+              </Button>
             </div>
           </div>
         </div>
@@ -169,29 +334,64 @@ function CustomerDashboard() {
 
       <div className="mx-auto -mt-16 max-w-6xl px-5 sm:px-8">
         <div className="grid gap-4 sm:grid-cols-3">
-          <StatCard icon={<CalendarDays className="size-5" />} label="Upcoming bookings" value={String(upcoming.length)} />
-          <StatCard icon={<Receipt className="size-5" />} label="Total spent" value={currency(spent)} />
-          <StatCard icon={<Star className="size-5" />} label="Reviews given" value={String(bookings.filter((b) => b.rating).length)} />
+          <StatCard
+            icon={<CalendarDays className="size-5" />}
+            label="Upcoming bookings"
+            value={String(upcoming.length)}
+          />
+
+          <StatCard
+            icon={<Receipt className="size-5" />}
+            label="Total spent"
+            value={currency(spent)}
+          />
+
+          <StatCard
+            icon={<Star className="size-5" />}
+            label="Reviews given"
+            value={String(
+              bookings.filter((b) => b.rating).length,
+            )}
+          />
         </div>
 
         <Tabs defaultValue="browse" className="mt-10">
           <TabsList>
-            <TabsTrigger value="browse">Browse & book</TabsTrigger>
-            <TabsTrigger value="history">Booking history</TabsTrigger>
+            <TabsTrigger value="browse">
+              Browse & book
+            </TabsTrigger>
+
+            <TabsTrigger value="history">
+              Booking history
+            </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="browse" className="mt-6 space-y-8">
+          <TabsContent
+            value="browse"
+            className="mt-6 space-y-8"
+          >
             <section>
-              <h2 className="text-xl font-bold">Available services</h2>
+              <h2 className="text-xl font-bold">
+                Available services
+              </h2>
+
               <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {services.map((s) => {
-                  const Icon = icons[s.icon as keyof typeof icons];
+                  const Icon =
+                    icons[s.icon as keyof typeof icons];
+
                   const active = s.id === serviceId;
+
                   return (
                     <button
                       key={s.id}
                       type="button"
-                      onClick={() => setServiceId(s.id)}
+                      onClick={() => {
+                        setServiceId(s.id);
+                        setRealWorkers([]);
+                        setApiError(null);
+                        handleSearch(s.id);
+                      }}
                       className={`flex items-center gap-4 rounded-xl border p-4 text-left transition-all ${
                         active
                           ? "border-primary bg-accent shadow-gold"
@@ -200,15 +400,22 @@ function CustomerDashboard() {
                     >
                       <span
                         className={`grid size-11 shrink-0 place-items-center rounded-lg ${
-                          active ? "bg-gradient-gold text-primary-foreground" : "bg-secondary text-secondary-foreground"
+                          active
+                            ? "bg-gradient-gold text-primary-foreground"
+                            : "bg-secondary text-secondary-foreground"
                         }`}
                       >
                         <Icon className="size-5" />
                       </span>
+
                       <span className="min-w-0">
-                        <span className="block font-display font-semibold">{s.name}</span>
+                        <span className="block font-display font-semibold">
+                          {s.name}
+                        </span>
+
                         <span className="block truncate text-sm text-muted-foreground">
-                          {s.blurb} · from {currency(s.from)}/hr
+                          {s.blurb} · from{" "}
+                          {currency(s.from)}/hr
                         </span>
                       </span>
                     </button>
@@ -221,123 +428,230 @@ function CustomerDashboard() {
               <div className="flex flex-wrap items-end justify-between gap-3">
                 <div>
                   <h2 className="text-xl font-bold">
-                    {activeService.name} near {location.split(",")[0] || "you"}
+                    {activeService.name} near{" "}
+                    {userLocation.split(",")[0] || "you"}
                   </h2>
+
                   <p className="text-sm text-muted-foreground">
                     {visibleWorkers.length} verified worker
-                    {visibleWorkers.length === 1 ? "" : "s"} available
+                    {visibleWorkers.length === 1
+                      ? ""
+                      : "s"}{" "}
+                    available
                   </p>
                 </div>
+
                 <div className="w-44">
-                  <Select value={sort} onValueChange={setSort}>
+                  <Select
+                    value={sort}
+                    onValueChange={setSort}
+                  >
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
+
                     <SelectContent>
-                      <SelectItem value="rating">Top rated</SelectItem>
-                      <SelectItem value="price">Lowest price</SelectItem>
-                      <SelectItem value="distance">Nearest first</SelectItem>
+                      <SelectItem value="rating">
+                        Top rated
+                      </SelectItem>
+
+                      <SelectItem value="price">
+                        Lowest price
+                      </SelectItem>
+
+                      <SelectItem value="distance">
+                        Nearest first
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
               </div>
 
+              {apiError && (
+                <div className="my-4 rounded-lg border border-destructive/20 bg-destructive/10 p-4 text-sm font-medium text-destructive">
+                  {apiError}
+                </div>
+              )}
+
               <div className="mt-4 grid gap-4 lg:grid-cols-2">
                 {visibleWorkers.map((w) => (
-                  <Card key={w.id} className="border-border transition-shadow hover:shadow-elevated">
+                  <Card
+                    key={w.id}
+                    className="border-border transition-shadow hover:shadow-elevated"
+                  >
                     <CardContent className="p-5">
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex items-center gap-3">
                           <span className="grid size-12 place-items-center rounded-full bg-secondary font-display text-lg font-bold text-secondary-foreground">
                             {w.name.charAt(0)}
                           </span>
+
                           <div>
                             <p className="flex items-center gap-1.5 font-display font-semibold">
                               {w.name}
-                              {w.verified && <BadgeCheck className="size-4 text-primary" />}
+
+                              {w.verified && (
+                                <BadgeCheck className="size-4 text-primary" />
+                              )}
                             </p>
-                            <p className="text-xs text-muted-foreground">{w.jobs} jobs completed</p>
+
+                            <p className="text-xs text-muted-foreground">
+                              {w.jobs} jobs completed
+                            </p>
                           </div>
                         </div>
+
                         <div className="text-right">
-                          <p className="font-display text-xl font-bold">{currency(w.pricePerHour)}</p>
-                          <p className="text-xs text-muted-foreground">per hour</p>
+                          <p className="font-display text-xl font-bold">
+                            {currency(w.pricePerHour)}
+                          </p>
+
+                          <p className="text-xs text-muted-foreground">
+                            per hour
+                          </p>
                         </div>
                       </div>
 
                       <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
                         <span className="flex items-center gap-1 font-medium">
                           <Star className="size-4 fill-primary text-primary" />
+
                           {w.rating.toFixed(1)}
-                          <span className="text-muted-foreground">({w.reviews})</span>
+
+                          <span className="text-muted-foreground">
+                            ({w.reviews})
+                          </span>
                         </span>
+
                         <span className="flex items-center gap-1 text-muted-foreground">
                           <MapPin className="size-4 text-primary" />
+
                           {w.distanceKm} km away
                         </span>
                       </div>
 
                       <div className="mt-3 flex flex-wrap gap-2">
                         {w.skills.map((s) => (
-                          <Badge key={s} variant="secondary" className="font-normal">
+                          <Badge
+                            key={s}
+                            variant="secondary"
+                            className="font-normal"
+                          >
                             {s}
                           </Badge>
                         ))}
                       </div>
 
-                      <Button className="mt-5 w-full" onClick={() => setBookingWorker(w)}>
+                      <Button
+                        className="mt-5 w-full"
+                        onClick={() => setBookingWorker(w)}
+                      >
                         Select date & book
                       </Button>
                     </CardContent>
                   </Card>
                 ))}
-                {visibleWorkers.length === 0 && (
-                  <p className="text-sm text-muted-foreground">
-                    No workers match that search for {activeService.name}.
-                  </p>
-                )}
+
+                {visibleWorkers.length === 0 &&
+                  !isLoading && (
+                    <p className="text-sm text-muted-foreground">
+                      No workers match that search for{" "}
+                      {activeService.name}.
+                    </p>
+                  )}
               </div>
             </section>
           </TabsContent>
 
-          <TabsContent value="history" className="mt-6">
-            <h2 className="text-xl font-bold">Your bookings</h2>
+          <TabsContent
+            value="history"
+            className="mt-6"
+          >
+            <h2 className="text-xl font-bold">
+              Your bookings
+            </h2>
+
             <div className="mt-4 space-y-4">
               {[...bookings].reverse().map((b) => (
                 <Card key={b.id}>
                   <CardContent className="flex flex-wrap items-center justify-between gap-4 p-5">
                     <div className="min-w-52">
                       <div className="flex items-center gap-2">
-                        <p className="font-display font-semibold">{b.serviceName}</p>
+                        <p className="font-display font-semibold">
+                          {b.serviceName}
+                        </p>
+
                         <Badge
-                          variant={b.status === "Upcoming" ? "default" : "secondary"}
+                          variant={
+                            b.status === "Upcoming"
+                              ? "default"
+                              : "secondary"
+                          }
                           className="font-normal"
                         >
                           {b.status}
                         </Badge>
                       </div>
+
                       <p className="mt-1 text-sm text-muted-foreground">
-                        {b.workerName} · {b.date} · {b.slot} · {b.hours} hr
+                        {b.workerName} · {b.date} ·{" "}
+                        {b.slot} · {b.hours} hr
                       </p>
+
                       <p className="mt-1 text-xs text-muted-foreground">
-                        {b.id} · {b.paid ? "Paid" : "Payment pending"} {currency(b.amount)}
+                        {b.id} ·{" "}
+                        {b.paid
+                          ? "Paid"
+                          : "Payment pending"}{" "}
+                        {currency(b.amount)}
                       </p>
+
                       {b.rating && (
                         <p className="mt-2 flex items-center gap-1 text-sm">
                           <Star className="size-4 fill-primary text-primary" />
-                          {b.rating}/5 {b.review && <span className="text-muted-foreground">— {b.review}</span>}
+
+                          {b.rating}/5
+
+                          {b.review && (
+                            <span className="text-muted-foreground">
+                              — {b.review}
+                            </span>
+                          )}
                         </p>
                       )}
+
                       {b.complaint && (
-                        <p className="mt-2 text-sm text-destructive">Complaint: {b.complaint}</p>
+                        <p className="mt-2 text-sm text-destructive">
+                          Complaint: {b.complaint}
+                        </p>
                       )}
                     </div>
+
                     <div className="flex flex-wrap gap-2">
-                      <Button variant="outline" size="sm" onClick={() => setReviewTarget(b)}>
-                        <Star className="mr-1 size-4" /> {b.rating ? "Edit review" : "Rate & review"}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() =>
+                          setReviewTarget(b)
+                        }
+                      >
+                        <Star className="mr-1 size-4" />
+
+                        {b.rating
+                          ? "Edit review"
+                          : "Rate & review"}
                       </Button>
-                      <Button variant="outline" size="sm" onClick={() => setComplaintTarget(b)}>
-                        <MessageSquareWarning className="mr-1 size-4" /> Raise complaint
+
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() =>
+                          setComplaintTarget(b)
+                        }
+                      >
+                        <MessageSquareWarning className="mr-1 size-4" />
+
+                        Raise complaint
                       </Button>
                     </div>
                   </CardContent>
@@ -351,22 +665,38 @@ function CustomerDashboard() {
       <BookingFlow
         worker={bookingWorker}
         serviceName={activeService.name}
-        location={location}
+        location={userLocation}
         onClose={() => setBookingWorker(null)}
-        onConfirm={(b) => setBookings((prev) => [...prev, b])}
+        onConfirm={(b) =>
+          setBookings((prev) => [...prev, b])
+        }
       />
+
       <ReviewDialog
         booking={reviewTarget}
         onClose={() => setReviewTarget(null)}
         onSubmit={(id, rating, review) =>
-          setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, rating, review } : b)))
+          setBookings((prev) =>
+            prev.map((b) =>
+              b.id === id
+                ? { ...b, rating, review }
+                : b,
+            ),
+          )
         }
       />
+
       <ComplaintDialog
         booking={complaintTarget}
         onClose={() => setComplaintTarget(null)}
         onSubmit={(id, complaint) =>
-          setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, complaint } : b)))
+          setBookings((prev) =>
+            prev.map((b) =>
+              b.id === id
+                ? { ...b, complaint }
+                : b,
+            ),
+          )
         }
       />
     </main>
@@ -388,9 +718,15 @@ function StatCard({
         <span className="grid size-11 place-items-center rounded-lg bg-accent text-accent-foreground">
           {icon}
         </span>
+
         <div>
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">{label}</p>
-          <p className="font-display text-2xl font-bold">{value}</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">
+            {label}
+          </p>
+
+          <p className="font-display text-2xl font-bold">
+            {value}
+          </p>
         </div>
       </CardContent>
     </Card>
