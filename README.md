@@ -53,3 +53,30 @@ Status: NOT STARTED
 Testing + Security + Deployment
 Test the APIs, database, and ML integration; improve security; document the system; and prepare for SIH/production deployment.
 Status: NOT STARTED
+
+
+You can create test users directly through the backend container using the provided create_user.py script. This is the
+  fastest way to create users with specific roles (like Admin or Worker) without using the signup form.
+     
+  The Command
+
+  Run this command in your PowerShell terminal:
+
+  docker exec -it kk_backend python create_user.py <email> <password> <full_name> <role>
+
+  Example: Create an Admin User
+
+  docker exec -it kk_backend python create_user.py admin@example.com admin123 "System Administrator" admin
+
+  Example: Create a Worker
+
+  docker exec -it kk_backend python create_user.py worker@example.com pass123 "John Doe" worker
+
+  Available Roles
+
+  You must use one of these exact role names:
+  - admin: Full system access.
+  - coop_manager: Can manage cooperatives and verify workers.
+  - worker: Can manage professional profiles and accept jobs.
+  - customer: Can browse and book services.
+
