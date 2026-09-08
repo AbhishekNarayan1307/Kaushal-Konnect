@@ -22,6 +22,8 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { currency, timeSlots, type Booking, type Worker } from "@/lib/dashboard-data";
+import { createBooking } from "@/lib/api";
+import { useAuth } from "@/hooks/use-auth";
 
 type Props = {
   worker: Worker | null;
@@ -34,11 +36,13 @@ type Props = {
 const today = new Date().toISOString().slice(0, 10);
 
 export function BookingFlow({ worker, serviceName, location, onClose, onConfirm }: Props) {
+  const { user } = useAuth();
   const [step, setStep] = useState<"schedule" | "payment">("schedule");
   const [date, setDate] = useState(today);
   const [slot, setSlot] = useState(timeSlots[1]!);
   const [hours, setHours] = useState("2");
   const [method, setMethod] = useState("card");
+  const [isLoading, setIsLoading] = useState(false);
 
   if (!worker) return null;
 
@@ -53,24 +57,46 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
     setMethod("card");
   };
 
-  const pay = () => {
-    onConfirm({
-      id: `BK-${Math.floor(2100 + Math.random() * 899)}`,
-      workerId: worker.id,
-      workerName: worker.name,
-      serviceName,
-      date,
-      slot,
-      hours: qty,
-      amount: total,
-      status: "Upcoming",
-      paid: true,
-    });
-    toast.success("Payment successful", {
-      description: `${worker.name} is booked for ${date}, ${slot}.`,
-    });
-    reset();
-    onClose();
+  const pay = async () => {
+    if (!user) {
+      toast.error("You must be logged in to book a service");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const bookingData = {
+        worker_id: worker.id,
+        customer_id: user.id,
+        user_zone: location || "South",
+        budget: worker.pricePerHour * qty,
+      };
+
+      const result = await createBooking(bookingData);
+
+      onConfirm({
+        id: result.id,
+        workerId: worker.id,
+        workerName: worker.name,
+        serviceName,
+        date,
+        slot,
+        hours: qty,
+        amount: result.amount || worker.pricePerHour * qty,
+        status: "Upcoming",
+        paid: true,
+      });
+
+      toast.success("Payment successful", {
+        description: `${worker.name} is booked for ${date}, ${slot}.`,
+      });
+      reset();
+      onClose();
+    } catch (error: any) {
+      toast.error(error.message || "Booking failed");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -184,7 +210,9 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
               <Button variant="outline" onClick={() => setStep("schedule")}>
                 Back
               </Button>
-              <Button onClick={pay}>Pay {currency(total)}</Button>
+              <Button onClick={pay} disabled={isLoading}>
+                {isLoading ? "Processing..." : `Pay ${currency(total)}`}
+              </Button>
             </>
           )}
         </DialogFooter>

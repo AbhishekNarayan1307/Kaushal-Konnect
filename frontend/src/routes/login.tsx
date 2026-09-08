@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { createFileRoute, useNavigate, Link } from '@tanstack/react-router';
 import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -39,9 +39,16 @@ export default function LoginPage() {
       }
 
       const data = await response.json();
+      console.log("Login data received:", data);
+
+      // 1. Update Auth State
       login(data.access_token, data.user);
+
+      // 2. Success feedback
       toast.success('Welcome back!');
-      navigate('/');
+
+      // 3. Redirect to dashboard.
+      navigate({ to: '/' });
     } catch (error: any) {
       toast.error(error.message);
     } finally {
@@ -88,9 +95,9 @@ export default function LoginPage() {
             </Button>
             <div className="text-center text-sm text-muted-foreground">
               Don't have an account?{' '}
-              <a href="/signup" className="text-primary hover:underline font-medium">
+              <Link to="/signup" className="text-primary hover:underline font-medium">
                 Sign up
-              </a>
+              </Link>
             </div>
           </CardFooter>
         </form>

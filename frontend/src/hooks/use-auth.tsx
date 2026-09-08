@@ -34,6 +34,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const login = (newToken: string, newUser: User) => {
+    console.log("Auth: login called with token and user:", { newToken, newUser });
     setToken(newToken);
     setUser(newUser);
     localStorage.setItem('auth_token', newToken);

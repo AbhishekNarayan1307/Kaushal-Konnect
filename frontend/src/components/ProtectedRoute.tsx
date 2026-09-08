@@ -13,8 +13,19 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
     );
   }
 
-  if (!user) {
+  // If no user in state, check localStorage as a fallback to avoid race conditions during login
+  if (!user && !localStorage.getItem('auth_token')) {
     return <Navigate to="/login" />;
+  }
+
+  if (!user) {
+    // User exists in localStorage but state hasn't updated yet.
+    // Return a loading state instead of redirecting back to login.
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+    );
   }
 
   return <>{children}</>;
