@@ -1,115 +1,134 @@
-# Project Presentation & Setup Guide: Kaushal-Konnect
+# Kaushal Konnect - Comprehensive Implementation Guide
 
-Kaushal-Konnect is a full-stack application designed to connect skilled workers with customers using a Machine Learning-driven recommendation system.
+Kaushal Konnect is a unified platform connecting cooperative societies of verified skilled workers with customers for domestic and community services, integrated with an AI-powered recommendation system.
 
-## 🚀 How to Start the Project
+## 🏗️ System Architecture
 
-### 1. Frontend (React + Vite + Bun)
-The frontend is built with React and TypeScript, using Vite for bundling and Bun as the package manager.
+The application follows a modern decoupled architecture:
 
-1. **Navigate to the frontend directory:**
-   ```bash
-   cd frontend
-   ```
-2. **Install dependencies:**
-   ```bash
-   bun install
-   # OR if you don't have bun:
-   npm install
-   ```
-3. **Start the development server:**
-   ```bash
-   bun run dev
-   # OR if you don't have bun:
-   npm run dev
-   ```
-   *The app will typically be available at `http://localhost:5173`.*
+- **Frontend**: React + TanStack Start (Vite)
+- **Backend**: FastAPI (Python)
+- **Database**: PostgreSQL (Relational)
+- **ML Layer**: Scikit-learn based Recommender Model
+- **DevOps**: Docker + Nginx
+
+### Data Flow
+`User Interface` $\rightarrow$ `FastAPI (Auth Middleware)` $\rightarrow$ `SQLAlchemy ORM` $\rightarrow$ `PostgreSQL`
+`User Search` $\rightarrow$ `ML Recommender Service` $\rightarrow$ `DB Worker Data` $\rightarrow$ `Ranked Results`
 
 ---
 
-### 2. Backend (Python + FastAPI)
-The backend is a FastAPI application that manages worker data, handles bookings, and serves ML recommendations.
+## 🚀 Quick Start: The "One-Command" Launch (Docker)
 
-1. **Navigate to the backend directory:**
+The easiest way to run the entire project is using Docker Compose. This sets up the database, backend, and frontend automatically.
+
+### 1. Prerequisites
+- Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+### 2. Setup Environment
+```bash
+# Navigate to root directory
+cd Kaushal-Konnect
+
+# Create environment file
+cp .env.example .env
+```
+*Edit `.env` to set your desired database password and secret key.*
+
+### 3. Launch
+```bash
+docker-compose up --build -d
+```
+
+### 4. Access the App
+- **Frontend**: [http://localhost](http://localhost)
+- **API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+---
+
+## 🛠️ Manual Implementation (Developer Mode)
+
+If you prefer to run the components separately for development, follow these steps:
+
+### 🐍 Backend Setup
+1. **Database**: Ensure PostgreSQL is installed and running. Create a database named `kaushal_konnect`.
+2. **Environment**:
    ```bash
    cd backend
-   ```
-2. **Set up a virtual environment and install dependencies:**
-   ```bash
    python -m venv .venv
-   # Windows:
-   .venv\Scripts\activate
-   # macOS/Linux:
-   source .venv/bin/activate
-
+   source .venv/bin/activate # Windows: .venv\\Scripts\\activate
    pip install -r requirements.txt
    ```
-3. **Start the server:**
+3. **Configuration**: Create a `.env` file in the `backend/` folder:
+   ```env
+   DATABASE_URL=postgresql+psycopg://user:password@localhost:5432/kaushal_konnect
+   SECRET_KEY=your_secure_key
+   ```
+4. **Run**:
    ```bash
    uvicorn main:app --reload
    ```
-   *The API will be available at `http://localhost:8000`. You can access the auto-generated interactive documentation at `http://localhost:8000/docs`.*
+
+### ⚛️ Frontend Setup
+1. **Install Dependencies**:
+   ```bash
+   cd frontend
+   npm install # or bun install
+   ```
+2. **Configuration**: Create a `.env` file in `frontend/`:
+   ```env
+   VITE_API_URL=http://localhost:8000
+   ```
+3. **Run**:
+   ```bash
+   npm run dev
+   ```
 
 ---
 
-## 🧠 ML Model Integration (Inculcation)
+## 🗄️ Database & Migration Guide
 
-The core value of Kaushal-Konnect is its ability to intelligently match customers with the most suitable workers. This is achieved through a three-stage integration pipeline: **Develop $\rightarrow$ Persist $\rightarrow$ Deploy**.
+### Schema Management
+The project uses **SQLAlchemy** for models and **Alembic** for migrations.
+- **Models**: Defined in `backend/app/models.py`.
+- **Migrations**: Located in `backend/alembic/versions/`.
 
-### 1. The Development Phase (The "Brain" Creation)
-Before the model exists in the backend, it is built in a research environment:
-- **Tool:** Jupyter Notebook (`ml/Kaushal_Konnect.ipynb`).
-- **Process:** 
-    - **Data Analysis:** Analyzing worker data to find correlations between features (rating, price, distance) and successful bookings.
-    - **Training:** Training a model to predict the **probability of a successful booking**.
-    - **Evaluation:** Validating the model's accuracy.
-
-### 2. The Persistence Phase (Freezing the Brain)
-To use a notebook-based model in a production server, it must be "serialized" (saved to a file):
-- **Tool:** `joblib` library.
-- **Action:** The trained model is exported as a `.joblib` file: `backend/models/kaushal_konnect_recommendation_model.joblib`.
-- **Why?** This allows the backend to load the "intelligence" instantly without retraining the model on every server restart.
-
-### 3. The Production Phase (Deploying the "Body")
-The model is integrated into the live API via `backend/recommender.py`:
-
-- **Loading:** The system uses `joblib.load` to bring the model into memory at startup.
-- **Feature Engineering:** The system extracts a specific set of **FEATURES** (rating, completed jobs, response time, etc.) from the worker data to feed into the model.
-- **Inference:** For eligible workers, the model predicts the `booking_success_probability`.
-- **Hybrid Scoring Logic:** To ensure fairness and prevent worker burnout, the ML prediction is combined with a **Workload Balance Score**:
-   $$\text{Final Score} = (0.85 \times \text{ML Probability}) + (0.15 \times \text{Workload Balance})$$
-- **Ranking:** Workers are sorted by this final score and returned to the user.
-
-### 🔄 End-to-End Data Flow
-`Frontend Request` $\rightarrow$ `FastAPI Endpoint (/recommendations)` $\rightarrow$ `Recommender Logic` $\rightarrow$ `ML Model (.joblib)` $\rightarrow$ `Ranked Result List` $\rightarrow$ `Frontend Display`
-
----
-
-## 🔍 How to Access the ML Model
-
-Depending on your goal, there are three ways to access the model's logic and predictions:
-
-### 1. Access via the API (For Users/Frontend)
-The model is served through a FastAPI endpoint. This is how the real-world application interacts with the ML "brain".
-- **URL:** `http://localhost:8000/recommendations`
-- **Method:** `GET`
-- **Required Parameters:** `category`, `zone`, and `budget`.
-- **Example Request:**
-  `http://localhost:8000/recommendations?category=Plumber&zone=North&budget=500`
-- **Visual Testing:** Visit `http://localhost:8000/docs` to use the interactive Swagger UI.
-
-### 2. Access via Python Code (For Developers)
-If you want to integrate the model into a custom Python script, use the `recommender` module.
-```python
-from recommender import get_recommendations
-import pandas as pd
-
-# Load worker data and get recommendations
-worker_data = pd.read_csv("backend/data/worker_data.csv")
-results = get_recommendations(category="Electrician", zone="South", budget=400, worker_data=worker_data)
-print(results)
+### Seeding Data
+To migrate data from the provided CSV files to the database:
+```bash
+cd backend
+python migrate_data.py
+python verify_migration.py
 ```
 
-### 3. Access the Raw Model & Logic (For Researchers)
-- **The Saved Model:** The physical model file is located at `backend/models/kaushal_konnect_recommendation_model.joblib`.
-- **The Training Logic:** To see exactly how the model was built, the features used, and the training process, refer to the Jupyter Notebook: `ml/Kaushal_Konnect.ipynb`.
+---
+
+## 🔑 Authentication & Security
+
+### Access Control
+The app uses **JWT (JSON Web Tokens)**. Every protected request must include:
+`Authorization: Bearer <your_token>`
+
+### User Roles
+The system implements Role-Based Access Control (RBAC):
+- **Customer**: Can browse workers and create bookings.
+- **Worker**: Can manage their profile and view bookings.
+- **Co-op Manager**: Can verify workers and manage the cooperative.
+- **Admin**: Full system access, including user and system management.
+
+### Auth Flow
+`Signup` $\rightarrow$ `Login` $\rightarrow$ `Receive JWT` $\rightarrow$ `Store in LocalStorage` $\rightarrow$ `Attach to API Requests`
+
+---
+
+## 📊 API Reference
+The backend is self-documenting. Once the server is running, visit:
+- **Swagger UI**: `http://localhost:8000/docs` (Interactive testing)
+- **ReDoc**: `http://localhost:8000/redoc` (Clean documentation)
+
+### Key Endpoints
+- `POST /auth/signup`: Create new user
+- `POST /auth/login`: Get access token
+- `GET /recommendations`: Get AI-ranked workers
+- `POST /bookings`: Create a new service booking
+- `PATCH /workers/{id}/verify`: (Admin only) Verify a worker

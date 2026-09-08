@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: kk_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER:-user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
+      POSTGRES_DB: ${DB_NAME:-kaushal_konnect}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    container_name: kk_backend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql+psycopg://${DB_USER:-user}:${DB_PASSWORD:-password}@db:5432/${DB_NAME:-kaushal_konnect}
+      - SECRET_KEY=${SECRET_KEY:-super-secret-key}
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./frontend
+    container_name: kk_frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "80:3000"
+    environment:
+      - PORT=3000
+      - HOST=0.0.0.0
+      - VITE_API_URL=http://localhost:8000
+
+volumes:
+  postgres_data:

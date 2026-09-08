@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import {
   BadgeCheck,
   CalendarDays,
@@ -39,7 +39,9 @@ import {
   type Booking,
   type Worker,
 } from "@/lib/dashboard-data";
-import { getRecommendedWorkers } from "@/lib/api";
+import { getRecommendedWorkers, getUserBookings } from "@/lib/api";
+import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { useAuth } from "@/hooks/use-auth";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -83,19 +85,52 @@ const categoryMapping: Record<string, string> = {
 };
 
 function CustomerDashboard() {
+  return (
+    <ProtectedRoute>
+      <DashboardContent />
+    </ProtectedRoute>
+  );
+}
+
+function DashboardContent() {
+  const { user } = useAuth();
   const [userLocation, setUserLocation] = useState("South");
   const [serviceId, setServiceId] = useState("cleaning");
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState("rating");
   const [budget, setBudget] = useState("1000");
   const [bookings, setBookings] =
-    useState<Booking[]>(initialBookings);
+    useState<Booking[]>([]);
   const [bookingWorker, setBookingWorker] =
     useState<Worker | null>(null);
   const [reviewTarget, setReviewTarget] =
     useState<Booking | null>(null);
   const [complaintTarget, setComplaintTarget] =
     useState<Booking | null>(null);
+
+  useEffect(() => {
+    async function fetchHistory() {
+      try {
+        const data = await getUserBookings();
+        // Map API response to frontend Booking type
+        const mapped = data.map((b: any) => ({
+          id: b.id,
+          customer: user?.full_name || "Me",
+          serviceName: b.service_id, // Mapping service_id to serviceName for now
+          date: b.booking_date ? b.booking_date.split('T')[0] : 'N/A',
+          slot: b.slot || 'N/A',
+          hours: 2, // Mocking hours as they are not in current DB model
+          amount: Number(b.amount) || 0,
+          status: b.status === 'COMPLETED' ? 'Completed' : 'Upcoming',
+          paid: true,
+        }));
+        setBookings(mapped);
+      } catch (e) {
+        console.error("Failed to fetch bookings:", e);
+      }
+    }
+    fetchHistory();
+  }, [user]);
 
   const [realWorkers, setRealWorkers] = useState<Worker[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -224,7 +259,7 @@ function CustomerDashboard() {
           </div>
 
           <h1 className="mt-10 max-w-xl text-4xl font-bold leading-tight sm:text-5xl">
-            Good evening, Dyllan.{" "}
+            Good evening, {user?.full_name || "Guest"}.{" "}
             <span className="text-primary">
               What needs fixing?
             </span>
