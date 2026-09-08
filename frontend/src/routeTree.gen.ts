@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoopRouteImport } from './routes/coop'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as WorkerRouteImport } from './routes/worker'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const CoopRoute = CoopRouteImport.update({
   path: '/coop',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkerRoute = WorkerRouteImport.update({
   id: '/worker',
   path: '/worker',
@@ -32,30 +38,34 @@ const WorkerRoute = WorkerRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/coop': typeof CoopRoute
+  '/login': typeof LoginRoute
   '/worker': typeof WorkerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/coop': typeof CoopRoute
+  '/login': typeof LoginRoute
   '/worker': typeof WorkerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/coop': typeof CoopRoute
+  '/login': typeof LoginRoute
   '/worker': typeof WorkerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/coop' | '/worker'
+  fullPaths: '/' | '/coop' | '/login' | '/worker'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/coop' | '/worker'
-  id: '__root__' | '/' | '/coop' | '/worker'
+  to: '/' | '/coop' | '/login' | '/worker'
+  id: '__root__' | '/' | '/coop' | '/login' | '/worker'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CoopRoute: typeof CoopRoute
+  LoginRoute: typeof LoginRoute
   WorkerRoute: typeof WorkerRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoopRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/worker': {
       id: '/worker'
       path: '/worker'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CoopRoute: CoopRoute,
+  LoginRoute: LoginRoute,
   WorkerRoute: WorkerRoute,
 }
 export const routeTree = rootRouteImport
