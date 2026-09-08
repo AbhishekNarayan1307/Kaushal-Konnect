@@ -30,10 +30,45 @@ FEATURES = [
 
 
 def get_recommendations(category, zone, budget, worker_data, top_n=10):
+
+    print("\n========== RECOMMENDATION DEBUG ==========")
+    print("Category received:", repr(category))
+    print("Zone received:", repr(zone))
+    print("Budget received:", repr(budget))
+    print("Worker data shape:", worker_data.shape)
+
+    print("\nCategories in DB:")
+    print(worker_data["category"].unique())
+
+    print("\nZones in DB:")
+    print(worker_data["worker_zone"].unique())
+
+    print("\nAvailable values:")
+    print(worker_data["available"].unique())
+
+    print("\nPrice range:")
+    print(worker_data["price"].min(), "-", worker_data["price"].max())
+
     eligible_workers = worker_data[
         (worker_data["category"] == category)
         & (worker_data["worker_zone"] == zone)
         & (worker_data["available"] == 1)
+        & (worker_data["price"] <= budget)
+    ].copy()
+
+    print("\nEligible workers:", len(eligible_workers))
+    print(eligible_workers)
+
+    if eligible_workers.empty:
+        print("❌ NO ELIGIBLE WORKERS")
+        print("==========================================\n")
+        return pd.DataFrame()
+
+    eligible_workers = worker_data[
+        (worker_data["category"] == category)
+        & (worker_data["worker_zone"] == zone)
+        & (worker_data["available"] == 1)
+        & (worker_data["price"] <= budget)
     ].copy()
 
     if eligible_workers.empty:
