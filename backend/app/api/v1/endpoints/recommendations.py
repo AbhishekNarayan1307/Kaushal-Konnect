@@ -14,6 +14,13 @@ def recommendations(
     top_n: int = Query(10, ge=1, le=20),
     db: Session = Depends(get_db)
 ):
+    
+    print("\n🔥🔥🔥 RECOMMENDATIONS ENDPOINT HIT 🔥🔥🔥")
+    print("category =", category)
+    print("zone =", zone)
+    print("budget =", budget)
+    print("top_n =", top_n)
+
     ranked_workers = get_worker_recommendations(
         db=db,
         category=category,

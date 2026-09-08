@@ -17,6 +17,7 @@ def get_worker_recommendations(db: Session, category: str, zone: str, budget: fl
             "worker_id": str(w.id),
             "category": w.service_id, # Mapping service_id to category for the model
             "worker_zone": w.worker_zone,
+            "available": int(w.available),
             "rating": float(w.rating),
             "weekly_gigs": 0, # This would need a real query to bookings
             "completed_jobs": w.completed_jobs,

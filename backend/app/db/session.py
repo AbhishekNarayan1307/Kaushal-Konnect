@@ -5,9 +5,18 @@ from app.core.config import settings
 # Create the SQLAlchemy engine
 engine = create_engine(
     settings.DATABASE_URL,
-    echo=False, # Set to True for SQL logging
+    echo=True,
     pool_pre_ping=True
 )
+
+from sqlalchemy import text
+
+try:
+    with engine.connect() as connection:
+        result = connection.execute(text("SELECT 1"))
+        print("DATABASE CONNECTED:", result.fetchone())
+except Exception as e:
+    print("DATABASE CONNECTION ERROR:", e)
 
 # Create a configured "Session" class
 SessionLocal = sessionmaker(
