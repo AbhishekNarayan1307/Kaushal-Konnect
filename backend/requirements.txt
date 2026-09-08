@@ -9,3 +9,7 @@ alembic
 psycopg[binary]
 python-dotenv
 pydantic-settings
+email-validator
+python-jose
+passlib
+python-multipart

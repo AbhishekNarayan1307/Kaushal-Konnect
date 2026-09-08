@@ -42,7 +42,7 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
   const [slot, setSlot] = useState(timeSlots[1]!);
   const [hours, setHours] = useState("2");
   const [method, setMethod] = useState("card");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   if (!worker) return null;
 
@@ -63,16 +63,16 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
       return;
     }
 
-    setIsLoading(true);
+    setIsProcessing(true);
     try {
-      const bookingData = {
+      const bookingPayload = {
         worker_id: worker.id,
         customer_id: user.id,
-        user_zone: location || "South",
-        budget: worker.pricePerHour * qty,
+        user_zone: location || "Not specified",
+        budget: total,
       };
 
-      const result = await createBooking(bookingData);
+      const result = await createBooking(bookingPayload);
 
       onConfirm({
         id: result.id,
@@ -82,7 +82,7 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
         date,
         slot,
         hours: qty,
-        amount: result.amount || worker.pricePerHour * qty,
+        amount: total,
         status: "Upcoming",
         paid: true,
       });
@@ -95,7 +95,7 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
     } catch (error: any) {
       toast.error(error.message || "Booking failed");
     } finally {
-      setIsLoading(false);
+      setIsProcessing(false);
     }
   };
 
@@ -210,8 +210,8 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
               <Button variant="outline" onClick={() => setStep("schedule")}>
                 Back
               </Button>
-              <Button onClick={pay} disabled={isLoading}>
-                {isLoading ? "Processing..." : `Pay ${currency(total)}`}
+              <Button onClick={pay} disabled={isProcessing}>
+                {isProcessing ? "Processing..." : `Pay ${currency(total)}`}
               </Button>
             </>
           )}
