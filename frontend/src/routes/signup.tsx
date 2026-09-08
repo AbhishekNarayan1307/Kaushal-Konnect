@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from '@tanstack/react-router';
+import { createFileRoute, useNavigate, Link } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -7,6 +7,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { API_BASE_URL } from '@/lib/api';
 import { toast } from 'sonner';
+
+export const Route = createFileRoute('/signup')({
+  component: SignupPage,
+});
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
@@ -36,7 +40,7 @@ export default function SignupPage() {
       }
 
       toast.success('Account created successfully!');
-      navigate('/login');
+      navigate({ to: '/login' });
     } catch (error: any) {
       toast.error(error.message);
     } finally {
