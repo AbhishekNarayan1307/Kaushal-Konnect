@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createFileRoute, useNavigate, Link } from '@tanstack/react-router';
 import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
@@ -16,8 +16,19 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { login } = useAuth();
+  const { login, user } = useAuth();
   const navigate = useNavigate();
+  useEffect(() => {
+  if (user) {
+    if (user.role === 'worker') {
+      navigate({ to: '/worker' });
+    } else if (user.role === 'coop_manager') {
+      navigate({ to: '/coop' });
+    } else {
+      navigate({ to: '/' });
+    }
+  }
+}, [user, navigate]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -47,8 +58,8 @@ export default function LoginPage() {
       // 2. Success feedback
       toast.success('Welcome back!');
 
-      // 3. Redirect to dashboard.
-      navigate({ to: '/' });
+      // 3. Redirect based on role will be handled in useEffect after user state updates
+
     } catch (error: any) {
       toast.error(error.message);
     } finally {

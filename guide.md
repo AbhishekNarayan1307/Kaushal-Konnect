@@ -179,6 +179,7 @@ docker exec -it kk_backend python create_user.py admin@example.com admin123 "Sys
    python -m venv .venv
    .\\.venv\\Scripts\\activate
    pip install -r requirements.txt
+   pip install bcrypt  # Ensure bcrypt is installed for password hashing
    ```
 2. **Environment**: Create `backend/.env` with:
    ```env
@@ -365,7 +366,7 @@ docker exec -it kk_backend python create_user.py test@example.com pass123 "Test 
 
 | Component | Browser URL | Internal Docker Host | Purpose |
 |-----------|-------------|----------------------|---------|
-| Frontend | `http://localhost` | `kk_frontend:3000` | Web Application |
+| Frontend | `http://localhost` (Docker) / `http://localhost:8080` (Local) | `kk_frontend:3000` | Web Application |
 | Backend | `http://localhost:8000` | `kk_backend:8000` | REST API |
 | Swagger | `http://localhost:8000/docs` | `kk_backend:8000/docs` | API Testing |
 | ReDoc | `http://localhost:8000/redoc` | `kk_backend:8000/redoc` | API Documentation |

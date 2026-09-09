@@ -1,5 +1,7 @@
+import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { useAuth } from "@/hooks/use-auth";
 import {
   BadgeCheck,
   CalendarDays,
@@ -13,6 +15,7 @@ import {
   Upload,
   Wallet,
   X,
+  LogOut,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -61,7 +64,15 @@ export const Route = createFileRoute("/worker")({
 });
 
 function WorkerDashboard() {
-  const [profile, setProfile] = useState(workerProfile);
+  const { user } = useAuth();
+
+const [profile, setProfile] = useState({
+  ...workerProfile,
+  name: user?.full_name || workerProfile.name,
+  city: (user as any)?.zone || workerProfile.city,
+  phone: (user as any)?.phone || workerProfile.phone,
+});
+  
   const [skillInput, setSkillInput] = useState("");
   const [docs, setDocs] = useState<VerificationDoc[]>(initialDocs);
   const [requests, setRequests] = useState<JobRequest[]>(initialRequests);
@@ -109,7 +120,8 @@ function WorkerDashboard() {
   };
 
   return (
-    <main className="min-h-screen bg-background pb-20">
+    <ProtectedRoute allowedRoles={['worker', 'admin']}>
+      <main className="min-h-screen bg-background pb-20">
       <header className="bg-gradient-navy text-navy-foreground">
         <div className="mx-auto max-w-6xl px-5 pt-10 pb-24 sm:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -123,18 +135,35 @@ function WorkerDashboard() {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <Link
-                to="/"
-                className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
+              {user?.role === 'admin' && (
+                <>
+                  <Link
+                    to="/"
+                    className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
+                  >
+                    Customer view
+                  </Link>
+                  <Link
+                    to="/coop"
+                    className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
+                  >
+                    Co-op view
+                  </Link>
+                </>
+              )}
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-destructive"
+                onClick={() => {
+                  localStorage.removeItem('auth_token');
+                  localStorage.removeItem('auth_user');
+                  window.location.href = '/login';
+                }}
               >
-                Customer view
-              </Link>
-              <Link
-                to="/coop"
-                className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
-              >
-                Co-op view
-              </Link>
+                <LogOut className="mr-2 size-3.5" />
+                Logout
+              </Button>
               <div className="flex items-center gap-2 rounded-full border border-navy-foreground/15 bg-navy-foreground/5 px-3 py-1.5">
                 <Switch
                   id="online"
@@ -152,8 +181,8 @@ function WorkerDashboard() {
           </div>
 
           <h1 className="mt-10 max-w-xl text-4xl font-bold leading-tight sm:text-5xl">
-            Welcome back, {profile.name.split(" ")[0]}.{" "}
-            <span className="text-primary">{requests.length} new request{requests.length === 1 ? "" : "s"}.</span>
+            Welcome back, {profile?.name?.split(" ")[0] || "Worker"}.{" "}
+            <span className="text-primary">{requests?.length || 0} new request{requests?.length === 1 ? "" : "s"}.</span>
           </h1>
           <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-navy-foreground/70">
             <span className="flex items-center gap-1.5">
@@ -593,6 +622,7 @@ function WorkerDashboard() {
         </Tabs>
       </div>
     </main>
+    </ProtectedRoute>
   );
 }
 

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMemo, useState, useEffect } from "react";
 import {
   BadgeCheck,
@@ -14,6 +14,7 @@ import {
   Star,
   Wrench,
   Zap,
+  LogOut,
 } from "lucide-react";
 
 import { BookingFlow, ReviewDialog } from "@/components/dashboard/BookingFlow";
@@ -86,14 +87,15 @@ const categoryMapping: Record<string, string> = {
 
 function CustomerDashboard() {
   return (
-    <ProtectedRoute>
+    <ProtectedRoute allowedRoles={['customer', 'admin']}>
       <DashboardContent />
     </ProtectedRoute>
   );
 }
 
 function DashboardContent() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const [userLocation, setUserLocation] = useState("South");
   const [serviceId, setServiceId] = useState("cleaning");
   const [query, setQuery] = useState("");
@@ -237,20 +239,35 @@ function DashboardContent() {
             </div>
 
             <div className="flex items-center gap-4">
-              <Link
-                to="/worker"
-                className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
-              >
-                Worker view
-              </Link>
+              {user?.role === 'admin' && (
+                <>
+                  <Link
+                    to="/worker"
+                    className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
+                  >
+                    Worker view
+                  </Link>
 
-              <Link
-                to="/coop"
-                className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
+                  <Link
+                    to="/coop"
+                    className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
+                  >
+                    Co-op view
+                  </Link>
+                </>
+              )}
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-destructive"
+                onClick={() => {
+                  logout();
+                  navigate({ to: '/login' });
+                }}
               >
-                Co-op view
-              </Link>
-
+                <LogOut className="mr-2 size-3.5" />
+                Logout
+              </Button>
               <Badge className="bg-primary/15 text-primary hover:bg-primary/15">
                 <BadgeCheck className="mr-1 size-3.5" />
                 Verified workers only

@@ -1,5 +1,7 @@
+import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { useAuth } from "@/hooks/use-auth";
 import {
   Activity,
   BadgeCheck,
@@ -16,6 +18,7 @@ import {
   Wallet,
   Wrench,
   X,
+  LogOut,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -70,6 +73,7 @@ export const Route = createFileRoute("/coop")({
 });
 
 function CoopDashboard() {
+  const { user } = useAuth();
   const [workers, setWorkers] = useState<CoopWorker[]>(coopWorkers);
   const [requests, setRequests] = useState<VerificationRequest[]>(initialVerificationRequests);
   const [servicesList, setServicesList] = useState<CoopService[]>(initialCoopServices);
@@ -182,7 +186,8 @@ function CoopDashboard() {
   };
 
   return (
-    <main className="min-h-screen bg-background pb-20">
+    <ProtectedRoute allowedRoles={['coop_manager', 'admin']}>
+      <main className="min-h-screen bg-background pb-20">
       <header className="bg-gradient-navy text-navy-foreground">
         <div className="mx-auto max-w-6xl px-5 pt-10 pb-24 sm:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -196,12 +201,29 @@ function CoopDashboard() {
               </div>
             </div>
             <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-widest text-navy-foreground/70">
-              <Link to="/" className="hover:text-primary">
-                Customer view
-              </Link>
-              <Link to="/worker" className="hover:text-primary">
-                Worker view
-              </Link>
+              {user?.role === 'admin' && (
+                <>
+                  <Link to="/" className="hover:text-primary">
+                    Customer view
+                  </Link>
+                  <Link to="/worker" className="hover:text-primary">
+                    Worker view
+                  </Link>
+                </>
+              )}
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-destructive"
+                onClick={() => {
+                  localStorage.removeItem('auth_token');
+                  localStorage.removeItem('auth_user');
+                  window.location.href = '/login';
+                }}
+              >
+                <LogOut className="mr-2 size-3.5" />
+                Logout
+              </Button>
             </div>
           </div>
 
@@ -672,6 +694,7 @@ function CoopDashboard() {
         </Tabs>
       </div>
     </main>
+    </ProtectedRoute>
   );
 }
 
