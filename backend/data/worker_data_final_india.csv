@@ -1,0 +1,1003 @@
+worker_id,full_name,phone,email,city,locality,category,user_zone,worker_zone,available,weekly_gigs,rating,completed_jobs,acceptance_rate,cancellation_rate,response_minutes,price,budget,distance_km,successful_booking
+1,Kunal Bhatia,+919261004003,worker1@kaushalkonnect.in,Delhi,Laxmi Nagar,Electrical,East,East,1,8,4.64,192,0.89,0.06,85,432,1905,11.4,0
+2,Rahul Naidu,+916004230026,worker2@kaushalkonnect.in,Delhi,Preet Vihar,Electrical,East,East,1,6,4.24,125,0.96,0.17,10,640,1152,7.8,0
+3,Amit Yadav,+919945297674,worker3@kaushalkonnect.in,Delhi,Rohini,Plumbing,North,North,1,4,4.67,408,0.85,0.1,56,670,2126,9.0,0
+4,Vikas Wadhwa,+919058173023,worker4@kaushalkonnect.in,Delhi,Pitampura,Home Cleaning,North,North,1,6,4.83,323,0.98,0.09,54,418,1105,4.8,1
+5,Gaurav Srivastava,+918347990214,worker5@kaushalkonnect.in,Delhi,Dwarka,Painting,West,West,1,9,3.61,148,0.88,0.07,82,357,1998,3.3,1
+6,Bhavna Rao,+917386794435,worker6@kaushalkonnect.in,Delhi,Janakpuri,Electrical,West,West,1,9,4.33,544,0.85,0.08,34,420,2423,4.4,1
+7,Suraj Mishra,+919060962579,worker7@kaushalkonnect.in,Delhi,Saket,Appliance Repair,South,South,1,11,4.26,606,0.87,0.01,75,751,3608,4.0,0
+8,Pradeep Tripathi,+916482507851,worker8@kaushalkonnect.in,Delhi,Malviya Nagar,Plumbing,South,South,1,15,4.2,594,0.83,0.13,63,514,1717,7.9,1
+9,Aarav Kumar,+916717819505,worker9@kaushalkonnect.in,Delhi,Karol Bagh,Electrical,Central,Central,0,8,3.9,587,0.82,0.15,91,620,2293,9.1,1
+10,Simran Kohli,+916487409524,worker10@kaushalkonnect.in,Delhi,Rajouri Garden,Painting,West,West,1,4,3.77,154,0.81,0.08,10,389,1295,1.3,0
+11,Naman Kapoor,+917942843878,worker11@kaushalkonnect.in,Noida,Sector 62,Electrical,Noida,Noida,0,6,4.01,319,0.87,0.03,78,662,2832,3.2,0
+12,Divya Iyer,+919279999015,worker12@kaushalkonnect.in,Noida,Sector 18,Carpentry,Noida,Noida,1,3,4.8,574,0.87,0.1,63,775,3514,10.4,0
+13,Amit Pandey,+919514759348,worker13@kaushalkonnect.in,Noida,Sector 50,Home Cleaning,Noida,Noida,1,12,4.55,194,0.85,0.11,53,432,870,5.8,1
+14,Isha Naidu,+918799568018,worker14@kaushalkonnect.in,Noida,Sector 137,Appliance Repair,Noida,Noida,1,12,4.4,568,0.89,0.03,10,557,4877,2.2,1
+15,Yogesh Iyer,+916881763104,worker15@kaushalkonnect.in,Greater Noida,Knowledge Park,Electrical,Greater Noida,Greater Noida,0,7,4.09,506,0.89,0.03,78,481,2762,11.1,1
+16,Nikhil Sood,+918305629673,worker16@kaushalkonnect.in,Greater Noida,Alpha 1,Home Cleaning,Greater Noida,Greater Noida,0,9,4.38,299,0.85,0.11,59,347,1761,11.3,0
+17,Shivam Agarwal,+918067292916,worker17@kaushalkonnect.in,Ghaziabad,Indirapuram,Plumbing,Ghaziabad,Ghaziabad,0,5,4.58,340,0.87,0.06,10,401,825,5.2,0
+18,Aarav Rawat,+918881124048,worker18@kaushalkonnect.in,Ghaziabad,Vaishali,Carpentry,Ghaziabad,Ghaziabad,0,3,4.39,355,0.95,0.04,124,625,3368,6.1,0
+19,Riya Rana,+916202196479,worker19@kaushalkonnect.in,Ghaziabad,Kaushambi,Painting,Ghaziabad,Ghaziabad,1,6,4.28,347,0.93,0.15,36,501,1114,1.3,1
+20,Deepak Qureshi,+918717602234,worker20@kaushalkonnect.in,Gurugram,Sector 14,Appliance Repair,Gurugram,Gurugram,1,10,3.67,209,0.89,0.1,60,951,2297,8.8,0
+21,Siddharth Bisht,+916736763895,worker21@kaushalkonnect.in,Gurugram,Sector 56,Home Cleaning,Gurugram,Gurugram,0,5,4.39,67,0.95,0.05,65,446,871,5.3,1
+22,Nisha Khan,+916722221115,worker22@kaushalkonnect.in,Gurugram,DLF Phase 3,Appliance Repair,Gurugram,Gurugram,0,2,4.19,61,0.99,0.05,49,1014,2631,5.0,0
+23,Rohit Sharma,+916819490937,worker23@kaushalkonnect.in,Faridabad,Sector 15,Carpentry,Faridabad,Faridabad,0,2,4.18,506,0.91,0.14,51,790,978,3.5,0
+24,Sameer Bhardwaj,+916808004185,worker24@kaushalkonnect.in,Faridabad,Sector 21,Carpentry,Faridabad,Faridabad,1,1,3.91,136,0.91,0.09,77,700,4217,1.6,0
+25,Priya Srivastava,+919279819634,worker25@kaushalkonnect.in,Delhi,Laxmi Nagar,Painting,East,East,1,11,4.53,305,0.99,0.16,60,453,2683,4.2,0
+26,Ananya Jain,+917223693578,worker26@kaushalkonnect.in,Delhi,Preet Vihar,Home Cleaning,East,East,1,10,4.46,88,0.99,0.16,26,471,949,4.8,0
+27,Sakshi Jain,+918017199146,worker27@kaushalkonnect.in,Delhi,Rohini,Appliance Repair,North,North,0,9,4.26,407,0.88,0.09,114,552,1566,1.4,1
+28,Arnav Nair,+916298373746,worker28@kaushalkonnect.in,Delhi,Pitampura,Painting,North,North,1,8,4.15,596,0.87,0.1,45,545,2712,15.0,0
+29,Deepika Sharma,+916394741969,worker29@kaushalkonnect.in,Delhi,Dwarka,Home Cleaning,West,West,1,12,4.21,404,0.89,0.06,91,529,1314,4.1,0
+30,Yash Sheikh,+918044295283,worker30@kaushalkonnect.in,Delhi,Janakpuri,Electrical,West,West,1,10,3.79,521,0.87,0.06,40,465,1034,1.6,0
+31,Aarav Menon,+916054374953,worker31@kaushalkonnect.in,Delhi,Saket,Carpentry,South,South,1,10,4.53,644,0.8,0.08,16,807,2861,11.8,0
+32,Nisha Saini,+917929346227,worker32@kaushalkonnect.in,Delhi,Malviya Nagar,Electrical,South,South,1,12,4.39,408,0.71,0.01,53,482,692,6.4,1
+33,Anil Rana,+917294903701,worker33@kaushalkonnect.in,Delhi,Karol Bagh,Appliance Repair,Central,Central,1,11,4.74,123,0.78,0.06,50,692,2157,8.2,1
+34,Anjali Rana,+917276030570,worker34@kaushalkonnect.in,Delhi,Rajouri Garden,Plumbing,West,West,1,10,4.56,160,0.94,0.01,17,607,1743,8.5,1
+35,Akash Jain,+917527938175,worker35@kaushalkonnect.in,Noida,Sector 62,Appliance Repair,Noida,Noida,1,12,3.65,273,0.91,0.13,69,645,3580,3.3,1
+36,Simran Naidu,+918095010330,worker36@kaushalkonnect.in,Noida,Sector 18,Electrical,Noida,Noida,1,17,4.08,310,0.78,0.1,72,493,1111,5.5,0
+37,Amit Arora,+917225361175,worker37@kaushalkonnect.in,Noida,Sector 50,Painting,Noida,Noida,1,2,4.28,89,0.9,0.06,36,353,1971,0.8,1
+38,Mohit Naidu,+918126304162,worker38@kaushalkonnect.in,Noida,Sector 137,Electrical,Noida,Noida,1,5,3.92,641,0.95,0.14,38,762,1254,11.2,1
+39,Rahul Chauhan,+917757476412,worker39@kaushalkonnect.in,Greater Noida,Knowledge Park,Electrical,Greater Noida,Greater Noida,1,8,3.8,604,0.89,0.14,57,584,2284,1.5,0
+40,Rakesh Negi,+919135902818,worker40@kaushalkonnect.in,Greater Noida,Alpha 1,Electrical,Greater Noida,Greater Noida,1,14,4.66,107,0.89,0.1,57,646,1948,2.9,1
+41,Karan Shah,+919446580566,worker41@kaushalkonnect.in,Ghaziabad,Indirapuram,Home Cleaning,Ghaziabad,Ghaziabad,1,12,4.21,414,0.93,0.13,46,344,1796,8.2,1
+42,Pradeep Verma,+916698205979,worker42@kaushalkonnect.in,Ghaziabad,Vaishali,Plumbing,Ghaziabad,Ghaziabad,1,11,4.49,385,0.88,0.12,42,490,1299,9.5,0
+43,Yash Khan,+916017868455,worker43@kaushalkonnect.in,Ghaziabad,Kaushambi,Plumbing,Ghaziabad,Ghaziabad,0,22,3.54,637,0.85,0.09,38,604,2227,12.1,0
+44,Ashish Sood,+919695741183,worker44@kaushalkonnect.in,Gurugram,Sector 14,Carpentry,Gurugram,Gurugram,0,17,3.6,334,0.99,0.03,63,702,1411,7.6,1
+45,Karan Singh,+917781196122,worker45@kaushalkonnect.in,Gurugram,Sector 56,Home Cleaning,Gurugram,Gurugram,1,6,4.11,414,0.78,0.08,79,477,837,1.1,0
+46,Karan Bisht,+918053827083,worker46@kaushalkonnect.in,Gurugram,DLF Phase 3,Carpentry,Gurugram,Gurugram,0,13,4.38,469,0.93,0.01,75,708,2750,12.3,0
+47,Ashish Menon,+916086973558,worker47@kaushalkonnect.in,Faridabad,Sector 15,Electrical,Faridabad,Faridabad,1,4,4.56,573,0.85,0.04,10,571,1243,9.6,1
+48,Siddharth Jain,+917760488596,worker48@kaushalkonnect.in,Faridabad,Sector 21,Home Cleaning,Faridabad,Faridabad,1,13,4.99,370,0.99,0.15,27,322,630,9.6,0
+49,Naman Malhotra,+919249356216,worker49@kaushalkonnect.in,Delhi,Laxmi Nagar,Home Cleaning,East,East,0,9,3.86,344,0.95,0.12,48,330,539,7.6,0
+50,Ashish Verma,+918519947178,worker50@kaushalkonnect.in,Delhi,Preet Vihar,Carpentry,East,East,1,10,4.6,594,0.94,0.08,20,766,1858,7.3,0
+51,Sakshi Mishra,+917991046995,worker51@kaushalkonnect.in,Delhi,Rohini,Plumbing,North,North,0,9,4.32,370,0.89,0.04,56,495,1024,14.1,0
+52,Gaurav Qureshi,+919565165993,worker52@kaushalkonnect.in,Delhi,Pitampura,Home Cleaning,North,North,1,11,3.86,156,0.81,0.07,40,393,643,3.1,1
+53,Karan Jain,+919375995435,worker53@kaushalkonnect.in,Delhi,Dwarka,Painting,West,West,1,7,4.05,275,0.97,0.03,127,412,1176,6.3,0
+54,Neeraj Saxena,+918437721806,worker54@kaushalkonnect.in,Delhi,Janakpuri,Carpentry,West,West,1,9,3.86,130,0.79,0.07,46,819,2803,7.5,0
+55,Neeraj Tripathi,+917557439980,worker55@kaushalkonnect.in,Delhi,Saket,Carpentry,South,South,0,8,3.4,133,0.9,0.02,42,895,985,8.3,1
+56,Divya Thakur,+917513798107,worker56@kaushalkonnect.in,Delhi,Malviya Nagar,Carpentry,South,South,0,4,4.04,642,0.89,0.02,45,719,1911,3.2,1
+57,Rahul Chaudhary,+919991378428,worker57@kaushalkonnect.in,Delhi,Karol Bagh,Carpentry,Central,Central,1,8,4.38,428,0.99,0.08,66,723,2914,12.9,0
+58,Ayush Reddy,+917496424984,worker58@kaushalkonnect.in,Delhi,Rajouri Garden,Carpentry,West,West,1,8,4.45,93,0.86,0.11,69,634,1081,4.8,1
+59,Naman Menon,+916593927992,worker59@kaushalkonnect.in,Noida,Sector 62,Carpentry,Noida,Noida,1,8,3.58,255,0.99,0.13,57,555,4344,14.6,1
+60,Aditi Srivastava,+917232925942,worker60@kaushalkonnect.in,Noida,Sector 18,Plumbing,Noida,Noida,1,5,4.46,117,0.76,0.09,45,730,914,4.9,1
+61,Karan Ghosh,+916998765758,worker61@kaushalkonnect.in,Noida,Sector 50,Painting,Noida,Noida,1,5,4.62,382,0.92,0.16,10,547,2840,12.8,1
+62,Kavita Roy,+919463605709,worker62@kaushalkonnect.in,Noida,Sector 137,Appliance Repair,Noida,Noida,1,4,4.36,400,0.99,0.06,25,1058,3730,3.0,0
+63,Kunal Tripathi,+917713221365,worker63@kaushalkonnect.in,Greater Noida,Knowledge Park,Appliance Repair,Greater Noida,Greater Noida,1,10,3.95,506,0.88,0.01,10,980,744,7.6,0
+64,Sonu Tiwari,+916941642456,worker64@kaushalkonnect.in,Greater Noida,Alpha 1,Electrical,Greater Noida,Greater Noida,0,7,4.1,559,0.98,0.06,44,708,1153,12.7,1
+65,Divya Sharma,+919617765190,worker65@kaushalkonnect.in,Ghaziabad,Indirapuram,Appliance Repair,Ghaziabad,Ghaziabad,1,11,3.48,253,0.86,0.06,10,504,3471,2.8,1
+66,Shreya Khan,+916865191049,worker66@kaushalkonnect.in,Ghaziabad,Vaishali,Electrical,Ghaziabad,Ghaziabad,1,9,3.95,232,0.79,0.07,10,798,2971,3.9,1
+67,Shreya Ghosh,+919627427962,worker67@kaushalkonnect.in,Ghaziabad,Kaushambi,Electrical,Ghaziabad,Ghaziabad,1,2,4.16,79,0.85,0.14,34,446,2594,1.1,1
+68,Kunal Verma,+916572768981,worker68@kaushalkonnect.in,Gurugram,Sector 14,Painting,Gurugram,Gurugram,1,7,3.78,159,0.85,0.12,41,574,2616,0.9,1
+69,Priya Khan,+918593874794,worker69@kaushalkonnect.in,Gurugram,Sector 56,Home Cleaning,Gurugram,Gurugram,0,4,4.29,138,0.91,0.01,46,517,1353,6.5,1
+70,Anil Bhatia,+917902178610,worker70@kaushalkonnect.in,Gurugram,DLF Phase 3,Plumbing,Gurugram,Gurugram,1,11,4.62,138,0.81,0.14,34,545,862,5.1,0
+71,Arnav Qureshi,+918614507171,worker71@kaushalkonnect.in,Faridabad,Sector 15,Appliance Repair,Faridabad,Faridabad,1,9,5.0,387,0.97,0.01,38,484,2279,14.4,0
+72,Pradeep Pandey,+918359561404,worker72@kaushalkonnect.in,Faridabad,Sector 21,Appliance Repair,Faridabad,Faridabad,1,16,3.77,596,0.85,0.03,86,870,4497,7.6,1
+73,Sunil Bansal,+918209857782,worker73@kaushalkonnect.in,Delhi,Laxmi Nagar,Electrical,East,East,1,11,3.69,138,0.86,0.14,67,733,2766,10.9,0
+74,Amit Singh,+916052441830,worker74@kaushalkonnect.in,Delhi,Preet Vihar,Plumbing,East,East,0,11,4.02,439,0.89,0.04,61,725,1404,9.1,1
+75,Shreya Tiwari,+918148514144,worker75@kaushalkonnect.in,Delhi,Rohini,Painting,North,North,1,14,3.72,640,0.86,0.09,39,590,921,10.1,1
+76,Rahul Arora,+918137619980,worker76@kaushalkonnect.in,Delhi,Pitampura,Carpentry,North,North,1,10,4.34,53,0.92,0.03,12,660,823,4.1,1
+77,Neeraj Thakur,+916530706667,worker77@kaushalkonnect.in,Delhi,Dwarka,Appliance Repair,West,West,1,9,4.07,207,0.99,0.14,94,1076,2414,2.5,1
+78,Deepak Sharma,+917385386091,worker78@kaushalkonnect.in,Delhi,Janakpuri,Electrical,West,West,1,9,4.77,60,0.83,0.11,104,557,767,6.9,1
+79,Suman Joshi,+918409127549,worker79@kaushalkonnect.in,Delhi,Saket,Appliance Repair,South,South,0,13,4.08,117,0.9,0.06,74,944,1048,4.7,0
+80,Vivek Jain,+919981742462,worker80@kaushalkonnect.in,Delhi,Malviya Nagar,Electrical,South,South,1,6,3.93,72,0.86,0.04,100,783,1464,10.7,1
+81,Ankit Pandey,+918072606082,worker81@kaushalkonnect.in,Delhi,Karol Bagh,Electrical,Central,Central,1,13,4.13,71,0.86,0.11,53,723,905,11.1,1
+82,Akash Chaudhary,+919877729235,worker82@kaushalkonnect.in,Delhi,Rajouri Garden,Plumbing,West,West,1,6,4.6,479,0.95,0.19,10,576,1225,3.8,0
+83,Amit Thakur,+919233980532,worker83@kaushalkonnect.in,Noida,Sector 62,Appliance Repair,Noida,Noida,1,10,3.8,573,0.88,0.16,94,724,1664,4.8,1
+84,Sachin Bhardwaj,+917713061913,worker84@kaushalkonnect.in,Noida,Sector 18,Home Cleaning,Noida,Noida,0,7,4.63,166,0.85,0.06,94,540,753,11.3,0
+85,Vikram Wadhwa,+919909957616,worker85@kaushalkonnect.in,Noida,Sector 50,Appliance Repair,Noida,Noida,1,10,3.44,465,0.89,0.09,44,554,3711,2.8,1
+86,Anil Pandey,+917987835723,worker86@kaushalkonnect.in,Noida,Sector 137,Home Cleaning,Noida,Noida,1,1,4.1,646,0.94,0.02,98,500,941,4.7,0
+87,Aman Saxena,+917476807826,worker87@kaushalkonnect.in,Greater Noida,Knowledge Park,Carpentry,Greater Noida,Greater Noida,0,7,4.82,125,0.92,0.08,67,666,3932,14.1,1
+88,Shreya Roy,+918057241978,worker88@kaushalkonnect.in,Greater Noida,Alpha 1,Home Cleaning,Greater Noida,Greater Noida,1,11,4.48,531,0.85,0.06,73,467,856,9.2,0
+89,Anil Arora,+919011963081,worker89@kaushalkonnect.in,Ghaziabad,Indirapuram,Carpentry,Ghaziabad,Ghaziabad,1,7,4.81,556,0.86,0.01,108,659,1797,3.1,1
+90,Priya Bansal,+918576780440,worker90@kaushalkonnect.in,Ghaziabad,Vaishali,Home Cleaning,Ghaziabad,Ghaziabad,1,9,3.9,469,0.97,0.1,66,324,1036,1.3,1
+91,Ashish Chaudhary,+916388656173,worker91@kaushalkonnect.in,Ghaziabad,Kaushambi,Electrical,Ghaziabad,Ghaziabad,1,7,3.58,570,0.91,0.01,30,645,1392,10.1,0
+92,Sameer Khan,+917492716523,worker92@kaushalkonnect.in,Gurugram,Sector 14,Plumbing,Gurugram,Gurugram,1,6,5.0,444,0.89,0.1,59,432,1754,7.8,1
+93,Karan Iyer,+918928210204,worker93@kaushalkonnect.in,Gurugram,Sector 56,Painting,Gurugram,Gurugram,0,15,4.0,472,0.93,0.13,70,507,2222,12.9,0
+94,Riya Dutta,+919234241091,worker94@kaushalkonnect.in,Gurugram,DLF Phase 3,Electrical,Gurugram,Gurugram,1,17,4.28,579,0.88,0.08,69,669,1308,5.3,1
+95,Ananya Ghosh,+916634993059,worker95@kaushalkonnect.in,Faridabad,Sector 15,Home Cleaning,Faridabad,Faridabad,1,4,4.41,544,0.83,0.03,35,404,1058,11.7,1
+96,Kavita Reddy,+916220439054,worker96@kaushalkonnect.in,Faridabad,Sector 21,Plumbing,Faridabad,Faridabad,1,10,3.15,417,0.96,0.03,101,662,1731,9.4,1
+97,Vikram Das,+917944860372,worker97@kaushalkonnect.in,Delhi,Laxmi Nagar,Carpentry,East,East,1,8,3.96,365,0.92,0.04,50,602,1603,12.9,1
+98,Karan Agarwal,+917035978645,worker98@kaushalkonnect.in,Delhi,Preet Vihar,Carpentry,East,East,1,11,4.68,610,0.9,0.14,37,872,1855,2.6,1
+99,Karan Nair,+919958864994,worker99@kaushalkonnect.in,Delhi,Rohini,Painting,North,North,1,9,5.0,589,0.99,0.04,87,557,1727,9.1,0
+100,Meera Sheikh,+917591218180,worker100@kaushalkonnect.in,Delhi,Pitampura,Plumbing,North,North,1,12,4.24,561,0.79,0.11,60,597,731,11.3,0
+101,Rahul Yadav,+919207243007,worker101@kaushalkonnect.in,Delhi,Dwarka,Home Cleaning,West,West,0,6,3.78,316,0.88,0.01,50,307,1384,2.5,1
+102,Sakshi Gupta,+919303897733,worker102@kaushalkonnect.in,Delhi,Janakpuri,Painting,West,West,1,14,4.17,622,0.81,0.15,31,567,3630,7.9,0
+103,Neeraj Malhotra,+918283426119,worker103@kaushalkonnect.in,Delhi,Saket,Carpentry,South,South,1,4,3.95,523,0.97,0.04,81,463,2521,4.6,1
+104,Anjali Bhatia,+916465428848,worker104@kaushalkonnect.in,Delhi,Malviya Nagar,Home Cleaning,South,South,1,9,4.39,390,0.82,0.07,17,465,544,4.8,1
+105,Naman Sharma,+918840577819,worker105@kaushalkonnect.in,Delhi,Karol Bagh,Carpentry,Central,Central,1,9,4.5,265,0.93,0.07,10,653,2540,10.3,1
+106,Priya Saini,+916091225815,worker106@kaushalkonnect.in,Delhi,Rajouri Garden,Painting,West,West,1,5,4.05,532,0.91,0.05,71,356,1736,7.6,1
+107,Yash Sood,+916547473392,worker107@kaushalkonnect.in,Noida,Sector 62,Carpentry,Noida,Noida,1,1,3.78,492,0.89,0.11,26,818,4429,9.1,1
+108,Vivek Ali,+919642463330,worker108@kaushalkonnect.in,Noida,Sector 18,Painting,Noida,Noida,1,10,3.62,254,0.74,0.06,57,468,3640,1.9,1
+109,Sameer Khanna,+917322038789,worker109@kaushalkonnect.in,Noida,Sector 50,Electrical,Noida,Noida,0,10,4.17,418,0.93,0.14,11,682,1764,2.8,0
+110,Kavita Das,+917825127151,worker110@kaushalkonnect.in,Noida,Sector 137,Electrical,Noida,Noida,1,4,3.58,142,0.92,0.07,64,779,814,4.4,1
+111,Isha Ansari,+916990632343,worker111@kaushalkonnect.in,Greater Noida,Knowledge Park,Electrical,Greater Noida,Greater Noida,1,12,4.13,281,0.92,0.08,73,451,1128,9.1,0
+112,Meera Roy,+916738567617,worker112@kaushalkonnect.in,Greater Noida,Alpha 1,Home Cleaning,Greater Noida,Greater Noida,1,9,4.55,43,0.92,0.14,93,458,1381,7.0,0
+113,Riya Roy,+916206520209,worker113@kaushalkonnect.in,Ghaziabad,Indirapuram,Electrical,Ghaziabad,Ghaziabad,1,7,4.47,129,0.9,0.01,99,485,2551,1.0,1
+114,Naman Sheikh,+917224867724,worker114@kaushalkonnect.in,Ghaziabad,Vaishali,Painting,Ghaziabad,Ghaziabad,1,16,4.61,544,0.87,0.15,89,605,1180,4.3,1
+115,Ayush Srivastava,+919761192815,worker115@kaushalkonnect.in,Ghaziabad,Kaushambi,Home Cleaning,Ghaziabad,Ghaziabad,1,11,4.77,112,0.79,0.15,24,342,1716,4.9,1
+116,Isha Shah,+918578997127,worker116@kaushalkonnect.in,Gurugram,Sector 14,Home Cleaning,Gurugram,Gurugram,1,14,4.09,213,0.86,0.1,69,408,813,7.6,0
+117,Aarav Ansari,+917163072693,worker117@kaushalkonnect.in,Gurugram,Sector 56,Plumbing,Gurugram,Gurugram,0,9,4.01,118,0.81,0.18,44,496,2187,6.6,0
+118,Rohit Roy,+918348317277,worker118@kaushalkonnect.in,Gurugram,DLF Phase 3,Appliance Repair,Gurugram,Gurugram,1,13,4.43,581,0.92,0.1,47,802,2682,3.5,0
+119,Vinay Sheikh,+916340869813,worker119@kaushalkonnect.in,Faridabad,Sector 15,Home Cleaning,Faridabad,Faridabad,1,10,3.83,50,0.79,0.08,27,331,1108,4.2,0
+120,Nikhil Sharma,+918148930290,worker120@kaushalkonnect.in,Faridabad,Sector 21,Carpentry,Faridabad,Faridabad,1,5,4.57,283,0.91,0.02,10,466,1234,2.1,1
+121,Vinay Ali,+918008614993,worker121@kaushalkonnect.in,Delhi,Laxmi Nagar,Painting,East,East,1,15,3.97,632,0.72,0.09,67,594,2696,8.4,0
+122,Suraj Saini,+916637555117,worker122@kaushalkonnect.in,Delhi,Preet Vihar,Appliance Repair,East,East,1,1,4.49,568,0.82,0.01,112,853,2565,12.8,0
+123,Siddharth Roy,+918986848572,worker123@kaushalkonnect.in,Delhi,Rohini,Home Cleaning,North,North,1,3,4.69,7,0.8,0.01,10,301,595,2.3,0
+124,Yash Sharma,+918233328169,worker124@kaushalkonnect.in,Delhi,Pitampura,Electrical,North,North,0,11,4.39,592,0.91,0.15,51,727,2507,9.6,0
+125,Pradeep Tiwari,+917151317260,worker125@kaushalkonnect.in,Delhi,Dwarka,Electrical,West,West,0,8,4.18,65,0.86,0.05,51,579,2843,4.5,0
+126,Simran Saini,+917666873564,worker126@kaushalkonnect.in,Delhi,Janakpuri,Electrical,West,West,1,11,4.86,311,0.92,0.09,72,677,2315,10.8,0
+127,Arnav Naidu,+917338473647,worker127@kaushalkonnect.in,Delhi,Saket,Home Cleaning,South,South,1,9,4.03,287,0.76,0.1,65,361,1584,7.5,1
+128,Nikhil Ghosh,+919260574345,worker128@kaushalkonnect.in,Delhi,Malviya Nagar,Painting,South,South,1,6,3.67,552,0.93,0.12,59,570,1672,4.0,1
+129,Anjali Iyer,+918073812889,worker129@kaushalkonnect.in,Delhi,Karol Bagh,Carpentry,Central,Central,1,14,4.22,582,0.94,0.09,56,674,903,4.7,1
+130,Nisha Chauhan,+919867746593,worker130@kaushalkonnect.in,Delhi,Rajouri Garden,Electrical,West,West,1,6,4.34,476,0.96,0.07,109,535,2243,8.3,0
+131,Rakesh Kohli,+916795154597,worker131@kaushalkonnect.in,Noida,Sector 62,Painting,Noida,Noida,1,13,4.54,544,0.88,0.15,87,453,3096,13.6,1
+132,Ashish Srivastava,+919592596666,worker132@kaushalkonnect.in,Noida,Sector 18,Painting,Noida,Noida,1,5,4.13,213,0.96,0.08,77,466,3218,5.6,1
+133,Vikram Roy,+918112175602,worker133@kaushalkonnect.in,Noida,Sector 50,Electrical,Noida,Noida,1,10,3.58,428,0.87,0.04,38,788,1381,5.6,1
+134,Yogesh Wadhwa,+918865170114,worker134@kaushalkonnect.in,Noida,Sector 137,Appliance Repair,Noida,Noida,1,19,4.61,44,0.92,0.07,44,701,3864,6.4,1
+135,Simran Negi,+918729311515,worker135@kaushalkonnect.in,Greater Noida,Knowledge Park,Electrical,Greater Noida,Greater Noida,1,4,3.61,494,0.84,0.1,72,438,1642,1.8,1
+136,Sachin Kohli,+917534758490,worker136@kaushalkonnect.in,Greater Noida,Alpha 1,Plumbing,Greater Noida,Greater Noida,1,12,4.67,58,0.85,0.12,46,673,1335,1.1,1
+137,Sunil Chaudhary,+919874778538,worker137@kaushalkonnect.in,Ghaziabad,Indirapuram,Carpentry,Ghaziabad,Ghaziabad,1,1,3.48,31,0.81,0.09,10,661,2155,11.5,1
+138,Sunil Bhardwaj,+918758173006,worker138@kaushalkonnect.in,Ghaziabad,Vaishali,Painting,Ghaziabad,Ghaziabad,1,3,4.51,56,0.77,0.09,42,395,3382,4.6,0
+139,Sunil Negi,+916881566405,worker139@kaushalkonnect.in,Ghaziabad,Kaushambi,Electrical,Ghaziabad,Ghaziabad,1,7,4.4,357,0.86,0.08,49,796,2791,13.1,0
+140,Nisha Mishra,+918324251359,worker140@kaushalkonnect.in,Gurugram,Sector 14,Painting,Gurugram,Gurugram,1,6,5.0,479,0.99,0.1,48,506,3199,11.3,0
+141,Suman Gupta,+918265284578,worker141@kaushalkonnect.in,Gurugram,Sector 56,Electrical,Gurugram,Gurugram,1,7,4.92,98,0.88,0.03,20,555,2264,7.1,0
+142,Akash Srivastava,+917415599010,worker142@kaushalkonnect.in,Gurugram,DLF Phase 3,Appliance Repair,Gurugram,Gurugram,1,16,4.27,448,0.9,0.07,54,1098,3921,9.3,0
+143,Akash Kumar,+916456546675,worker143@kaushalkonnect.in,Faridabad,Sector 15,Home Cleaning,Faridabad,Faridabad,1,4,4.5,73,0.81,0.08,51,382,1653,12.8,0
+144,Sachin Bansal,+918501748402,worker144@kaushalkonnect.in,Faridabad,Sector 21,Carpentry,Faridabad,Faridabad,1,12,4.47,42,0.87,0.09,94,579,3373,6.9,0
+145,Naman Dutta,+919669998107,worker145@kaushalkonnect.in,Delhi,Laxmi Nagar,Appliance Repair,East,East,0,15,3.74,591,0.97,0.03,51,1099,856,8.3,0
+146,Anjali Verma,+918119535074,worker146@kaushalkonnect.in,Delhi,Preet Vihar,Painting,East,East,1,3,4.34,209,0.89,0.01,50,490,3172,9.7,0
+147,Vinay Ghosh,+918259645537,worker147@kaushalkonnect.in,Delhi,Rohini,Home Cleaning,North,North,0,8,5.0,624,0.83,0.08,64,544,509,1.4,1
+148,Ananya Menon,+917919300133,worker148@kaushalkonnect.in,Delhi,Pitampura,Appliance Repair,North,North,1,18,4.17,366,0.98,0.07,50,857,1480,3.0,0
+149,Pankaj Khan,+916525670777,worker149@kaushalkonnect.in,Delhi,Dwarka,Electrical,West,West,1,12,4.14,158,0.97,0.14,75,782,2498,1.0,0
+150,Vivek Dutta,+916200259869,worker150@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,1,6,4.44,320,0.92,0.1,122,681,3575,9.3,1
+151,Nikhil Mehta,+916886605653,worker151@kaushalkonnect.in,Delhi,Saket,Home Cleaning,South,South,0,7,4.64,401,0.8,0.04,60,377,874,14.1,0
+152,Nikhil Wadhwa,+917371472998,worker152@kaushalkonnect.in,Delhi,Malviya Nagar,Appliance Repair,South,South,1,14,4.9,218,0.85,0.01,67,886,4867,10.9,1
+153,Sunil Menon,+918674949944,worker153@kaushalkonnect.in,Delhi,Karol Bagh,Electrical,Central,Central,1,3,4.73,361,0.81,0.01,73,477,992,12.4,1
+154,Naman Saini,+916659691650,worker154@kaushalkonnect.in,Delhi,Rajouri Garden,Painting,West,West,1,8,4.64,587,0.81,0.04,57,423,1972,11.5,1
+155,Shivam Joshi,+919346900271,worker155@kaushalkonnect.in,Noida,Sector 62,Appliance Repair,Noida,Noida,1,14,4.06,518,0.79,0.01,39,623,4842,9.0,0
+156,Vinay Kapoor,+916588065922,worker156@kaushalkonnect.in,Noida,Sector 18,Painting,Noida,Noida,1,8,4.44,221,0.98,0.16,10,503,3412,10.8,0
+157,Yogesh Arora,+916100246307,worker157@kaushalkonnect.in,Noida,Sector 50,Appliance Repair,Noida,Noida,1,5,4.36,389,0.9,0.09,60,470,3591,4.5,0
+158,Vikas Verma,+919260164123,worker158@kaushalkonnect.in,Noida,Sector 137,Electrical,Noida,Noida,0,10,4.49,351,0.85,0.05,57,440,1673,8.1,1
+159,Dev Srivastava,+916780778875,worker159@kaushalkonnect.in,Greater Noida,Knowledge Park,Carpentry,Greater Noida,Greater Noida,1,13,4.6,444,0.96,0.18,44,566,1625,6.8,0
+160,Gaurav Khanna,+918284840384,worker160@kaushalkonnect.in,Greater Noida,Alpha 1,Painting,Greater Noida,Greater Noida,1,6,4.38,526,0.93,0.04,63,579,1498,9.1,0
+161,Suraj Arora,+917006135252,worker161@kaushalkonnect.in,Ghaziabad,Indirapuram,Home Cleaning,Ghaziabad,Ghaziabad,1,7,4.73,375,0.87,0.02,126,349,1059,5.7,0
+162,Yogesh Khan,+919387397252,worker162@kaushalkonnect.in,Ghaziabad,Vaishali,Plumbing,Ghaziabad,Ghaziabad,1,12,4.18,25,0.75,0.1,51,615,1705,11.1,1
+163,Sunil Shah,+916842221854,worker163@kaushalkonnect.in,Ghaziabad,Kaushambi,Appliance Repair,Ghaziabad,Ghaziabad,1,13,4.14,545,0.99,0.08,60,825,3847,7.5,1
+164,Deepak Bhatia,+917512595724,worker164@kaushalkonnect.in,Gurugram,Sector 14,Home Cleaning,Gurugram,Gurugram,1,10,3.49,562,0.87,0.09,72,528,715,9.8,1
+165,Sonu Saini,+916645884567,worker165@kaushalkonnect.in,Gurugram,Sector 56,Home Cleaning,Gurugram,Gurugram,0,7,4.25,578,0.95,0.12,48,364,1423,14.0,0
+166,Vikram Sheikh,+917550745065,worker166@kaushalkonnect.in,Gurugram,DLF Phase 3,Home Cleaning,Gurugram,Gurugram,1,13,4.52,58,0.99,0.14,92,401,836,10.7,1
+167,Vivek Chaudhary,+918095000852,worker167@kaushalkonnect.in,Faridabad,Sector 15,Electrical,Faridabad,Faridabad,1,5,4.32,430,0.75,0.1,35,628,1579,9.8,0
+168,Ravi Srivastava,+917111600556,worker168@kaushalkonnect.in,Faridabad,Sector 21,Plumbing,Faridabad,Faridabad,1,8,4.37,572,0.99,0.1,32,478,1173,2.4,0
+169,Sakshi Rawat,+919663194411,worker169@kaushalkonnect.in,Delhi,Laxmi Nagar,Carpentry,East,East,0,6,3.46,647,0.99,0.12,57,782,3477,12.3,1
+170,Kunal Arora,+918057418577,worker170@kaushalkonnect.in,Delhi,Preet Vihar,Appliance Repair,East,East,1,12,4.24,437,0.9,0.12,50,1045,826,6.3,1
+171,Kunal Khanna,+916545127520,worker171@kaushalkonnect.in,Delhi,Rohini,Appliance Repair,North,North,0,1,3.97,271,0.85,0.07,34,1013,1699,4.7,0
+172,Aditi Kohli,+919226260388,worker172@kaushalkonnect.in,Delhi,Pitampura,Painting,North,North,0,14,4.23,523,0.83,0.07,108,612,2351,10.1,1
+173,Raj Tiwari,+918683454024,worker173@kaushalkonnect.in,Delhi,Dwarka,Carpentry,West,West,0,13,5.0,593,0.76,0.05,80,725,1524,3.2,0
+174,Yash Qureshi,+916086787809,worker174@kaushalkonnect.in,Delhi,Janakpuri,Home Cleaning,West,West,1,9,4.57,379,0.89,0.09,27,417,1146,4.8,1
+175,Siddharth Naidu,+919694956212,worker175@kaushalkonnect.in,Delhi,Saket,Appliance Repair,South,South,1,10,3.58,49,0.95,0.09,27,735,2321,13.0,1
+176,Sameer Sood,+916213342359,worker176@kaushalkonnect.in,Delhi,Malviya Nagar,Appliance Repair,South,South,1,3,4.84,166,0.9,0.09,11,883,4234,6.5,0
+177,Nikhil Dutta,+918818706711,worker177@kaushalkonnect.in,Delhi,Karol Bagh,Appliance Repair,Central,Central,1,6,4.45,47,0.95,0.15,56,808,905,2.1,0
+178,Shivam Wadhwa,+919094834584,worker178@kaushalkonnect.in,Delhi,Rajouri Garden,Carpentry,West,West,1,12,4.16,539,0.99,0.05,37,505,3433,9.5,1
+179,Aditi Bansal,+917477291147,worker179@kaushalkonnect.in,Noida,Sector 62,Plumbing,Noida,Noida,1,13,4.27,58,0.9,0.2,32,519,2227,9.3,1
+180,Sonu Singh,+919496126802,worker180@kaushalkonnect.in,Noida,Sector 18,Plumbing,Noida,Noida,1,3,4.38,550,0.81,0.1,28,667,2061,14.6,0
+181,Aditi Bisht,+916608770517,worker181@kaushalkonnect.in,Noida,Sector 50,Painting,Noida,Noida,1,8,3.58,122,0.83,0.01,59,484,1109,8.8,0
+182,Vikas Nair,+919765429828,worker182@kaushalkonnect.in,Noida,Sector 137,Plumbing,Noida,Noida,1,8,4.51,496,0.9,0.08,59,688,2307,11.3,1
+183,Anil Qureshi,+917789448327,worker183@kaushalkonnect.in,Greater Noida,Knowledge Park,Electrical,Greater Noida,Greater Noida,1,15,4.73,136,0.99,0.13,68,571,2096,12.6,0
+184,Aditi Naidu,+917256337817,worker184@kaushalkonnect.in,Greater Noida,Alpha 1,Painting,Greater Noida,Greater Noida,1,13,3.43,581,0.85,0.09,36,562,1818,11.6,1
+185,Aman Bhatia,+919417629142,worker185@kaushalkonnect.in,Ghaziabad,Indirapuram,Plumbing,Ghaziabad,Ghaziabad,1,4,4.47,407,0.84,0.22,64,600,2118,5.4,1
+186,Dev Rao,+919275438354,worker186@kaushalkonnect.in,Ghaziabad,Vaishali,Appliance Repair,Ghaziabad,Ghaziabad,0,5,4.52,136,0.96,0.09,50,554,3121,7.5,1
+187,Aditi Dutta,+917240039384,worker187@kaushalkonnect.in,Ghaziabad,Kaushambi,Appliance Repair,Ghaziabad,Ghaziabad,1,7,4.05,219,0.98,0.14,73,815,1229,2.2,0
+188,Shivam Ghosh,+916828252881,worker188@kaushalkonnect.in,Gurugram,Sector 14,Electrical,Gurugram,Gurugram,1,1,3.59,562,0.87,0.06,72,728,927,3.0,0
+189,Aman Ali,+916004592213,worker189@kaushalkonnect.in,Gurugram,Sector 56,Plumbing,Gurugram,Gurugram,1,16,4.57,559,0.79,0.13,80,477,2483,10.5,0
+190,Aarav Mehta,+916854403682,worker190@kaushalkonnect.in,Gurugram,DLF Phase 3,Electrical,Gurugram,Gurugram,0,5,3.77,101,0.98,0.02,65,557,678,7.9,1
+191,Sakshi Kumar,+918631072898,worker191@kaushalkonnect.in,Faridabad,Sector 15,Electrical,Faridabad,Faridabad,1,10,4.47,509,0.85,0.07,42,430,2485,9.7,1
+192,Arnav Ghosh,+917473583060,worker192@kaushalkonnect.in,Faridabad,Sector 21,Painting,Faridabad,Faridabad,1,7,3.91,24,0.84,0.01,51,596,923,14.0,0
+193,Deepika Bisht,+917306832036,worker193@kaushalkonnect.in,Delhi,Laxmi Nagar,Home Cleaning,East,East,0,16,4.35,56,0.89,0.17,55,537,1279,1.1,1
+194,Ankit Malhotra,+917821273687,worker194@kaushalkonnect.in,Delhi,Preet Vihar,Electrical,East,East,1,9,4.67,330,0.88,0.01,26,411,2826,11.7,0
+195,Neha Singh,+918009848013,worker195@kaushalkonnect.in,Delhi,Rohini,Electrical,North,North,1,7,3.47,484,0.97,0.14,95,513,689,3.4,1
+196,Neeraj Rana,+917499990155,worker196@kaushalkonnect.in,Delhi,Pitampura,Carpentry,North,North,1,3,3.84,136,0.84,0.19,111,717,1772,13.2,1
+197,Sameer Patel,+916483034885,worker197@kaushalkonnect.in,Delhi,Dwarka,Painting,West,West,0,16,4.3,265,0.85,0.13,87,629,1027,12.8,0
+198,Raj Kohli,+918526287952,worker198@kaushalkonnect.in,Delhi,Janakpuri,Painting,West,West,0,13,4.37,424,0.99,0.11,74,495,2409,2.5,1
+199,Aman Tiwari,+916990759331,worker199@kaushalkonnect.in,Delhi,Saket,Plumbing,South,South,1,4,3.34,293,0.97,0.09,103,678,810,12.6,1
+200,Yogesh Roy,+917355232289,worker200@kaushalkonnect.in,Delhi,Malviya Nagar,Appliance Repair,South,South,1,8,4.61,510,0.88,0.14,85,487,4929,2.8,1
+201,Ananya Negi,+919970067289,worker201@kaushalkonnect.in,Delhi,Karol Bagh,Home Cleaning,Central,Central,1,7,4.03,7,0.89,0.09,14,377,771,15.0,1
+202,Rahul Gupta,+916609094001,worker202@kaushalkonnect.in,Delhi,Rajouri Garden,Home Cleaning,West,West,0,5,4.1,537,0.91,0.03,29,397,1294,8.3,1
+203,Arjun Khan,+919614632889,worker203@kaushalkonnect.in,Noida,Sector 62,Carpentry,Noida,Noida,1,13,4.01,131,0.81,0.03,14,824,1194,4.8,1
+204,Vivek Kumar,+917439807822,worker204@kaushalkonnect.in,Noida,Sector 18,Carpentry,Noida,Noida,0,10,4.57,286,0.99,0.09,77,615,2847,13.6,0
+205,Ayush Ansari,+918214724685,worker205@kaushalkonnect.in,Noida,Sector 50,Appliance Repair,Noida,Noida,1,13,3.93,258,0.95,0.06,75,1080,3479,11.7,0
+206,Vivek Thakur,+916845851033,worker206@kaushalkonnect.in,Noida,Sector 137,Appliance Repair,Noida,Noida,1,13,3.67,417,0.92,0.12,50,629,1584,12.0,1
+207,Pradeep Dutta,+917828847838,worker207@kaushalkonnect.in,Greater Noida,Knowledge Park,Painting,Greater Noida,Greater Noida,1,13,4.6,187,0.95,0.06,73,622,3259,10.3,1
+208,Pooja Saxena,+916860362127,worker208@kaushalkonnect.in,Greater Noida,Alpha 1,Electrical,Greater Noida,Greater Noida,1,9,4.61,196,0.97,0.12,12,449,1069,14.7,0
+209,Nisha Das,+919910555528,worker209@kaushalkonnect.in,Ghaziabad,Indirapuram,Painting,Ghaziabad,Ghaziabad,1,13,4.12,198,0.99,0.05,20,458,2831,14.9,1
+210,Riya Iyer,+919327244902,worker210@kaushalkonnect.in,Ghaziabad,Vaishali,Painting,Ghaziabad,Ghaziabad,1,19,4.87,401,0.96,0.01,23,620,3452,10.2,0
+211,Vikas Bansal,+916720857863,worker211@kaushalkonnect.in,Ghaziabad,Kaushambi,Appliance Repair,Ghaziabad,Ghaziabad,1,7,4.15,630,0.8,0.1,66,769,3955,13.6,0
+212,Kunal Chaudhary,+919032019446,worker212@kaushalkonnect.in,Gurugram,Sector 14,Carpentry,Gurugram,Gurugram,1,12,3.65,16,0.91,0.05,63,656,2558,9.0,1
+213,Neha Ansari,+916985860495,worker213@kaushalkonnect.in,Gurugram,Sector 56,Plumbing,Gurugram,Gurugram,1,1,4.28,187,0.93,0.01,80,584,2356,13.2,0
+214,Deepak Singh,+917068176488,worker214@kaushalkonnect.in,Gurugram,DLF Phase 3,Plumbing,Gurugram,Gurugram,1,12,4.77,204,0.86,0.09,47,426,2172,14.0,0
+215,Neeraj Bhatia,+918588284581,worker215@kaushalkonnect.in,Faridabad,Sector 15,Plumbing,Faridabad,Faridabad,1,10,4.13,633,0.97,0.1,65,476,1028,5.6,1
+216,Kunal Saini,+917398307468,worker216@kaushalkonnect.in,Faridabad,Sector 21,Painting,Faridabad,Faridabad,1,11,4.12,489,0.99,0.11,94,460,1395,1.1,0
+217,Karan Khan,+917592576336,worker217@kaushalkonnect.in,Delhi,Laxmi Nagar,Electrical,East,East,1,6,4.14,463,0.8,0.08,51,777,2991,5.3,0
+218,Sunil Srivastava,+919687139766,worker218@kaushalkonnect.in,Delhi,Preet Vihar,Electrical,East,East,1,9,4.55,639,0.79,0.1,10,795,2471,13.2,1
+219,Sonu Ghosh,+916815461587,worker219@kaushalkonnect.in,Delhi,Rohini,Appliance Repair,North,North,0,2,4.49,614,0.96,0.21,86,810,4688,1.6,1
+220,Vikram Rana,+916564088652,worker220@kaushalkonnect.in,Delhi,Pitampura,Home Cleaning,North,North,1,9,4.3,233,0.9,0.05,19,421,767,1.0,1
+221,Shreya Kohli,+919123811010,worker221@kaushalkonnect.in,Delhi,Dwarka,Carpentry,West,West,1,10,4.53,174,0.82,0.01,109,454,1930,1.2,1
+222,Rakesh Tripathi,+917955698872,worker222@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,1,7,4.53,163,0.89,0.04,83,773,1894,6.6,0
+223,Manish Tiwari,+919578243387,worker223@kaushalkonnect.in,Delhi,Saket,Painting,South,South,1,14,3.76,511,0.92,0.14,47,614,2514,8.0,0
+224,Shreya Patel,+919859673742,worker224@kaushalkonnect.in,Delhi,Malviya Nagar,Appliance Repair,South,South,1,2,4.3,425,0.94,0.12,45,578,1289,1.0,1
+225,Sunil Reddy,+917419569060,worker225@kaushalkonnect.in,Delhi,Karol Bagh,Plumbing,Central,Central,1,18,4.46,6,0.89,0.1,98,414,1546,11.8,1
+226,Vinay Saxena,+918455122532,worker226@kaushalkonnect.in,Delhi,Rajouri Garden,Painting,West,West,1,4,3.83,507,0.81,0.1,13,623,3202,12.2,1
+227,Isha Sood,+918643420325,worker227@kaushalkonnect.in,Noida,Sector 62,Carpentry,Noida,Noida,1,9,3.79,446,0.81,0.08,79,577,1619,8.2,0
+228,Akash Arora,+919195765242,worker228@kaushalkonnect.in,Noida,Sector 18,Painting,Noida,Noida,0,6,4.25,143,0.95,0.09,37,383,3042,1.7,1
+229,Siddharth Chauhan,+918569561677,worker229@kaushalkonnect.in,Noida,Sector 50,Plumbing,Noida,Noida,1,16,4.54,241,0.86,0.11,18,620,2344,4.0,1
+230,Vivek Khanna,+917480975408,worker230@kaushalkonnect.in,Noida,Sector 137,Home Cleaning,Noida,Noida,1,6,4.14,647,0.94,0.11,129,339,1644,8.9,1
+231,Aditi Wadhwa,+918281534865,worker231@kaushalkonnect.in,Greater Noida,Knowledge Park,Carpentry,Greater Noida,Greater Noida,1,5,3.98,449,0.88,0.13,48,646,3568,13.5,1
+232,Ayush Qureshi,+916034624338,worker232@kaushalkonnect.in,Greater Noida,Alpha 1,Plumbing,Greater Noida,Greater Noida,1,13,4.78,112,0.92,0.05,104,691,2446,9.4,0
+233,Sonu Qureshi,+918388515742,worker233@kaushalkonnect.in,Ghaziabad,Indirapuram,Electrical,Ghaziabad,Ghaziabad,1,6,4.09,32,0.75,0.05,78,497,895,3.6,1
+234,Pankaj Rana,+918330482150,worker234@kaushalkonnect.in,Ghaziabad,Vaishali,Home Cleaning,Ghaziabad,Ghaziabad,0,9,4.12,264,0.97,0.13,30,537,846,12.7,1
+235,Gaurav Shah,+916597353598,worker235@kaushalkonnect.in,Ghaziabad,Kaushambi,Painting,Ghaziabad,Ghaziabad,1,8,4.05,261,0.94,0.05,35,364,1647,11.7,1
+236,Neha Naidu,+916555942800,worker236@kaushalkonnect.in,Gurugram,Sector 14,Electrical,Gurugram,Gurugram,1,12,4.18,308,0.89,0.13,84,452,866,10.1,0
+237,Pradeep Rao,+919933467908,worker237@kaushalkonnect.in,Gurugram,Sector 56,Appliance Repair,Gurugram,Gurugram,1,10,5.0,498,0.91,0.14,41,1022,905,13.4,1
+238,Kunal Srivastava,+916230642826,worker238@kaushalkonnect.in,Gurugram,DLF Phase 3,Electrical,Gurugram,Gurugram,0,6,4.28,233,0.97,0.02,72,789,1842,2.1,0
+239,Karan Roy,+917848491363,worker239@kaushalkonnect.in,Faridabad,Sector 15,Plumbing,Faridabad,Faridabad,1,11,4.02,163,0.99,0.1,49,640,2424,2.3,0
+240,Sameer Nair,+919010212557,worker240@kaushalkonnect.in,Faridabad,Sector 21,Plumbing,Faridabad,Faridabad,1,7,4.28,290,0.89,0.01,62,536,696,10.0,1
+241,Yash Tripathi,+917463303930,worker241@kaushalkonnect.in,Delhi,Laxmi Nagar,Painting,East,East,1,10,4.1,528,0.83,0.07,78,457,3658,8.5,1
+242,Arjun Sood,+918916194647,worker242@kaushalkonnect.in,Delhi,Preet Vihar,Carpentry,East,East,1,3,4.17,172,0.89,0.06,10,782,3890,1.4,0
+243,Yogesh Naidu,+918454540584,worker243@kaushalkonnect.in,Delhi,Rohini,Appliance Repair,North,North,0,7,4.21,241,0.9,0.07,36,592,4398,14.7,1
+244,Ankit Srivastava,+919994239118,worker244@kaushalkonnect.in,Delhi,Pitampura,Electrical,North,North,0,11,4.36,536,0.89,0.01,45,641,1673,6.6,1
+245,Pooja Joshi,+916011944474,worker245@kaushalkonnect.in,Delhi,Dwarka,Home Cleaning,West,West,1,6,4.05,35,0.82,0.14,76,545,511,3.5,1
+246,Sakshi Srivastava,+918591803634,worker246@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,1,8,3.71,320,0.94,0.05,68,878,2353,13.0,1
+247,Sachin Qureshi,+916839067342,worker247@kaushalkonnect.in,Delhi,Saket,Plumbing,South,South,1,10,4.82,40,0.89,0.13,40,718,2300,5.7,0
+248,Sunil Rao,+918344819983,worker248@kaushalkonnect.in,Delhi,Malviya Nagar,Painting,South,South,1,15,4.28,548,0.92,0.07,36,547,2104,4.9,0
+249,Divya Rao,+918987735168,worker249@kaushalkonnect.in,Delhi,Karol Bagh,Appliance Repair,Central,Central,1,10,4.12,142,0.99,0.09,29,837,2776,0.9,1
+250,Deepika Nair,+916595330080,worker250@kaushalkonnect.in,Delhi,Rajouri Garden,Home Cleaning,West,West,1,2,4.76,311,0.73,0.06,10,490,1448,4.7,0
+251,Neha Arora,+916911402623,worker251@kaushalkonnect.in,Noida,Sector 62,Home Cleaning,Noida,Noida,1,5,4.67,161,0.97,0.01,63,395,737,7.2,1
+252,Sakshi Pandey,+918513244583,worker252@kaushalkonnect.in,Noida,Sector 18,Electrical,Noida,Noida,1,7,4.73,396,0.9,0.05,19,599,2361,7.5,0
+253,Shivam Arora,+917025290362,worker253@kaushalkonnect.in,Noida,Sector 50,Electrical,Noida,Noida,1,4,4.01,91,0.98,0.07,65,778,2481,14.2,0
+254,Pooja Chauhan,+916525187090,worker254@kaushalkonnect.in,Noida,Sector 137,Plumbing,Noida,Noida,1,9,4.06,123,0.85,0.12,53,618,1126,7.8,0
+255,Meera Arora,+916320765759,worker255@kaushalkonnect.in,Greater Noida,Knowledge Park,Electrical,Greater Noida,Greater Noida,1,14,5.0,172,0.87,0.06,43,727,823,11.2,1
+256,Divya Jain,+917170193525,worker256@kaushalkonnect.in,Greater Noida,Alpha 1,Home Cleaning,Greater Noida,Greater Noida,1,15,4.49,243,0.91,0.07,59,536,1135,9.3,1
+257,Simran Kapoor,+918908473876,worker257@kaushalkonnect.in,Ghaziabad,Indirapuram,Electrical,Ghaziabad,Ghaziabad,1,5,4.48,516,0.99,0.17,10,650,1892,4.6,1
+258,Arnav Rana,+916565799647,worker258@kaushalkonnect.in,Ghaziabad,Vaishali,Appliance Repair,Ghaziabad,Ghaziabad,1,11,4.52,639,0.88,0.09,72,575,828,6.6,1
+259,Shivam Saxena,+919037484186,worker259@kaushalkonnect.in,Ghaziabad,Kaushambi,Carpentry,Ghaziabad,Ghaziabad,1,10,4.23,370,0.7,0.14,30,650,1563,1.2,1
+260,Sameer Jain,+917325319686,worker260@kaushalkonnect.in,Gurugram,Sector 14,Home Cleaning,Gurugram,Gurugram,1,9,4.76,153,0.96,0.07,82,328,1450,7.5,1
+261,Bhavna Malhotra,+918168421886,worker261@kaushalkonnect.in,Gurugram,Sector 56,Carpentry,Gurugram,Gurugram,1,5,4.02,187,0.76,0.02,16,823,834,1.6,0
+262,Siddharth Wadhwa,+916049342156,worker262@kaushalkonnect.in,Gurugram,DLF Phase 3,Electrical,Gurugram,Gurugram,0,13,4.4,310,0.99,0.08,71,495,2058,10.6,1
+263,Neeraj Menon,+916337708308,worker263@kaushalkonnect.in,Faridabad,Sector 15,Home Cleaning,Faridabad,Faridabad,0,15,4.19,478,0.94,0.01,69,464,1263,2.9,1
+264,Anjali Kapoor,+916715320008,worker264@kaushalkonnect.in,Faridabad,Sector 21,Electrical,Faridabad,Faridabad,1,11,4.12,631,0.85,0.09,34,490,2733,9.2,1
+265,Kavita Pandey,+919702897199,worker265@kaushalkonnect.in,Delhi,Laxmi Nagar,Home Cleaning,East,East,1,12,4.23,237,0.94,0.01,35,461,1772,9.1,1
+266,Ananya Mishra,+918377123088,worker266@kaushalkonnect.in,Delhi,Preet Vihar,Home Cleaning,East,East,1,8,4.15,513,0.91,0.05,31,466,1565,11.0,1
+267,Anmol Sood,+918052340271,worker267@kaushalkonnect.in,Delhi,Rohini,Electrical,North,North,1,5,4.06,559,0.86,0.08,123,743,1589,12.0,0
+268,Sanjay Kapoor,+918253249684,worker268@kaushalkonnect.in,Delhi,Pitampura,Electrical,North,North,0,1,3.75,337,0.96,0.01,66,737,1779,9.1,1
+269,Ashish Das,+917810866468,worker269@kaushalkonnect.in,Delhi,Dwarka,Carpentry,West,West,0,9,4.87,111,0.72,0.01,42,731,2655,12.9,1
+270,Ankit Patel,+917221299661,worker270@kaushalkonnect.in,Delhi,Janakpuri,Plumbing,West,West,1,19,3.72,522,0.91,0.07,85,402,1029,3.6,0
+271,Shreya Arora,+918242148281,worker271@kaushalkonnect.in,Delhi,Saket,Home Cleaning,South,South,1,15,3.37,12,0.91,0.08,10,369,1472,0.9,1
+272,Meera Rana,+917291153119,worker272@kaushalkonnect.in,Delhi,Malviya Nagar,Appliance Repair,South,South,1,8,4.02,141,0.84,0.12,69,509,2515,7.6,0
+273,Ashish Ali,+919735682904,worker273@kaushalkonnect.in,Delhi,Karol Bagh,Electrical,Central,Central,0,10,4.15,548,0.93,0.15,87,447,1616,9.8,1
+274,Ayush Sood,+916362139814,worker274@kaushalkonnect.in,Delhi,Rajouri Garden,Painting,West,West,0,3,4.52,226,0.93,0.13,22,365,2347,6.7,1
+275,Sunil Dutta,+919743087890,worker275@kaushalkonnect.in,Noida,Sector 62,Carpentry,Noida,Noida,1,12,3.77,185,0.81,0.09,23,560,2956,9.5,0
+276,Anmol Das,+917757066577,worker276@kaushalkonnect.in,Noida,Sector 18,Electrical,Noida,Noida,1,10,4.13,153,0.91,0.01,70,726,794,3.5,1
+277,Sameer Arora,+916896324700,worker277@kaushalkonnect.in,Noida,Sector 50,Electrical,Noida,Noida,0,7,4.31,283,0.93,0.12,61,787,2677,14.4,0
+278,Rahul Saini,+917671591433,worker278@kaushalkonnect.in,Noida,Sector 137,Carpentry,Noida,Noida,1,5,4.13,628,0.88,0.09,53,536,3841,1.9,1
+279,Vikas Kumar,+918270397247,worker279@kaushalkonnect.in,Greater Noida,Knowledge Park,Home Cleaning,Greater Noida,Greater Noida,0,17,4.15,27,0.85,0.07,29,534,512,9.2,0
+280,Bhavna Roy,+918569752096,worker280@kaushalkonnect.in,Greater Noida,Alpha 1,Electrical,Greater Noida,Greater Noida,1,9,3.97,311,0.91,0.09,58,794,611,11.9,1
+281,Deepika Negi,+916415381384,worker281@kaushalkonnect.in,Ghaziabad,Indirapuram,Painting,Ghaziabad,Ghaziabad,0,10,4.51,496,0.84,0.08,99,610,3774,10.8,1
+282,Yogesh Qureshi,+917313332625,worker282@kaushalkonnect.in,Ghaziabad,Vaishali,Home Cleaning,Ghaziabad,Ghaziabad,1,11,4.43,426,0.93,0.04,103,437,1070,14.1,0
+283,Dev Arora,+916640385044,worker283@kaushalkonnect.in,Ghaziabad,Kaushambi,Appliance Repair,Ghaziabad,Ghaziabad,1,7,4.33,239,0.89,0.13,77,971,4442,4.5,0
+284,Ankit Bansal,+917510484887,worker284@kaushalkonnect.in,Gurugram,Sector 14,Plumbing,Gurugram,Gurugram,1,5,4.03,77,0.88,0.03,33,613,864,3.2,1
+285,Amit Sharma,+916189581154,worker285@kaushalkonnect.in,Gurugram,Sector 56,Painting,Gurugram,Gurugram,1,8,4.21,237,0.83,0.13,30,439,3375,2.3,1
+286,Arjun Gupta,+918925525068,worker286@kaushalkonnect.in,Gurugram,DLF Phase 3,Plumbing,Gurugram,Gurugram,0,9,4.76,268,0.89,0.04,60,529,1537,12.8,1
+287,Naman Mehta,+916027815970,worker287@kaushalkonnect.in,Faridabad,Sector 15,Appliance Repair,Faridabad,Faridabad,0,10,3.46,354,0.86,0.06,57,621,2739,3.1,1
+288,Kunal Kohli,+918303673431,worker288@kaushalkonnect.in,Faridabad,Sector 21,Painting,Faridabad,Faridabad,1,12,4.23,442,0.86,0.05,72,639,2889,12.6,1
+289,Pankaj Yadav,+919988954896,worker289@kaushalkonnect.in,Delhi,Laxmi Nagar,Painting,East,East,1,9,4.85,360,0.99,0.03,84,352,874,9.0,0
+290,Ankit Sood,+918764047217,worker290@kaushalkonnect.in,Delhi,Preet Vihar,Painting,East,East,1,7,3.86,46,0.96,0.06,92,388,3826,10.6,1
+291,Vikas Bhardwaj,+918422944082,worker291@kaushalkonnect.in,Delhi,Rohini,Painting,North,North,0,9,3.85,333,0.89,0.07,68,615,3130,3.1,1
+292,Aarav Bisht,+918615702010,worker292@kaushalkonnect.in,Delhi,Pitampura,Plumbing,North,North,1,9,4.34,208,0.87,0.12,99,442,1425,11.0,1
+293,Aarav Nair,+917264447439,worker293@kaushalkonnect.in,Delhi,Dwarka,Electrical,West,West,1,15,4.25,589,0.94,0.04,46,751,2680,4.3,0
+294,Manish Roy,+916319203574,worker294@kaushalkonnect.in,Delhi,Janakpuri,Plumbing,West,West,1,1,3.75,541,0.82,0.06,10,546,2060,3.6,0
+295,Vikas Bisht,+917309884968,worker295@kaushalkonnect.in,Delhi,Saket,Appliance Repair,South,South,1,11,3.57,56,0.91,0.06,76,843,3032,2.0,1
+296,Shreya Kumar,+916603602429,worker296@kaushalkonnect.in,Delhi,Malviya Nagar,Plumbing,South,South,1,10,4.34,272,0.84,0.08,86,640,1206,11.2,1
+297,Raj Nair,+918683721589,worker297@kaushalkonnect.in,Delhi,Karol Bagh,Appliance Repair,Central,Central,1,13,4.98,93,0.99,0.15,10,970,4730,5.0,1
+298,Aditi Rao,+919284268594,worker298@kaushalkonnect.in,Delhi,Rajouri Garden,Appliance Repair,West,West,1,11,4.95,16,0.83,0.01,79,1062,2582,10.0,0
+299,Naman Tripathi,+916388534534,worker299@kaushalkonnect.in,Noida,Sector 62,Home Cleaning,Noida,Noida,1,11,3.97,345,0.9,0.01,55,453,1672,2.7,0
+300,Siddharth Rawat,+918122097967,worker300@kaushalkonnect.in,Noida,Sector 18,Home Cleaning,Noida,Noida,1,8,4.11,482,0.94,0.03,10,439,1482,3.5,1
+301,Simran Sharma,+916628899246,worker301@kaushalkonnect.in,Noida,Sector 50,Home Cleaning,Noida,Noida,0,12,4.2,349,0.91,0.07,83,489,1457,10.2,0
+302,Bhavna Agarwal,+919525115237,worker302@kaushalkonnect.in,Noida,Sector 137,Home Cleaning,Noida,Noida,1,9,4.53,54,0.85,0.11,101,540,996,11.2,0
+303,Yash Srivastava,+916051615371,worker303@kaushalkonnect.in,Greater Noida,Knowledge Park,Carpentry,Greater Noida,Greater Noida,0,4,4.79,333,0.86,0.11,12,762,3207,7.8,1
+304,Meera Jain,+918655417646,worker304@kaushalkonnect.in,Greater Noida,Alpha 1,Painting,Greater Noida,Greater Noida,0,10,4.4,67,0.75,0.01,53,561,3901,14.4,1
+305,Nikhil Iyer,+917965937767,worker305@kaushalkonnect.in,Ghaziabad,Indirapuram,Plumbing,Ghaziabad,Ghaziabad,1,6,4.13,23,0.96,0.07,32,625,1619,12.4,1
+306,Pradeep Kumar,+919680256202,worker306@kaushalkonnect.in,Ghaziabad,Vaishali,Appliance Repair,Ghaziabad,Ghaziabad,1,12,3.92,254,0.88,0.04,72,518,3230,8.6,0
+307,Ravi Mishra,+919330617535,worker307@kaushalkonnect.in,Ghaziabad,Kaushambi,Electrical,Ghaziabad,Ghaziabad,0,6,3.29,367,0.78,0.07,93,479,2292,11.6,0
+308,Meera Menon,+916262528982,worker308@kaushalkonnect.in,Gurugram,Sector 14,Appliance Repair,Gurugram,Gurugram,1,10,4.13,194,0.85,0.07,51,889,1155,13.7,1
+309,Sunil Verma,+919908451725,worker309@kaushalkonnect.in,Gurugram,Sector 56,Electrical,Gurugram,Gurugram,0,9,3.74,525,0.77,0.15,46,618,2443,12.6,0
+310,Rohit Mehta,+919363802523,worker310@kaushalkonnect.in,Gurugram,DLF Phase 3,Home Cleaning,Gurugram,Gurugram,1,5,5.0,577,0.86,0.04,70,348,811,5.3,1
+311,Aarav Chaudhary,+919108217683,worker311@kaushalkonnect.in,Faridabad,Sector 15,Carpentry,Faridabad,Faridabad,1,9,3.38,318,0.99,0.01,51,591,1745,13.3,1
+312,Gaurav Reddy,+917110498535,worker312@kaushalkonnect.in,Faridabad,Sector 21,Carpentry,Faridabad,Faridabad,1,3,4.36,224,0.83,0.13,31,671,1523,7.8,0
+313,Dev Ansari,+916597380739,worker313@kaushalkonnect.in,Delhi,Laxmi Nagar,Plumbing,East,East,1,9,4.06,613,0.96,0.13,99,534,2000,9.7,1
+314,Siddharth Saxena,+916238429209,worker314@kaushalkonnect.in,Delhi,Preet Vihar,Appliance Repair,East,East,1,12,4.12,489,0.93,0.09,131,696,3034,13.9,0
+315,Pankaj Saini,+918961331563,worker315@kaushalkonnect.in,Delhi,Rohini,Carpentry,North,North,0,5,4.41,90,0.93,0.12,80,767,840,5.5,0
+316,Yash Jain,+918535610143,worker316@kaushalkonnect.in,Delhi,Pitampura,Home Cleaning,North,North,1,9,4.25,587,0.92,0.11,89,387,956,5.1,0
+317,Vinay Roy,+916270632251,worker317@kaushalkonnect.in,Delhi,Dwarka,Home Cleaning,West,West,1,8,4.46,301,0.94,0.14,33,389,931,5.8,1
+318,Yash Shah,+918386032664,worker318@kaushalkonnect.in,Delhi,Janakpuri,Carpentry,West,West,0,8,4.38,228,0.8,0.05,30,580,1145,14.0,0
+319,Aman Roy,+919582110187,worker319@kaushalkonnect.in,Delhi,Saket,Plumbing,South,South,1,7,4.74,404,0.93,0.06,51,711,1440,10.1,1
+320,Kunal Negi,+916128306059,worker320@kaushalkonnect.in,Delhi,Malviya Nagar,Home Cleaning,South,South,0,11,3.92,644,0.93,0.06,83,434,1572,7.9,0
+321,Sonu Gupta,+916645878843,worker321@kaushalkonnect.in,Delhi,Karol Bagh,Appliance Repair,Central,Central,0,16,3.96,395,0.92,0.08,17,574,1788,4.7,1
+322,Ankit Tiwari,+917563403084,worker322@kaushalkonnect.in,Delhi,Rajouri Garden,Home Cleaning,West,West,1,11,4.73,369,0.91,0.13,21,381,1614,8.2,0
+323,Ravi Khan,+919906865713,worker323@kaushalkonnect.in,Noida,Sector 62,Carpentry,Noida,Noida,1,12,4.09,644,0.98,0.13,48,650,3763,5.4,1
+324,Vikram Sood,+918453064960,worker324@kaushalkonnect.in,Noida,Sector 18,Painting,Noida,Noida,1,5,3.84,436,0.92,0.01,36,557,1478,14.3,1
+325,Vikram Tripathi,+919021106265,worker325@kaushalkonnect.in,Noida,Sector 50,Plumbing,Noida,Noida,1,5,3.85,128,0.88,0.07,62,533,1186,1.2,0
+326,Anmol Khan,+918080000014,worker326@kaushalkonnect.in,Noida,Sector 137,Plumbing,Noida,Noida,1,7,3.65,357,0.98,0.02,22,744,1431,9.7,1
+327,Dev Tripathi,+917193323486,worker327@kaushalkonnect.in,Greater Noida,Knowledge Park,Plumbing,Greater Noida,Greater Noida,1,10,4.27,645,0.98,0.1,39,620,1942,7.0,0
+328,Rahul Rana,+917493645500,worker328@kaushalkonnect.in,Greater Noida,Alpha 1,Electrical,Greater Noida,Greater Noida,1,12,4.27,123,0.95,0.03,57,782,2127,11.0,0
+329,Neeraj Khan,+916590282125,worker329@kaushalkonnect.in,Ghaziabad,Indirapuram,Carpentry,Ghaziabad,Ghaziabad,1,10,4.06,205,0.82,0.07,102,603,4319,14.3,0
+330,Anjali Patel,+918644492206,worker330@kaushalkonnect.in,Ghaziabad,Vaishali,Painting,Ghaziabad,Ghaziabad,1,5,4.16,448,0.82,0.11,52,574,3292,8.3,1
+331,Sanjay Ali,+917167283390,worker331@kaushalkonnect.in,Ghaziabad,Kaushambi,Plumbing,Ghaziabad,Ghaziabad,1,6,4.63,99,0.83,0.16,66,599,2134,9.0,0
+332,Ravi Bisht,+916686430751,worker332@kaushalkonnect.in,Gurugram,Sector 14,Home Cleaning,Gurugram,Gurugram,1,12,4.61,382,0.91,0.01,47,345,1074,7.3,0
+333,Neeraj Khanna,+918395136157,worker333@kaushalkonnect.in,Gurugram,Sector 56,Home Cleaning,Gurugram,Gurugram,1,5,4.59,236,0.86,0.1,86,345,577,7.8,1
+334,Sonu Khan,+916937858266,worker334@kaushalkonnect.in,Gurugram,DLF Phase 3,Painting,Gurugram,Gurugram,0,4,4.12,512,0.86,0.12,89,529,3903,9.3,0
+335,Rakesh Ghosh,+918801121016,worker335@kaushalkonnect.in,Faridabad,Sector 15,Appliance Repair,Faridabad,Faridabad,1,4,4.87,197,0.79,0.09,51,906,1224,4.9,1
+336,Akash Shah,+916291098178,worker336@kaushalkonnect.in,Faridabad,Sector 21,Electrical,Faridabad,Faridabad,0,10,4.12,184,0.86,0.09,10,412,646,3.7,0
+337,Sunil Sood,+916396214560,worker337@kaushalkonnect.in,Delhi,Laxmi Nagar,Electrical,East,East,1,13,3.92,585,0.93,0.16,56,414,2400,7.4,1
+338,Deepak Bhardwaj,+919785975299,worker338@kaushalkonnect.in,Delhi,Preet Vihar,Plumbing,East,East,1,7,3.95,173,0.82,0.12,75,664,2283,5.0,0
+339,Ravi Pandey,+916714556295,worker339@kaushalkonnect.in,Delhi,Rohini,Painting,North,North,0,10,4.05,501,0.88,0.04,82,355,1057,9.2,0
+340,Ashish Sheikh,+919477015466,worker340@kaushalkonnect.in,Delhi,Pitampura,Home Cleaning,North,North,1,3,4.35,302,0.87,0.01,13,420,956,11.1,0
+341,Yogesh Das,+919363336551,worker341@kaushalkonnect.in,Delhi,Dwarka,Appliance Repair,West,West,1,2,4.6,398,0.89,0.1,58,1073,3327,5.8,1
+342,Manish Mishra,+918279588658,worker342@kaushalkonnect.in,Delhi,Janakpuri,Plumbing,West,West,1,11,3.78,374,0.86,0.05,52,747,1854,9.8,0
+343,Manish Wadhwa,+919891401286,worker343@kaushalkonnect.in,Delhi,Saket,Painting,South,South,1,13,4.09,518,0.82,0.01,21,532,2959,6.6,1
+344,Manish Bhatia,+919939422655,worker344@kaushalkonnect.in,Delhi,Malviya Nagar,Home Cleaning,South,South,1,10,4.0,262,0.98,0.07,82,403,1497,9.1,1
+345,Gaurav Malhotra,+919596088490,worker345@kaushalkonnect.in,Delhi,Karol Bagh,Home Cleaning,Central,Central,1,6,3.59,69,0.87,0.04,27,477,583,1.4,1
+346,Ravi Reddy,+916057930700,worker346@kaushalkonnect.in,Delhi,Rajouri Garden,Plumbing,West,West,0,1,4.57,137,0.86,0.1,39,480,1145,7.8,1
+347,Vikram Nair,+917161439493,worker347@kaushalkonnect.in,Noida,Sector 62,Painting,Noida,Noida,1,11,4.03,482,0.93,0.08,73,516,1580,4.8,1
+348,Sameer Ansari,+919076026811,worker348@kaushalkonnect.in,Noida,Sector 18,Home Cleaning,Noida,Noida,1,12,3.52,64,0.92,0.14,56,467,1116,0.7,1
+349,Rakesh Saxena,+918921958931,worker349@kaushalkonnect.in,Noida,Sector 50,Home Cleaning,Noida,Noida,1,8,4.61,436,0.92,0.01,32,436,1644,5.3,1
+350,Naman Pandey,+916399803917,worker350@kaushalkonnect.in,Noida,Sector 137,Electrical,Noida,Noida,1,3,4.73,31,0.98,0.12,94,574,2552,8.1,0
+351,Sakshi Bhardwaj,+917630421860,worker351@kaushalkonnect.in,Greater Noida,Knowledge Park,Carpentry,Greater Noida,Greater Noida,1,4,3.9,513,0.83,0.1,40,739,955,8.2,0
+352,Vikas Naidu,+916362743893,worker352@kaushalkonnect.in,Greater Noida,Alpha 1,Carpentry,Greater Noida,Greater Noida,1,11,4.53,215,0.88,0.08,21,559,1325,5.5,0
+353,Anmol Wadhwa,+917041195044,worker353@kaushalkonnect.in,Ghaziabad,Indirapuram,Carpentry,Ghaziabad,Ghaziabad,0,12,3.87,114,0.77,0.07,89,639,1726,6.1,1
+354,Ananya Verma,+919762414865,worker354@kaushalkonnect.in,Ghaziabad,Vaishali,Carpentry,Ghaziabad,Ghaziabad,0,8,4.97,189,0.94,0.15,10,484,2417,5.2,0
+355,Ravi Naidu,+916443245257,worker355@kaushalkonnect.in,Ghaziabad,Kaushambi,Painting,Ghaziabad,Ghaziabad,1,8,4.5,588,0.82,0.02,87,569,2322,9.2,1
+356,Anil Malhotra,+916868055576,worker356@kaushalkonnect.in,Gurugram,Sector 14,Painting,Gurugram,Gurugram,0,11,4.31,570,0.88,0.09,34,548,3387,4.2,1
+357,Pradeep Mishra,+916200243561,worker357@kaushalkonnect.in,Gurugram,Sector 56,Painting,Gurugram,Gurugram,0,8,4.56,592,0.91,0.09,47,515,1611,9.4,1
+358,Sakshi Dutta,+919317126088,worker358@kaushalkonnect.in,Gurugram,DLF Phase 3,Home Cleaning,Gurugram,Gurugram,1,11,3.3,33,0.98,0.01,40,348,599,14.0,0
+359,Suraj Ghosh,+917252264965,worker359@kaushalkonnect.in,Faridabad,Sector 15,Carpentry,Faridabad,Faridabad,1,18,4.39,553,0.81,0.12,33,853,2162,13.9,1
+360,Rohit Iyer,+917137727078,worker360@kaushalkonnect.in,Faridabad,Sector 21,Electrical,Faridabad,Faridabad,0,10,4.32,22,0.84,0.09,86,480,731,10.4,1
+361,Divya Rawat,+917874643603,worker361@kaushalkonnect.in,Delhi,Laxmi Nagar,Electrical,East,East,1,12,4.65,346,0.79,0.01,35,653,965,4.2,1
+362,Deepika Mishra,+917999372943,worker362@kaushalkonnect.in,Delhi,Preet Vihar,Carpentry,East,East,1,7,4.29,101,0.89,0.06,50,854,2207,9.4,1
+363,Anmol Chauhan,+919808853683,worker363@kaushalkonnect.in,Delhi,Rohini,Plumbing,North,North,1,7,4.09,20,0.92,0.04,60,603,1604,14.9,0
+364,Vinay Sood,+916190725219,worker364@kaushalkonnect.in,Delhi,Pitampura,Painting,North,North,1,9,3.66,356,0.84,0.03,59,638,2931,5.1,1
+365,Nikhil Roy,+919898903213,worker365@kaushalkonnect.in,Delhi,Dwarka,Plumbing,West,West,0,13,3.82,546,0.94,0.08,16,507,1033,6.1,1
+366,Yash Menon,+917542819757,worker366@kaushalkonnect.in,Delhi,Janakpuri,Electrical,West,West,1,8,3.88,207,0.75,0.02,10,532,2436,10.6,1
+367,Anil Sharma,+916301927078,worker367@kaushalkonnect.in,Delhi,Saket,Carpentry,South,South,1,3,4.06,98,0.87,0.15,95,650,3811,14.3,0
+368,Rahul Tiwari,+917748962600,worker368@kaushalkonnect.in,Delhi,Malviya Nagar,Painting,South,South,0,8,4.85,605,0.85,0.19,56,564,1059,1.6,1
+369,Ankit Das,+919196848494,worker369@kaushalkonnect.in,Delhi,Karol Bagh,Painting,Central,Central,1,2,3.53,142,0.93,0.1,87,546,1047,1.6,1
+370,Pooja Chaudhary,+919563611368,worker370@kaushalkonnect.in,Delhi,Rajouri Garden,Plumbing,West,West,0,5,4.11,202,0.88,0.11,97,564,607,4.1,1
+371,Shivam Dutta,+919448764430,worker371@kaushalkonnect.in,Noida,Sector 62,Appliance Repair,Noida,Noida,1,8,4.32,497,0.86,0.14,114,703,2597,11.8,0
+372,Sonu Pandey,+916228812933,worker372@kaushalkonnect.in,Noida,Sector 18,Plumbing,Noida,Noida,1,11,3.72,311,0.92,0.1,45,412,793,6.7,0
+373,Riya Sheikh,+917341952132,worker373@kaushalkonnect.in,Noida,Sector 50,Appliance Repair,Noida,Noida,0,10,4.34,61,0.99,0.04,53,457,2580,10.1,0
+374,Pooja Gupta,+916975782067,worker374@kaushalkonnect.in,Noida,Sector 137,Electrical,Noida,Noida,1,10,4.51,591,0.92,0.09,85,474,2181,6.1,1
+375,Anmol Srivastava,+917328112866,worker375@kaushalkonnect.in,Greater Noida,Knowledge Park,Carpentry,Greater Noida,Greater Noida,1,5,3.9,113,0.87,0.07,71,721,1005,9.9,1
+376,Vinay Mehta,+916926412026,worker376@kaushalkonnect.in,Greater Noida,Alpha 1,Painting,Greater Noida,Greater Noida,1,14,5.0,62,0.96,0.02,40,481,3646,6.4,1
+377,Anil Gupta,+916437323219,worker377@kaushalkonnect.in,Ghaziabad,Indirapuram,Plumbing,Ghaziabad,Ghaziabad,0,6,4.5,215,0.88,0.02,43,609,1411,3.1,0
+378,Siddharth Sheikh,+919246455340,worker378@kaushalkonnect.in,Ghaziabad,Vaishali,Carpentry,Ghaziabad,Ghaziabad,0,1,3.79,590,0.93,0.1,52,845,3093,3.9,1
+379,Dev Patel,+919837486200,worker379@kaushalkonnect.in,Ghaziabad,Kaushambi,Painting,Ghaziabad,Ghaziabad,1,9,4.78,174,0.94,0.04,101,533,2601,9.1,0
+380,Meera Kapoor,+916395155519,worker380@kaushalkonnect.in,Gurugram,Sector 14,Appliance Repair,Gurugram,Gurugram,1,2,4.15,120,0.89,0.02,73,877,4197,10.5,1
+381,Gaurav Saxena,+918765062612,worker381@kaushalkonnect.in,Gurugram,Sector 56,Carpentry,Gurugram,Gurugram,0,8,4.45,179,0.88,0.16,67,610,3250,13.0,0
+382,Ravi Kumar,+917591615698,worker382@kaushalkonnect.in,Gurugram,DLF Phase 3,Plumbing,Gurugram,Gurugram,1,9,4.86,336,0.9,0.11,46,577,886,0.7,0
+383,Amit Wadhwa,+919447287369,worker383@kaushalkonnect.in,Faridabad,Sector 15,Appliance Repair,Faridabad,Faridabad,1,13,4.19,548,0.89,0.03,67,679,4260,9.3,1
+384,Simran Srivastava,+917613387127,worker384@kaushalkonnect.in,Faridabad,Sector 21,Plumbing,Faridabad,Faridabad,1,8,4.84,132,0.93,0.16,27,646,2205,6.2,1
+385,Rahul Kumar,+917665619913,worker385@kaushalkonnect.in,Delhi,Laxmi Nagar,Home Cleaning,East,East,1,10,4.44,443,0.9,0.09,12,424,1786,11.6,1
+386,Nikhil Kohli,+919029104878,worker386@kaushalkonnect.in,Delhi,Preet Vihar,Electrical,East,East,0,8,3.57,251,0.95,0.12,63,555,2360,0.9,1
+387,Rohit Ansari,+918988648809,worker387@kaushalkonnect.in,Delhi,Rohini,Electrical,North,North,1,8,4.04,265,0.93,0.13,18,652,2932,14.0,1
+388,Dev Menon,+918994283112,worker388@kaushalkonnect.in,Delhi,Pitampura,Plumbing,North,North,0,1,4.64,370,0.88,0.02,77,715,1010,7.1,1
+389,Deepika Khan,+916051359802,worker389@kaushalkonnect.in,Delhi,Dwarka,Painting,West,West,1,1,4.25,511,0.99,0.14,49,583,1437,3.1,1
+390,Sachin Arora,+919459539191,worker390@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,1,8,4.31,48,0.87,0.03,25,1012,4081,5.2,1
+391,Riya Chaudhary,+918786087018,worker391@kaushalkonnect.in,Delhi,Saket,Home Cleaning,South,South,0,11,4.09,278,0.9,0.1,55,502,1218,11.3,1
+392,Mohit Roy,+918248725749,worker392@kaushalkonnect.in,Delhi,Malviya Nagar,Appliance Repair,South,South,1,17,5.0,540,0.93,0.14,55,568,4183,9.2,1
+393,Riya Reddy,+917210702489,worker393@kaushalkonnect.in,Delhi,Karol Bagh,Carpentry,Central,Central,1,6,4.8,477,0.75,0.18,60,735,2878,2.1,0
+394,Meera Srivastava,+918641051051,worker394@kaushalkonnect.in,Delhi,Rajouri Garden,Carpentry,West,West,1,6,4.3,284,0.88,0.03,34,897,3485,10.4,0
+395,Aditi Menon,+916246999545,worker395@kaushalkonnect.in,Noida,Sector 62,Electrical,Noida,Noida,1,16,4.23,293,0.94,0.08,101,718,1005,12.5,0
+396,Vikas Saini,+917831520617,worker396@kaushalkonnect.in,Noida,Sector 18,Appliance Repair,Noida,Noida,1,7,3.49,263,0.97,0.08,104,511,1050,3.1,0
+397,Suraj Menon,+917641390307,worker397@kaushalkonnect.in,Noida,Sector 50,Appliance Repair,Noida,Noida,1,4,4.02,40,0.88,0.08,83,1000,2042,14.6,1
+398,Arnav Mishra,+919023572609,worker398@kaushalkonnect.in,Noida,Sector 137,Painting,Noida,Noida,0,14,4.34,170,0.85,0.03,64,536,2303,9.8,1
+399,Rakesh Verma,+919846327023,worker399@kaushalkonnect.in,Greater Noida,Knowledge Park,Painting,Greater Noida,Greater Noida,0,15,4.09,396,0.91,0.11,30,383,1596,6.6,0
+400,Simran Sheikh,+917086993727,worker400@kaushalkonnect.in,Greater Noida,Alpha 1,Painting,Greater Noida,Greater Noida,1,7,4.41,193,0.9,0.02,73,425,1209,6.6,0
+401,Manish Kapoor,+917807079530,worker401@kaushalkonnect.in,Ghaziabad,Indirapuram,Electrical,Ghaziabad,Ghaziabad,1,16,4.4,54,0.86,0.05,60,733,2168,12.2,1
+402,Shreya Chauhan,+916171576188,worker402@kaushalkonnect.in,Ghaziabad,Vaishali,Painting,Ghaziabad,Ghaziabad,0,16,4.54,557,0.88,0.11,73,597,2384,5.5,0
+403,Sunil Sheikh,+919984688787,worker403@kaushalkonnect.in,Ghaziabad,Kaushambi,Appliance Repair,Ghaziabad,Ghaziabad,1,15,5.0,114,0.89,0.15,98,597,3520,7.4,1
+404,Sanjay Saxena,+916554038189,worker404@kaushalkonnect.in,Gurugram,Sector 14,Electrical,Gurugram,Gurugram,1,7,4.14,504,0.92,0.06,46,460,653,12.3,1
+405,Sonu Iyer,+917162647337,worker405@kaushalkonnect.in,Gurugram,Sector 56,Carpentry,Gurugram,Gurugram,1,11,4.62,483,0.82,0.09,33,483,2592,7.6,0
+406,Manish Agarwal,+917181721554,worker406@kaushalkonnect.in,Gurugram,DLF Phase 3,Home Cleaning,Gurugram,Gurugram,0,10,3.94,253,0.87,0.07,85,504,1328,2.6,1
+407,Suman Ansari,+918736302386,worker407@kaushalkonnect.in,Faridabad,Sector 15,Appliance Repair,Faridabad,Faridabad,1,5,5.0,174,0.99,0.1,47,647,4648,2.1,1
+408,Rakesh Agarwal,+916004605975,worker408@kaushalkonnect.in,Faridabad,Sector 21,Appliance Repair,Faridabad,Faridabad,1,10,4.12,442,0.97,0.1,102,493,3043,13.6,0
+409,Meera Khan,+916113747060,worker409@kaushalkonnect.in,Delhi,Laxmi Nagar,Carpentry,East,East,1,14,3.69,7,0.84,0.07,60,512,3392,12.1,1
+410,Raj Tripathi,+916459145699,worker410@kaushalkonnect.in,Delhi,Preet Vihar,Home Cleaning,East,East,1,11,4.22,511,0.86,0.01,10,415,957,9.7,0
+411,Vikram Negi,+919845989495,worker411@kaushalkonnect.in,Delhi,Rohini,Painting,North,North,1,13,4.62,35,0.91,0.08,89,649,1598,1.7,1
+412,Pradeep Patel,+918473259018,worker412@kaushalkonnect.in,Delhi,Pitampura,Carpentry,North,North,1,12,4.04,261,0.87,0.12,39,676,876,10.6,1
+413,Aditi Joshi,+916109317123,worker413@kaushalkonnect.in,Delhi,Dwarka,Carpentry,West,West,1,1,3.98,248,0.92,0.08,53,584,1224,2.3,1
+414,Yash Ghosh,+917840448427,worker414@kaushalkonnect.in,Delhi,Janakpuri,Carpentry,West,West,0,9,4.18,289,0.83,0.13,57,826,911,4.5,0
+415,Nikhil Mishra,+917545843402,worker415@kaushalkonnect.in,Delhi,Saket,Painting,South,South,1,9,4.45,49,0.98,0.16,93,380,3449,4.2,0
+416,Anjali Joshi,+916659268006,worker416@kaushalkonnect.in,Delhi,Malviya Nagar,Electrical,South,South,1,9,4.09,489,0.72,0.14,20,603,1896,14.7,1
+417,Manish Bansal,+916415729571,worker417@kaushalkonnect.in,Delhi,Karol Bagh,Plumbing,Central,Central,1,6,4.18,149,0.81,0.09,45,529,2363,7.5,1
+418,Isha Malhotra,+917658403108,worker418@kaushalkonnect.in,Delhi,Rajouri Garden,Plumbing,West,West,0,8,4.0,646,0.86,0.12,25,479,1014,14.2,1
+419,Vinay Menon,+918775796883,worker419@kaushalkonnect.in,Noida,Sector 62,Home Cleaning,Noida,Noida,1,9,4.01,338,0.92,0.04,22,529,705,12.7,0
+420,Raj Negi,+918891521092,worker420@kaushalkonnect.in,Noida,Sector 18,Carpentry,Noida,Noida,1,13,4.88,319,0.89,0.09,62,609,3320,8.2,1
+421,Naman Roy,+918638654724,worker421@kaushalkonnect.in,Noida,Sector 50,Plumbing,Noida,Noida,1,12,4.31,89,0.84,0.12,48,536,694,1.9,1
+422,Yash Kapoor,+919252398633,worker422@kaushalkonnect.in,Noida,Sector 137,Appliance Repair,Noida,Noida,1,2,4.15,212,0.91,0.04,97,693,3507,13.3,0
+423,Riya Chauhan,+919661011523,worker423@kaushalkonnect.in,Greater Noida,Knowledge Park,Electrical,Greater Noida,Greater Noida,1,18,3.44,227,0.86,0.1,65,711,1006,5.3,0
+424,Sunil Ansari,+918118921987,worker424@kaushalkonnect.in,Greater Noida,Alpha 1,Home Cleaning,Greater Noida,Greater Noida,1,7,4.56,594,0.82,0.18,64,303,613,7.4,0
+425,Mohit Rao,+919259637936,worker425@kaushalkonnect.in,Ghaziabad,Indirapuram,Plumbing,Ghaziabad,Ghaziabad,0,4,4.33,502,0.82,0.08,54,504,834,8.8,0
+426,Ananya Nair,+919638558176,worker426@kaushalkonnect.in,Ghaziabad,Vaishali,Home Cleaning,Ghaziabad,Ghaziabad,1,7,3.98,465,0.91,0.01,113,429,851,12.6,0
+427,Aarav Joshi,+918494502836,worker427@kaushalkonnect.in,Ghaziabad,Kaushambi,Home Cleaning,Ghaziabad,Ghaziabad,1,11,5.0,325,0.83,0.07,44,311,923,13.0,1
+428,Anjali Negi,+916797717136,worker428@kaushalkonnect.in,Gurugram,Sector 14,Appliance Repair,Gurugram,Gurugram,1,19,4.12,500,0.9,0.09,75,929,3618,13.4,1
+429,Yogesh Chauhan,+916110588324,worker429@kaushalkonnect.in,Gurugram,Sector 56,Carpentry,Gurugram,Gurugram,1,4,4.33,22,0.92,0.15,15,804,2781,3.9,1
+430,Nikhil Saini,+919961250292,worker430@kaushalkonnect.in,Gurugram,DLF Phase 3,Electrical,Gurugram,Gurugram,1,4,4.79,559,0.84,0.04,28,550,1389,2.6,1
+431,Priya Mehta,+919671741367,worker431@kaushalkonnect.in,Faridabad,Sector 15,Painting,Faridabad,Faridabad,1,10,4.24,83,0.98,0.13,49,502,3416,4.8,0
+432,Mohit Negi,+916776395566,worker432@kaushalkonnect.in,Faridabad,Sector 21,Electrical,Faridabad,Faridabad,1,10,4.23,183,0.82,0.07,33,773,2276,6.3,1
+433,Sachin Menon,+919011662714,worker433@kaushalkonnect.in,Delhi,Laxmi Nagar,Plumbing,East,East,1,6,3.76,47,0.89,0.06,72,417,1402,8.7,0
+434,Naman Jain,+919938559110,worker434@kaushalkonnect.in,Delhi,Preet Vihar,Plumbing,East,East,1,7,4.43,414,0.99,0.05,57,475,2191,9.4,1
+435,Bhavna Khan,+916754453550,worker435@kaushalkonnect.in,Delhi,Rohini,Home Cleaning,North,North,1,7,4.59,348,0.86,0.03,58,500,902,7.1,1
+436,Meera Tripathi,+916633110609,worker436@kaushalkonnect.in,Delhi,Pitampura,Painting,North,North,0,12,4.78,236,0.92,0.11,70,636,1848,11.1,1
+437,Aarav Bhardwaj,+919441123468,worker437@kaushalkonnect.in,Delhi,Dwarka,Painting,West,West,1,15,4.11,529,0.74,0.1,35,431,3420,10.5,1
+438,Vikram Kapoor,+919716541977,worker438@kaushalkonnect.in,Delhi,Janakpuri,Carpentry,West,West,1,2,3.76,431,0.83,0.11,64,626,2390,14.7,0
+439,Arnav Malhotra,+916327050838,worker439@kaushalkonnect.in,Delhi,Saket,Carpentry,South,South,1,6,5.0,345,0.99,0.12,63,608,4382,13.6,0
+440,Shreya Tripathi,+918992765210,worker440@kaushalkonnect.in,Delhi,Malviya Nagar,Home Cleaning,South,South,1,7,4.23,312,0.86,0.08,97,417,1014,10.8,1
+441,Karan Malhotra,+917271334606,worker441@kaushalkonnect.in,Delhi,Karol Bagh,Electrical,Central,Central,1,11,4.43,458,0.96,0.12,27,764,728,5.7,1
+442,Sameer Ghosh,+918843856502,worker442@kaushalkonnect.in,Delhi,Rajouri Garden,Home Cleaning,West,West,1,11,4.62,592,0.89,0.11,85,346,721,13.6,0
+443,Neeraj Saini,+917392154791,worker443@kaushalkonnect.in,Noida,Sector 62,Carpentry,Noida,Noida,1,11,3.82,197,0.99,0.02,73,674,3028,13.1,1
+444,Simran Yadav,+918820834865,worker444@kaushalkonnect.in,Noida,Sector 18,Painting,Noida,Noida,1,6,4.3,412,0.98,0.04,61,566,2095,7.9,0
+445,Amit Jain,+917949782511,worker445@kaushalkonnect.in,Noida,Sector 50,Home Cleaning,Noida,Noida,1,10,4.31,338,0.88,0.08,73,333,611,8.3,1
+446,Karan Ali,+918405414953,worker446@kaushalkonnect.in,Noida,Sector 137,Electrical,Noida,Noida,0,12,4.36,597,0.89,0.06,70,780,1394,8.6,1
+447,Nikhil Saxena,+919630839762,worker447@kaushalkonnect.in,Greater Noida,Knowledge Park,Home Cleaning,Greater Noida,Greater Noida,1,11,4.45,591,0.91,0.13,81,514,1329,7.7,1
+448,Akash Khan,+917986260084,worker448@kaushalkonnect.in,Greater Noida,Alpha 1,Plumbing,Greater Noida,Greater Noida,1,7,4.23,597,0.91,0.13,59,593,1279,4.2,1
+449,Manish Ghosh,+919274450055,worker449@kaushalkonnect.in,Ghaziabad,Indirapuram,Home Cleaning,Ghaziabad,Ghaziabad,1,10,4.31,381,0.96,0.12,41,533,951,2.5,1
+450,Rakesh Bisht,+917805809325,worker450@kaushalkonnect.in,Ghaziabad,Vaishali,Home Cleaning,Ghaziabad,Ghaziabad,1,10,4.21,107,0.83,0.12,58,496,1588,14.6,0
+451,Rohit Reddy,+916120719482,worker451@kaushalkonnect.in,Ghaziabad,Kaushambi,Home Cleaning,Ghaziabad,Ghaziabad,1,16,4.45,452,0.88,0.14,28,363,671,4.9,0
+452,Mohit Ghosh,+918401070080,worker452@kaushalkonnect.in,Gurugram,Sector 14,Painting,Gurugram,Gurugram,1,5,4.36,463,0.79,0.1,10,435,1700,14.7,0
+453,Suman Sood,+916216657385,worker453@kaushalkonnect.in,Gurugram,Sector 56,Home Cleaning,Gurugram,Gurugram,1,9,3.71,387,0.86,0.12,63,475,1351,8.3,1
+454,Raj Srivastava,+918924475584,worker454@kaushalkonnect.in,Gurugram,DLF Phase 3,Painting,Gurugram,Gurugram,1,7,4.86,177,0.87,0.14,10,386,3759,4.2,0
+455,Gaurav Tripathi,+917877617773,worker455@kaushalkonnect.in,Faridabad,Sector 15,Electrical,Faridabad,Faridabad,1,11,3.71,108,0.99,0.08,52,744,1107,4.0,1
+456,Naman Agarwal,+918845818962,worker456@kaushalkonnect.in,Faridabad,Sector 21,Home Cleaning,Faridabad,Faridabad,1,3,4.46,408,0.93,0.1,58,424,1104,8.1,1
+457,Isha Nair,+916028022071,worker457@kaushalkonnect.in,Delhi,Laxmi Nagar,Carpentry,East,East,1,12,3.55,29,0.93,0.07,22,504,2600,14.4,0
+458,Deepak Malhotra,+917980342043,worker458@kaushalkonnect.in,Delhi,Preet Vihar,Electrical,East,East,1,6,4.45,520,0.73,0.16,10,481,1988,4.2,1
+459,Ashish Rao,+918336816553,worker459@kaushalkonnect.in,Delhi,Rohini,Home Cleaning,North,North,1,6,4.37,591,0.89,0.02,98,463,1573,4.5,0
+460,Neha Rana,+919930921901,worker460@kaushalkonnect.in,Delhi,Pitampura,Plumbing,North,North,1,6,3.55,190,0.9,0.15,90,714,1768,1.0,1
+461,Deepika Tripathi,+919433799791,worker461@kaushalkonnect.in,Delhi,Dwarka,Electrical,West,West,1,11,4.36,480,0.99,0.02,78,642,653,12.3,0
+462,Rakesh Das,+917720339112,worker462@kaushalkonnect.in,Delhi,Janakpuri,Carpentry,West,West,1,6,4.27,615,0.89,0.1,129,835,3376,10.9,1
+463,Kunal Das,+918575264254,worker463@kaushalkonnect.in,Delhi,Saket,Appliance Repair,South,South,1,5,4.03,478,0.87,0.11,78,583,3069,2.9,0
+464,Riya Mehta,+917467615155,worker464@kaushalkonnect.in,Delhi,Malviya Nagar,Electrical,South,South,1,7,4.49,160,0.87,0.1,97,425,1121,12.4,1
+465,Sachin Wadhwa,+916704661106,worker465@kaushalkonnect.in,Delhi,Karol Bagh,Electrical,Central,Central,0,3,4.52,302,0.77,0.02,94,780,1340,2.0,1
+466,Arjun Srivastava,+917332827394,worker466@kaushalkonnect.in,Delhi,Rajouri Garden,Plumbing,West,West,1,5,4.27,214,0.96,0.1,36,664,2496,1.6,0
+467,Priya Bhardwaj,+917248116061,worker467@kaushalkonnect.in,Noida,Sector 62,Appliance Repair,Noida,Noida,1,4,4.38,270,0.86,0.05,39,731,817,13.0,1
+468,Suraj Kapoor,+918927288520,worker468@kaushalkonnect.in,Noida,Sector 18,Electrical,Noida,Noida,0,9,3.65,367,0.77,0.15,80,587,2413,3.2,1
+469,Siddharth Iyer,+916793696504,worker469@kaushalkonnect.in,Noida,Sector 50,Home Cleaning,Noida,Noida,1,7,4.82,97,0.98,0.06,10,546,1201,7.2,0
+470,Ayush Kapoor,+917682936682,worker470@kaushalkonnect.in,Noida,Sector 137,Carpentry,Noida,Noida,0,9,3.52,95,0.89,0.05,75,587,2866,9.1,0
+471,Rahul Tripathi,+916035400728,worker471@kaushalkonnect.in,Greater Noida,Knowledge Park,Electrical,Greater Noida,Greater Noida,1,10,4.06,649,0.97,0.19,37,611,1227,5.9,1
+472,Sakshi Arora,+919899953388,worker472@kaushalkonnect.in,Greater Noida,Alpha 1,Electrical,Greater Noida,Greater Noida,1,17,4.37,331,0.99,0.08,10,581,2736,3.2,1
+473,Simran Jain,+916047430755,worker473@kaushalkonnect.in,Ghaziabad,Indirapuram,Home Cleaning,Ghaziabad,Ghaziabad,0,9,4.71,592,0.82,0.11,62,509,532,10.0,1
+474,Aditi Qureshi,+918661556414,worker474@kaushalkonnect.in,Ghaziabad,Vaishali,Appliance Repair,Ghaziabad,Ghaziabad,1,10,5.0,259,0.94,0.01,35,532,2319,0.8,0
+475,Rohit Dutta,+919380832990,worker475@kaushalkonnect.in,Ghaziabad,Kaushambi,Carpentry,Ghaziabad,Ghaziabad,0,10,4.63,269,0.9,0.1,85,487,2536,12.7,0
+476,Dev Shah,+918257020982,worker476@kaushalkonnect.in,Gurugram,Sector 14,Appliance Repair,Gurugram,Gurugram,1,8,4.19,463,0.79,0.08,62,549,2509,7.7,1
+477,Vikram Khanna,+917270469929,worker477@kaushalkonnect.in,Gurugram,Sector 56,Painting,Gurugram,Gurugram,0,12,4.4,249,0.99,0.03,88,629,3552,14.8,1
+478,Aman Menon,+919130429950,worker478@kaushalkonnect.in,Gurugram,DLF Phase 3,Plumbing,Gurugram,Gurugram,1,9,4.57,569,0.91,0.1,72,549,2373,8.0,0
+479,Deepak Bisht,+919163794170,worker479@kaushalkonnect.in,Faridabad,Sector 15,Appliance Repair,Faridabad,Faridabad,1,10,4.55,283,0.99,0.08,32,584,1898,12.7,0
+480,Meera Saini,+916977056447,worker480@kaushalkonnect.in,Faridabad,Sector 21,Electrical,Faridabad,Faridabad,1,8,4.55,602,0.81,0.13,27,554,2546,3.9,0
+481,Sonu Kumar,+919745671889,worker481@kaushalkonnect.in,Delhi,Laxmi Nagar,Electrical,East,East,1,8,4.58,574,0.84,0.02,41,547,1358,14.5,1
+482,Nisha Kohli,+917234518832,worker482@kaushalkonnect.in,Delhi,Preet Vihar,Electrical,East,East,1,12,4.54,415,0.99,0.11,38,457,2808,12.5,1
+483,Ravi Iyer,+919611442530,worker483@kaushalkonnect.in,Delhi,Rohini,Carpentry,North,North,1,7,3.85,338,0.9,0.03,54,472,2009,2.9,0
+484,Sameer Negi,+917012029075,worker484@kaushalkonnect.in,Delhi,Pitampura,Electrical,North,North,1,5,4.04,300,0.86,0.05,20,539,641,12.0,0
+485,Pooja Sharma,+917837294215,worker485@kaushalkonnect.in,Delhi,Dwarka,Painting,West,West,1,6,4.2,521,0.95,0.17,18,498,3990,3.5,0
+486,Rakesh Roy,+918586183659,worker486@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,1,5,3.61,272,0.9,0.05,79,1014,989,9.7,1
+487,Nikhil Tiwari,+916996460063,worker487@kaushalkonnect.in,Delhi,Saket,Plumbing,South,South,0,18,3.85,354,0.84,0.04,64,469,1655,13.6,0
+488,Ankit Tripathi,+918726451521,worker488@kaushalkonnect.in,Delhi,Malviya Nagar,Painting,South,South,1,10,3.98,358,0.86,0.09,74,548,3299,7.5,0
+489,Pankaj Saxena,+917637849491,worker489@kaushalkonnect.in,Delhi,Karol Bagh,Home Cleaning,Central,Central,1,12,5.0,229,0.91,0.11,56,301,626,8.4,1
+490,Pooja Kumar,+918688408742,worker490@kaushalkonnect.in,Delhi,Rajouri Garden,Carpentry,West,West,0,6,4.83,501,0.85,0.18,51,650,2098,3.2,0
+491,Vinay Chauhan,+916699657253,worker491@kaushalkonnect.in,Noida,Sector 62,Carpentry,Noida,Noida,1,14,5.0,122,0.94,0.15,65,628,1025,11.1,1
+492,Sakshi Wadhwa,+918075454098,worker492@kaushalkonnect.in,Noida,Sector 18,Painting,Noida,Noida,1,11,5.0,645,0.94,0.06,87,351,2466,5.2,1
+493,Akash Saini,+918425507898,worker493@kaushalkonnect.in,Noida,Sector 50,Painting,Noida,Noida,0,13,4.09,135,0.87,0.13,65,612,1992,12.5,0
+494,Anil Thakur,+918566201211,worker494@kaushalkonnect.in,Noida,Sector 137,Carpentry,Noida,Noida,1,5,4.56,248,0.86,0.19,72,717,1805,7.1,0
+495,Deepika Tiwari,+917109978963,worker495@kaushalkonnect.in,Greater Noida,Knowledge Park,Plumbing,Greater Noida,Greater Noida,0,8,4.68,607,0.99,0.09,100,452,1908,6.3,1
+496,Shreya Kapoor,+917562702041,worker496@kaushalkonnect.in,Greater Noida,Alpha 1,Home Cleaning,Greater Noida,Greater Noida,0,11,5.0,277,0.97,0.11,53,314,1384,11.9,1
+497,Suman Patel,+916575846534,worker497@kaushalkonnect.in,Ghaziabad,Indirapuram,Painting,Ghaziabad,Ghaziabad,1,12,4.58,58,0.86,0.05,38,640,3300,11.3,0
+498,Mohit Sharma,+916353278201,worker498@kaushalkonnect.in,Ghaziabad,Vaishali,Appliance Repair,Ghaziabad,Ghaziabad,1,3,4.3,521,0.9,0.03,49,1032,3264,6.4,0
+499,Neeraj Sheikh,+919713253660,worker499@kaushalkonnect.in,Ghaziabad,Kaushambi,Painting,Ghaziabad,Ghaziabad,1,5,3.76,407,0.9,0.11,60,359,1798,8.1,1
+500,Sonu Rao,+916947382620,worker500@kaushalkonnect.in,Gurugram,Sector 14,Painting,Gurugram,Gurugram,1,17,4.22,71,0.95,0.04,76,428,1987,1.0,0
+501,Sanjay Nair,+916200303376,worker501@kaushalkonnect.in,Gurugram,Sector 56,Electrical,Gurugram,Gurugram,1,11,4.28,85,0.85,0.08,10,725,1097,12.2,1
+502,Ravi Sheikh,+919259217584,worker502@kaushalkonnect.in,Gurugram,DLF Phase 3,Carpentry,Gurugram,Gurugram,0,8,4.29,466,0.99,0.07,50,595,1990,3.8,1
+503,Neha Chaudhary,+916125552007,worker503@kaushalkonnect.in,Faridabad,Sector 15,Carpentry,Faridabad,Faridabad,1,12,3.76,8,0.93,0.01,81,871,3046,0.8,1
+504,Arnav Bhatia,+919037093453,worker504@kaushalkonnect.in,Faridabad,Sector 21,Plumbing,Faridabad,Faridabad,1,6,4.76,306,0.88,0.08,66,587,1850,5.0,0
+505,Pankaj Jain,+919442914972,worker505@kaushalkonnect.in,Delhi,Laxmi Nagar,Appliance Repair,East,East,1,17,4.21,400,0.82,0.13,74,487,4645,11.4,0
+506,Vivek Das,+917574666630,worker506@kaushalkonnect.in,Delhi,Preet Vihar,Painting,East,East,1,10,3.8,393,0.83,0.08,74,476,836,3.3,1
+507,Vikram Bhatia,+919395732251,worker507@kaushalkonnect.in,Delhi,Rohini,Carpentry,North,North,1,5,4.17,310,0.87,0.09,69,607,1900,5.8,1
+508,Sakshi Mehta,+916228255196,worker508@kaushalkonnect.in,Delhi,Pitampura,Appliance Repair,North,North,1,10,4.19,261,0.86,0.11,124,518,1915,9.9,1
+509,Priya Bisht,+919796794548,worker509@kaushalkonnect.in,Delhi,Dwarka,Home Cleaning,West,West,1,12,3.61,347,0.99,0.11,66,464,665,13.2,1
+510,Isha Jain,+917383321285,worker510@kaushalkonnect.in,Delhi,Janakpuri,Plumbing,West,West,1,9,4.1,307,0.83,0.05,15,660,2468,13.5,0
+511,Deepak Saxena,+917627249477,worker511@kaushalkonnect.in,Delhi,Saket,Plumbing,South,South,0,14,4.4,242,0.85,0.11,31,432,1443,3.5,1
+512,Suraj Agarwal,+918288524656,worker512@kaushalkonnect.in,Delhi,Malviya Nagar,Carpentry,South,South,1,10,3.86,10,0.96,0.1,124,587,2724,11.9,1
+513,Nikhil Nair,+917780537985,worker513@kaushalkonnect.in,Delhi,Karol Bagh,Electrical,Central,Central,1,10,4.5,541,0.92,0.07,63,547,1596,6.8,0
+514,Shreya Gupta,+917392526064,worker514@kaushalkonnect.in,Delhi,Rajouri Garden,Plumbing,West,West,1,9,4.99,386,0.99,0.19,114,586,1287,12.7,0
+515,Meera Saxena,+918646267104,worker515@kaushalkonnect.in,Noida,Sector 62,Carpentry,Noida,Noida,1,3,3.8,454,0.9,0.05,78,506,3229,10.0,1
+516,Shivam Singh,+916018361254,worker516@kaushalkonnect.in,Noida,Sector 18,Electrical,Noida,Noida,1,5,4.3,457,0.81,0.02,100,645,2390,14.0,1
+517,Ankit Rao,+918960208883,worker517@kaushalkonnect.in,Noida,Sector 50,Carpentry,Noida,Noida,1,8,4.85,200,0.92,0.03,31,819,955,12.6,1
+518,Gaurav Bhatia,+916899238879,worker518@kaushalkonnect.in,Noida,Sector 137,Home Cleaning,Noida,Noida,1,1,4.34,25,0.81,0.15,36,434,518,6.4,1
+519,Ayush Bhardwaj,+918661425706,worker519@kaushalkonnect.in,Greater Noida,Knowledge Park,Electrical,Greater Noida,Greater Noida,0,15,4.29,564,0.89,0.11,10,617,1658,6.9,0
+520,Isha Das,+917965395456,worker520@kaushalkonnect.in,Greater Noida,Alpha 1,Appliance Repair,Greater Noida,Greater Noida,1,1,4.31,428,0.89,0.08,45,663,1183,7.7,0
+521,Anjali Bisht,+916146088449,worker521@kaushalkonnect.in,Ghaziabad,Indirapuram,Electrical,Ghaziabad,Ghaziabad,0,1,4.63,91,0.98,0.01,61,467,1002,4.3,0
+522,Shreya Sharma,+917243730129,worker522@kaushalkonnect.in,Ghaziabad,Vaishali,Plumbing,Ghaziabad,Ghaziabad,1,9,3.57,411,0.79,0.01,81,527,2371,9.9,0
+523,Naman Das,+916849271125,worker523@kaushalkonnect.in,Ghaziabad,Kaushambi,Electrical,Ghaziabad,Ghaziabad,0,10,4.2,19,0.76,0.03,66,567,870,1.7,0
+524,Vivek Gupta,+918446232297,worker524@kaushalkonnect.in,Gurugram,Sector 14,Electrical,Gurugram,Gurugram,1,4,4.16,119,0.78,0.16,49,546,954,6.9,0
+525,Anil Das,+918609738978,worker525@kaushalkonnect.in,Gurugram,Sector 56,Home Cleaning,Gurugram,Gurugram,1,13,3.81,161,0.86,0.1,30,355,1574,13.3,1
+526,Sakshi Menon,+918261144697,worker526@kaushalkonnect.in,Gurugram,DLF Phase 3,Plumbing,Gurugram,Gurugram,1,9,3.86,584,0.94,0.1,41,512,2182,10.0,0
+527,Anmol Arora,+916009690519,worker527@kaushalkonnect.in,Faridabad,Sector 15,Home Cleaning,Faridabad,Faridabad,1,7,3.69,181,0.9,0.04,87,378,1119,8.7,1
+528,Anjali Rawat,+918647764973,worker528@kaushalkonnect.in,Faridabad,Sector 21,Home Cleaning,Faridabad,Faridabad,0,16,4.32,573,0.9,0.08,55,516,1352,9.6,1
+529,Mohit Bhatia,+917914873095,worker529@kaushalkonnect.in,Delhi,Laxmi Nagar,Appliance Repair,East,East,1,1,4.41,303,0.89,0.1,105,587,3390,12.3,1
+530,Naman Bisht,+918203761815,worker530@kaushalkonnect.in,Delhi,Preet Vihar,Plumbing,East,East,1,1,4.31,312,0.98,0.07,69,458,2269,6.3,1
+531,Ananya Arora,+916501462036,worker531@kaushalkonnect.in,Delhi,Rohini,Painting,North,North,1,10,4.29,399,0.94,0.11,35,389,3510,2.2,1
+532,Divya Tiwari,+918538467975,worker532@kaushalkonnect.in,Delhi,Pitampura,Home Cleaning,North,North,0,3,4.21,618,0.95,0.08,36,492,1716,5.3,1
+533,Yogesh Sharma,+916269756407,worker533@kaushalkonnect.in,Delhi,Dwarka,Home Cleaning,West,West,1,6,3.88,88,0.92,0.06,24,410,897,13.8,1
+534,Sanjay Chaudhary,+917354899708,worker534@kaushalkonnect.in,Delhi,Janakpuri,Home Cleaning,West,West,1,10,3.72,409,0.98,0.1,57,321,1212,5.5,0
+535,Dev Iyer,+916702607390,worker535@kaushalkonnect.in,Delhi,Saket,Carpentry,South,South,1,13,4.68,62,0.87,0.02,28,582,4221,8.3,0
+536,Ashish Kapoor,+916474498833,worker536@kaushalkonnect.in,Delhi,Malviya Nagar,Appliance Repair,South,South,0,8,4.29,5,0.85,0.04,84,618,1748,5.8,0
+537,Deepika Ali,+919474693052,worker537@kaushalkonnect.in,Delhi,Karol Bagh,Painting,Central,Central,0,9,3.59,100,0.82,0.07,75,465,3013,4.6,0
+538,Rakesh Ansari,+917441342285,worker538@kaushalkonnect.in,Delhi,Rajouri Garden,Appliance Repair,West,West,0,1,4.8,367,0.92,0.1,105,966,2573,6.3,0
+539,Sanjay Kohli,+918651090202,worker539@kaushalkonnect.in,Noida,Sector 62,Home Cleaning,Noida,Noida,0,5,4.34,555,0.82,0.08,41,355,1430,9.7,1
+540,Raj Das,+916570738911,worker540@kaushalkonnect.in,Noida,Sector 18,Painting,Noida,Noida,1,12,4.3,419,0.88,0.1,81,401,3773,4.9,0
+541,Sanjay Sood,+917291329143,worker541@kaushalkonnect.in,Noida,Sector 50,Home Cleaning,Noida,Noida,1,8,4.22,398,0.93,0.08,10,307,1237,7.1,0
+542,Riya Khanna,+916914780575,worker542@kaushalkonnect.in,Noida,Sector 137,Plumbing,Noida,Noida,1,13,3.39,58,0.85,0.12,40,562,1266,7.2,1
+543,Suman Chaudhary,+918101494330,worker543@kaushalkonnect.in,Greater Noida,Knowledge Park,Plumbing,Greater Noida,Greater Noida,1,7,4.28,58,0.9,0.04,81,536,1582,9.7,0
+544,Ananya Sood,+918983399586,worker544@kaushalkonnect.in,Greater Noida,Alpha 1,Carpentry,Greater Noida,Greater Noida,0,6,4.14,594,0.94,0.11,48,587,4006,11.8,0
+545,Aarav Khanna,+919961247798,worker545@kaushalkonnect.in,Ghaziabad,Indirapuram,Carpentry,Ghaziabad,Ghaziabad,1,4,4.18,466,0.92,0.08,51,895,2304,2.5,1
+546,Nisha Thakur,+917339052439,worker546@kaushalkonnect.in,Ghaziabad,Vaishali,Appliance Repair,Ghaziabad,Ghaziabad,1,13,3.87,75,0.83,0.18,82,1016,1827,3.3,1
+547,Nikhil Joshi,+917280760338,worker547@kaushalkonnect.in,Ghaziabad,Kaushambi,Carpentry,Ghaziabad,Ghaziabad,1,2,4.72,50,0.88,0.03,27,802,3389,9.3,1
+548,Sanjay Bhardwaj,+918787256231,worker548@kaushalkonnect.in,Gurugram,Sector 14,Plumbing,Gurugram,Gurugram,1,10,5.0,121,0.83,0.09,58,612,1533,10.7,0
+549,Suraj Negi,+919827587781,worker549@kaushalkonnect.in,Gurugram,Sector 56,Carpentry,Gurugram,Gurugram,0,4,4.86,225,0.94,0.11,50,457,3931,10.4,0
+550,Ayush Saini,+917728525432,worker550@kaushalkonnect.in,Gurugram,DLF Phase 3,Appliance Repair,Gurugram,Gurugram,1,6,3.89,305,0.81,0.12,70,1042,4301,2.4,0
+551,Vivek Rana,+916685180073,worker551@kaushalkonnect.in,Faridabad,Sector 15,Home Cleaning,Faridabad,Faridabad,1,5,4.13,52,0.99,0.01,74,307,1298,2.4,0
+552,Deepika Sood,+918795740863,worker552@kaushalkonnect.in,Faridabad,Sector 21,Carpentry,Faridabad,Faridabad,1,1,4.31,518,0.95,0.12,82,524,802,3.5,1
+553,Rohit Bansal,+917997445691,worker553@kaushalkonnect.in,Delhi,Laxmi Nagar,Appliance Repair,East,East,1,10,4.36,631,0.94,0.09,14,926,1385,11.7,1
+554,Aarav Qureshi,+919724571088,worker554@kaushalkonnect.in,Delhi,Preet Vihar,Carpentry,East,East,1,6,3.04,437,0.99,0.04,37,625,1511,12.7,1
+555,Manish Gupta,+919860508171,worker555@kaushalkonnect.in,Delhi,Rohini,Appliance Repair,North,North,1,12,3.7,600,0.83,0.06,33,598,3209,1.6,1
+556,Suraj Iyer,+917949798573,worker556@kaushalkonnect.in,Delhi,Pitampura,Home Cleaning,North,North,1,6,4.25,50,0.96,0.06,43,311,970,4.6,1
+557,Yash Verma,+917727228994,worker557@kaushalkonnect.in,Delhi,Dwarka,Plumbing,West,West,0,5,4.54,435,0.99,0.02,58,522,2408,13.3,1
+558,Ravi Kapoor,+916162722775,worker558@kaushalkonnect.in,Delhi,Janakpuri,Carpentry,West,West,1,8,4.22,489,0.8,0.06,10,858,1332,1.8,0
+559,Vikram Srivastava,+916660839003,worker559@kaushalkonnect.in,Delhi,Saket,Painting,South,South,0,9,4.23,45,0.89,0.12,98,509,3226,10.5,1
+560,Suman Rawat,+919598130256,worker560@kaushalkonnect.in,Delhi,Malviya Nagar,Painting,South,South,1,9,4.68,197,0.81,0.07,33,368,2261,13.2,0
+561,Deepak Patel,+918339998146,worker561@kaushalkonnect.in,Delhi,Karol Bagh,Appliance Repair,Central,Central,1,9,4.27,412,0.9,0.07,55,476,2352,4.3,1
+562,Shreya Menon,+916119664403,worker562@kaushalkonnect.in,Delhi,Rajouri Garden,Plumbing,West,West,1,5,3.81,124,0.94,0.16,41,520,1690,14.8,0
+563,Riya Bhatia,+919638910639,worker563@kaushalkonnect.in,Noida,Sector 62,Electrical,Noida,Noida,1,10,4.3,583,0.79,0.04,32,582,2482,10.0,1
+564,Naman Thakur,+917120488101,worker564@kaushalkonnect.in,Noida,Sector 18,Carpentry,Noida,Noida,1,6,4.35,12,0.88,0.01,101,561,2380,1.3,1
+565,Divya Naidu,+916510673998,worker565@kaushalkonnect.in,Noida,Sector 50,Plumbing,Noida,Noida,1,9,3.71,303,0.98,0.01,94,731,2425,4.0,1
+566,Yash Rana,+918915745973,worker566@kaushalkonnect.in,Noida,Sector 137,Painting,Noida,Noida,1,15,4.33,79,0.88,0.16,54,580,1352,12.0,0
+567,Kavita Tripathi,+919106624588,worker567@kaushalkonnect.in,Greater Noida,Knowledge Park,Electrical,Greater Noida,Greater Noida,1,11,3.85,222,0.88,0.02,30,632,2680,3.9,1
+568,Bhavna Mishra,+916958184288,worker568@kaushalkonnect.in,Greater Noida,Alpha 1,Plumbing,Greater Noida,Greater Noida,1,3,4.46,169,0.84,0.09,18,560,632,5.7,1
+569,Anjali Chaudhary,+916215268052,worker569@kaushalkonnect.in,Ghaziabad,Indirapuram,Plumbing,Ghaziabad,Ghaziabad,1,9,4.11,29,0.92,0.08,100,591,1927,11.1,1
+570,Rahul Singh,+917817320253,worker570@kaushalkonnect.in,Ghaziabad,Vaishali,Carpentry,Ghaziabad,Ghaziabad,0,11,4.22,90,0.89,0.04,67,887,1397,0.8,1
+571,Rohit Naidu,+916471363553,worker571@kaushalkonnect.in,Ghaziabad,Kaushambi,Appliance Repair,Ghaziabad,Ghaziabad,1,8,5.0,486,0.99,0.14,59,952,2928,10.9,0
+572,Vivek Qureshi,+916580205903,worker572@kaushalkonnect.in,Gurugram,Sector 14,Plumbing,Gurugram,Gurugram,1,10,3.91,16,0.87,0.04,20,513,1828,7.4,0
+573,Mohit Qureshi,+919135816997,worker573@kaushalkonnect.in,Gurugram,Sector 56,Painting,Gurugram,Gurugram,1,4,3.71,502,0.99,0.05,49,542,2647,9.3,1
+574,Ayush Menon,+919504266885,worker574@kaushalkonnect.in,Gurugram,DLF Phase 3,Appliance Repair,Gurugram,Gurugram,1,9,4.44,244,0.7,0.08,56,457,1727,14.3,1
+575,Ravi Negi,+916213676944,worker575@kaushalkonnect.in,Faridabad,Sector 15,Carpentry,Faridabad,Faridabad,1,3,3.76,212,0.88,0.02,90,613,3250,7.3,1
+576,Bhavna Negi,+919892058529,worker576@kaushalkonnect.in,Faridabad,Sector 21,Plumbing,Faridabad,Faridabad,1,9,4.58,577,0.9,0.11,30,659,933,13.3,1
+577,Arnav Roy,+918287528828,worker577@kaushalkonnect.in,Delhi,Laxmi Nagar,Painting,East,East,1,12,3.9,6,0.87,0.09,71,613,1164,6.9,1
+578,Vivek Arora,+918209186781,worker578@kaushalkonnect.in,Delhi,Preet Vihar,Plumbing,East,East,1,8,5.0,111,0.88,0.1,58,696,755,10.9,1
+579,Aarav Saini,+918703629130,worker579@kaushalkonnect.in,Delhi,Rohini,Home Cleaning,North,North,1,14,4.24,529,0.86,0.14,54,454,1711,1.3,1
+580,Rahul Rawat,+919965175403,worker580@kaushalkonnect.in,Delhi,Pitampura,Appliance Repair,North,North,1,7,4.84,335,0.92,0.07,49,1067,3662,12.9,1
+581,Ayush Naidu,+916220069348,worker581@kaushalkonnect.in,Delhi,Dwarka,Electrical,West,West,1,4,4.49,616,0.82,0.06,103,596,1307,6.4,0
+582,Vikas Jain,+918086808784,worker582@kaushalkonnect.in,Delhi,Janakpuri,Painting,West,West,1,10,4.15,215,0.99,0.1,68,558,1479,8.5,1
+583,Shreya Jain,+918596699097,worker583@kaushalkonnect.in,Delhi,Saket,Appliance Repair,South,South,1,8,4.3,296,0.91,0.04,34,900,1405,7.9,1
+584,Naman Patel,+919354253192,worker584@kaushalkonnect.in,Delhi,Malviya Nagar,Plumbing,South,South,1,11,5.0,15,0.81,0.1,54,478,1048,4.0,0
+585,Bhavna Kohli,+916960355180,worker585@kaushalkonnect.in,Delhi,Karol Bagh,Electrical,Central,Central,1,8,4.01,454,0.83,0.01,60,403,2899,6.5,0
+586,Ashish Pandey,+917981964220,worker586@kaushalkonnect.in,Delhi,Rajouri Garden,Home Cleaning,West,West,1,9,4.48,21,0.99,0.01,45,350,951,14.6,0
+587,Deepak Jain,+918118714306,worker587@kaushalkonnect.in,Noida,Sector 62,Carpentry,Noida,Noida,0,14,4.41,65,0.84,0.16,52,864,3388,12.6,1
+588,Arnav Mehta,+918996088760,worker588@kaushalkonnect.in,Noida,Sector 18,Plumbing,Noida,Noida,1,9,4.54,524,0.8,0.1,66,496,2031,13.9,1
+589,Rohit Wadhwa,+919276470328,worker589@kaushalkonnect.in,Noida,Sector 50,Home Cleaning,Noida,Noida,1,18,4.17,448,0.89,0.12,53,476,591,9.5,1
+590,Priya Tiwari,+916461864191,worker590@kaushalkonnect.in,Noida,Sector 137,Electrical,Noida,Noida,1,4,4.7,82,0.96,0.1,64,657,2321,11.2,0
+591,Deepika Rana,+919522487212,worker591@kaushalkonnect.in,Greater Noida,Knowledge Park,Appliance Repair,Greater Noida,Greater Noida,1,1,3.76,362,0.77,0.01,25,935,821,14.3,0
+592,Akash Qureshi,+919470275551,worker592@kaushalkonnect.in,Greater Noida,Alpha 1,Electrical,Greater Noida,Greater Noida,1,8,4.02,635,0.94,0.14,13,778,2532,14.5,1
+593,Vikas Thakur,+917910951663,worker593@kaushalkonnect.in,Ghaziabad,Indirapuram,Plumbing,Ghaziabad,Ghaziabad,1,8,4.33,52,0.81,0.11,25,608,870,11.3,1
+594,Arjun Bhatia,+917274986989,worker594@kaushalkonnect.in,Ghaziabad,Vaishali,Appliance Repair,Ghaziabad,Ghaziabad,1,7,3.94,624,0.85,0.13,86,1087,1018,7.1,1
+595,Bhavna Rana,+916688011822,worker595@kaushalkonnect.in,Ghaziabad,Kaushambi,Home Cleaning,Ghaziabad,Ghaziabad,1,9,4.75,561,0.86,0.05,39,382,1789,1.0,0
+596,Rohit Tripathi,+919628257553,worker596@kaushalkonnect.in,Gurugram,Sector 14,Painting,Gurugram,Gurugram,1,4,4.08,125,0.92,0.02,85,626,3754,12.8,1
+597,Neeraj Rao,+917327420875,worker597@kaushalkonnect.in,Gurugram,Sector 56,Painting,Gurugram,Gurugram,1,7,4.13,38,0.86,0.09,40,623,1654,12.5,1
+598,Siddharth Thakur,+918003838856,worker598@kaushalkonnect.in,Gurugram,DLF Phase 3,Carpentry,Gurugram,Gurugram,1,9,4.61,545,0.9,0.03,87,723,3634,1.2,1
+599,Aditi Singh,+919978031677,worker599@kaushalkonnect.in,Faridabad,Sector 15,Plumbing,Faridabad,Faridabad,1,13,3.77,620,0.94,0.11,50,485,1946,1.1,0
+600,Anmol Rawat,+919386689459,worker600@kaushalkonnect.in,Faridabad,Sector 21,Plumbing,Faridabad,Faridabad,1,1,3.72,440,0.81,0.05,69,473,1586,10.6,1
+601,Rakesh Menon,+916183227540,worker601@kaushalkonnect.in,Delhi,Laxmi Nagar,Plumbing,East,East,1,8,4.23,644,0.94,0.01,96,530,981,14.0,0
+602,Anil Kapoor,+916728751521,worker602@kaushalkonnect.in,Delhi,Preet Vihar,Electrical,East,East,1,5,3.91,57,0.74,0.13,46,424,680,6.9,0
+603,Neha Bhardwaj,+916165617260,worker603@kaushalkonnect.in,Delhi,Rohini,Carpentry,North,North,1,6,4.46,338,0.81,0.16,25,555,3611,10.0,1
+604,Sunil Tripathi,+919711348616,worker604@kaushalkonnect.in,Delhi,Pitampura,Carpentry,North,North,1,3,4.18,431,0.92,0.08,46,470,3639,2.8,0
+605,Aarav Sheikh,+919704613259,worker605@kaushalkonnect.in,Delhi,Dwarka,Carpentry,West,West,0,8,3.81,394,0.98,0.1,84,574,4070,11.1,1
+606,Aman Ansari,+916132185865,worker606@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,1,10,4.31,222,0.95,0.08,89,523,2927,14.5,1
+607,Yash Thakur,+919646013373,worker607@kaushalkonnect.in,Delhi,Saket,Electrical,South,South,0,6,4.48,505,0.99,0.05,32,530,2238,5.5,0
+608,Pooja Reddy,+916646939429,worker608@kaushalkonnect.in,Delhi,Malviya Nagar,Plumbing,South,South,1,7,4.79,78,0.87,0.07,52,656,1108,13.5,0
+609,Raj Patel,+916353649680,worker609@kaushalkonnect.in,Delhi,Karol Bagh,Painting,Central,Central,0,10,3.9,390,0.96,0.1,67,465,1824,8.0,1
+610,Anjali Thakur,+919463924858,worker610@kaushalkonnect.in,Delhi,Rajouri Garden,Electrical,West,West,1,4,4.47,283,0.84,0.03,62,758,2328,8.8,0
+611,Pooja Ansari,+916344783841,worker611@kaushalkonnect.in,Noida,Sector 62,Plumbing,Noida,Noida,1,13,4.17,411,0.95,0.09,10,599,2225,3.0,0
+612,Raj Rana,+919269935629,worker612@kaushalkonnect.in,Noida,Sector 18,Plumbing,Noida,Noida,1,11,4.42,259,0.79,0.12,63,437,1220,10.9,1
+613,Simran Dutta,+919858956696,worker613@kaushalkonnect.in,Noida,Sector 50,Plumbing,Noida,Noida,1,17,4.28,352,0.93,0.05,97,565,935,4.5,0
+614,Sachin Ghosh,+918002505125,worker614@kaushalkonnect.in,Noida,Sector 137,Home Cleaning,Noida,Noida,1,18,3.92,220,0.92,0.08,69,498,1261,8.8,1
+615,Amit Malhotra,+919965526912,worker615@kaushalkonnect.in,Greater Noida,Knowledge Park,Appliance Repair,Greater Noida,Greater Noida,1,1,3.52,440,0.99,0.07,78,792,4230,8.4,0
+616,Ravi Sharma,+916454082274,worker616@kaushalkonnect.in,Greater Noida,Alpha 1,Painting,Greater Noida,Greater Noida,1,14,3.84,334,0.86,0.12,50,374,2571,13.4,1
+617,Priya Kumar,+918986512766,worker617@kaushalkonnect.in,Ghaziabad,Indirapuram,Plumbing,Ghaziabad,Ghaziabad,1,4,5.0,501,0.99,0.09,10,625,1911,0.7,1
+618,Anjali Agarwal,+917161412220,worker618@kaushalkonnect.in,Ghaziabad,Vaishali,Painting,Ghaziabad,Ghaziabad,0,9,5.0,142,0.77,0.03,10,586,2192,12.7,1
+619,Meera Rawat,+916879799285,worker619@kaushalkonnect.in,Ghaziabad,Kaushambi,Carpentry,Ghaziabad,Ghaziabad,1,4,3.66,171,0.87,0.01,23,473,2537,6.4,1
+620,Nisha Rawat,+918361890065,worker620@kaushalkonnect.in,Gurugram,Sector 14,Carpentry,Gurugram,Gurugram,1,1,4.36,603,0.94,0.01,19,703,4287,3.6,0
+621,Isha Bansal,+918239654585,worker621@kaushalkonnect.in,Gurugram,Sector 56,Painting,Gurugram,Gurugram,1,5,4.66,649,0.94,0.04,56,581,3845,6.2,0
+622,Aman Nair,+917881244033,worker622@kaushalkonnect.in,Gurugram,DLF Phase 3,Carpentry,Gurugram,Gurugram,0,6,4.51,59,0.91,0.1,61,876,3982,13.9,1
+623,Suman Sheikh,+918511789597,worker623@kaushalkonnect.in,Faridabad,Sector 15,Electrical,Faridabad,Faridabad,0,2,4.06,20,0.99,0.13,107,653,1932,13.6,1
+624,Ravi Rao,+916571038844,worker624@kaushalkonnect.in,Faridabad,Sector 21,Plumbing,Faridabad,Faridabad,1,8,4.32,171,0.83,0.09,56,573,2182,7.6,1
+625,Neeraj Srivastava,+919669849915,worker625@kaushalkonnect.in,Delhi,Laxmi Nagar,Carpentry,East,East,0,14,4.58,69,0.99,0.09,10,785,4128,2.7,0
+626,Raj Ansari,+919895507355,worker626@kaushalkonnect.in,Delhi,Preet Vihar,Painting,East,East,1,5,4.18,505,0.9,0.07,47,401,1386,13.8,1
+627,Nisha Qureshi,+917782031731,worker627@kaushalkonnect.in,Delhi,Rohini,Appliance Repair,North,North,1,8,3.64,641,0.95,0.08,55,1077,3833,5.1,1
+628,Arnav Rao,+918112688767,worker628@kaushalkonnect.in,Delhi,Pitampura,Carpentry,North,North,0,3,3.62,475,0.99,0.16,77,622,3977,2.8,1
+629,Yogesh Tripathi,+916583858576,worker629@kaushalkonnect.in,Delhi,Dwarka,Appliance Repair,West,West,1,5,4.03,22,0.99,0.16,63,476,2061,13.0,1
+630,Ashish Bisht,+919904538151,worker630@kaushalkonnect.in,Delhi,Janakpuri,Home Cleaning,West,West,0,9,4.18,236,0.81,0.05,41,334,1136,14.2,0
+631,Amit Ansari,+918807602746,worker631@kaushalkonnect.in,Delhi,Saket,Carpentry,South,South,1,7,4.52,286,0.98,0.14,90,557,2131,8.9,0
+632,Anjali Naidu,+916003060516,worker632@kaushalkonnect.in,Delhi,Malviya Nagar,Plumbing,South,South,1,10,3.94,423,0.91,0.06,62,727,1642,5.3,1
+633,Anjali Reddy,+919521908572,worker633@kaushalkonnect.in,Delhi,Karol Bagh,Home Cleaning,Central,Central,1,4,4.67,59,0.84,0.1,38,420,1381,11.5,0
+634,Pradeep Reddy,+917853204806,worker634@kaushalkonnect.in,Delhi,Rajouri Garden,Plumbing,West,West,0,8,4.07,184,0.7,0.07,23,716,2261,9.8,1
+635,Ashish Ghosh,+918231206979,worker635@kaushalkonnect.in,Noida,Sector 62,Home Cleaning,Noida,Noida,1,13,3.64,296,0.99,0.1,107,331,812,12.6,1
+636,Simran Roy,+917661767844,worker636@kaushalkonnect.in,Noida,Sector 18,Home Cleaning,Noida,Noida,0,6,4.86,301,0.87,0.09,83,434,1343,1.6,1
+637,Gaurav Verma,+919618839672,worker637@kaushalkonnect.in,Noida,Sector 50,Home Cleaning,Noida,Noida,1,7,3.86,181,0.91,0.05,83,421,941,1.1,1
+638,Priya Kapoor,+916526961197,worker638@kaushalkonnect.in,Noida,Sector 137,Plumbing,Noida,Noida,1,5,4.87,112,0.86,0.02,10,597,1193,3.9,0
+639,Ayush Das,+919553650359,worker639@kaushalkonnect.in,Greater Noida,Knowledge Park,Home Cleaning,Greater Noida,Greater Noida,1,9,4.9,528,0.9,0.04,50,362,1180,8.9,1
+640,Simran Reddy,+919922125461,worker640@kaushalkonnect.in,Greater Noida,Alpha 1,Electrical,Greater Noida,Greater Noida,0,3,5.0,80,0.99,0.09,40,490,2386,8.6,0
+641,Sameer Singh,+919335670002,worker641@kaushalkonnect.in,Ghaziabad,Indirapuram,Painting,Ghaziabad,Ghaziabad,1,4,4.67,470,0.83,0.1,75,644,2652,12.8,1
+642,Shreya Sheikh,+918418116532,worker642@kaushalkonnect.in,Ghaziabad,Vaishali,Painting,Ghaziabad,Ghaziabad,0,6,4.54,616,0.97,0.07,102,639,2346,7.4,1
+643,Deepak Bansal,+917215311273,worker643@kaushalkonnect.in,Ghaziabad,Kaushambi,Electrical,Ghaziabad,Ghaziabad,1,5,4.54,140,0.95,0.05,98,439,2096,7.4,1
+644,Sakshi Naidu,+916421808911,worker644@kaushalkonnect.in,Gurugram,Sector 14,Electrical,Gurugram,Gurugram,1,9,3.96,387,0.89,0.08,79,582,1893,1.2,1
+645,Sakshi Shah,+917763946107,worker645@kaushalkonnect.in,Gurugram,Sector 56,Plumbing,Gurugram,Gurugram,0,8,3.97,80,0.8,0.1,103,583,1972,1.4,0
+646,Suraj Rana,+916067209341,worker646@kaushalkonnect.in,Gurugram,DLF Phase 3,Plumbing,Gurugram,Gurugram,1,8,4.22,79,0.74,0.04,47,601,2175,1.8,0
+647,Bhavna Chauhan,+918006923912,worker647@kaushalkonnect.in,Faridabad,Sector 15,Electrical,Faridabad,Faridabad,1,4,4.73,263,0.89,0.01,23,523,818,11.3,0
+648,Sameer Kumar,+918477530105,worker648@kaushalkonnect.in,Faridabad,Sector 21,Plumbing,Faridabad,Faridabad,0,10,4.14,75,0.95,0.11,73,583,2055,5.0,0
+649,Mohit Agarwal,+917184293512,worker649@kaushalkonnect.in,Delhi,Laxmi Nagar,Plumbing,East,East,0,10,4.25,523,0.83,0.08,58,451,1982,2.6,0
+650,Neeraj Mishra,+919302880012,worker650@kaushalkonnect.in,Delhi,Preet Vihar,Plumbing,East,East,1,11,4.06,530,0.97,0.08,31,747,2223,8.1,1
+651,Nisha Menon,+918723600356,worker651@kaushalkonnect.in,Delhi,Rohini,Home Cleaning,North,North,1,8,3.69,131,0.85,0.04,41,408,1597,7.9,1
+652,Anmol Reddy,+916714604773,worker652@kaushalkonnect.in,Delhi,Pitampura,Plumbing,North,North,1,3,4.32,74,0.88,0.09,68,729,1486,3.2,0
+653,Gaurav Das,+917627462412,worker653@kaushalkonnect.in,Delhi,Dwarka,Appliance Repair,West,West,1,9,4.67,153,0.86,0.01,51,1055,3030,10.6,1
+654,Yash Das,+916155809279,worker654@kaushalkonnect.in,Delhi,Janakpuri,Carpentry,West,West,0,9,4.22,648,0.85,0.02,17,724,1106,6.4,1
+655,Vivek Menon,+918296255041,worker655@kaushalkonnect.in,Delhi,Saket,Electrical,South,South,1,2,3.78,396,0.8,0.05,10,769,2905,14.2,0
+656,Siddharth Pandey,+918380902919,worker656@kaushalkonnect.in,Delhi,Malviya Nagar,Home Cleaning,South,South,1,2,4.42,90,0.86,0.08,44,385,1224,13.5,1
+657,Riya Naidu,+919207906168,worker657@kaushalkonnect.in,Delhi,Karol Bagh,Home Cleaning,Central,Central,0,1,4.27,9,0.92,0.02,37,483,1512,13.1,0
+658,Bhavna Kumar,+916718806506,worker658@kaushalkonnect.in,Delhi,Rajouri Garden,Carpentry,West,West,0,5,4.46,51,0.91,0.07,10,502,2365,10.6,0
+659,Neeraj Roy,+917886576797,worker659@kaushalkonnect.in,Noida,Sector 62,Appliance Repair,Noida,Noida,0,5,4.39,90,0.93,0.12,45,1060,2981,4.8,1
+660,Gaurav Joshi,+919646767741,worker660@kaushalkonnect.in,Noida,Sector 18,Home Cleaning,Noida,Noida,0,9,3.74,571,0.93,0.04,50,352,1087,5.8,1
+661,Ravi Bhardwaj,+916711365653,worker661@kaushalkonnect.in,Noida,Sector 50,Home Cleaning,Noida,Noida,1,7,4.48,427,0.99,0.01,129,300,1650,11.9,1
+662,Sachin Srivastava,+918250839300,worker662@kaushalkonnect.in,Noida,Sector 137,Painting,Noida,Noida,1,10,4.69,246,0.89,0.18,59,603,1084,2.1,0
+663,Aarav Malhotra,+917173378889,worker663@kaushalkonnect.in,Greater Noida,Knowledge Park,Painting,Greater Noida,Greater Noida,1,12,3.61,160,0.85,0.13,73,504,948,7.0,1
+664,Vinay Bansal,+916536551527,worker664@kaushalkonnect.in,Greater Noida,Alpha 1,Plumbing,Greater Noida,Greater Noida,1,3,3.68,643,0.81,0.09,71,695,1777,12.8,1
+665,Deepika Chaudhary,+918621699065,worker665@kaushalkonnect.in,Ghaziabad,Indirapuram,Appliance Repair,Ghaziabad,Ghaziabad,1,7,4.01,368,0.75,0.1,137,723,1143,4.1,0
+666,Aarav Rao,+919325739285,worker666@kaushalkonnect.in,Ghaziabad,Vaishali,Plumbing,Ghaziabad,Ghaziabad,1,9,3.28,569,0.99,0.08,81,569,1132,13.1,0
+667,Ananya Sheikh,+918740656224,worker667@kaushalkonnect.in,Ghaziabad,Kaushambi,Plumbing,Ghaziabad,Ghaziabad,1,5,4.67,22,0.95,0.02,72,637,1369,9.0,0
+668,Simran Kumar,+919697655122,worker668@kaushalkonnect.in,Gurugram,Sector 14,Appliance Repair,Gurugram,Gurugram,1,5,4.64,37,0.99,0.08,63,903,3772,2.9,0
+669,Pankaj Rawat,+918215728380,worker669@kaushalkonnect.in,Gurugram,Sector 56,Home Cleaning,Gurugram,Gurugram,0,11,4.0,125,0.78,0.1,82,338,741,2.5,1
+670,Raj Kapoor,+916925985638,worker670@kaushalkonnect.in,Gurugram,DLF Phase 3,Carpentry,Gurugram,Gurugram,1,7,3.92,175,0.78,0.05,106,479,2643,8.9,0
+671,Suman Kumar,+916324384573,worker671@kaushalkonnect.in,Faridabad,Sector 15,Plumbing,Faridabad,Faridabad,1,14,4.38,54,0.79,0.12,67,493,2453,8.9,1
+672,Vikram Menon,+919439650370,worker672@kaushalkonnect.in,Faridabad,Sector 21,Carpentry,Faridabad,Faridabad,0,10,4.41,611,0.86,0.1,55,794,3141,10.6,1
+673,Ravi Das,+916379505287,worker673@kaushalkonnect.in,Delhi,Laxmi Nagar,Appliance Repair,East,East,1,4,4.06,101,0.79,0.15,50,1052,1583,6.9,1
+674,Neha Nair,+917992798052,worker674@kaushalkonnect.in,Delhi,Preet Vihar,Appliance Repair,East,East,1,1,4.03,526,0.85,0.02,54,1099,3734,9.7,0
+675,Aarav Naidu,+918334323541,worker675@kaushalkonnect.in,Delhi,Rohini,Appliance Repair,North,North,1,6,4.96,10,0.83,0.06,20,483,4465,10.7,0
+676,Isha Sheikh,+916823409517,worker676@kaushalkonnect.in,Delhi,Pitampura,Electrical,North,North,1,10,4.13,612,0.91,0.09,18,465,2685,10.3,0
+677,Karan Naidu,+916999708311,worker677@kaushalkonnect.in,Delhi,Dwarka,Plumbing,West,West,1,1,4.34,488,0.97,0.01,10,623,2061,5.0,1
+678,Sakshi Chauhan,+919253775134,worker678@kaushalkonnect.in,Delhi,Janakpuri,Carpentry,West,West,1,6,3.87,301,0.86,0.01,80,594,1199,2.2,1
+679,Riya Agarwal,+919047311093,worker679@kaushalkonnect.in,Delhi,Saket,Plumbing,South,South,1,12,4.12,403,0.93,0.07,40,742,1216,3.8,1
+680,Divya Bhatia,+916595595690,worker680@kaushalkonnect.in,Delhi,Malviya Nagar,Carpentry,South,South,0,9,4.17,28,0.99,0.06,22,522,1649,8.1,1
+681,Pooja Das,+916771628119,worker681@kaushalkonnect.in,Delhi,Karol Bagh,Carpentry,Central,Central,1,8,4.72,494,0.82,0.09,126,705,3987,12.5,1
+682,Gaurav Pandey,+919238299279,worker682@kaushalkonnect.in,Delhi,Rajouri Garden,Painting,West,West,1,3,4.46,428,0.88,0.06,60,548,2425,12.5,1
+683,Aarav Kohli,+919273103895,worker683@kaushalkonnect.in,Noida,Sector 62,Electrical,Noida,Noida,1,13,3.52,494,0.87,0.01,49,529,2596,13.1,1
+684,Riya Kapoor,+916633904889,worker684@kaushalkonnect.in,Noida,Sector 18,Electrical,Noida,Noida,0,4,4.54,172,0.87,0.06,36,578,2960,8.2,1
+685,Nisha Shah,+918370428648,worker685@kaushalkonnect.in,Noida,Sector 50,Appliance Repair,Noida,Noida,1,11,3.75,387,0.92,0.12,32,675,1373,13.7,1
+686,Aditi Thakur,+919615441315,worker686@kaushalkonnect.in,Noida,Sector 137,Appliance Repair,Noida,Noida,0,12,5.0,517,0.97,0.04,76,1030,4899,2.3,0
+687,Neeraj Sood,+919532049265,worker687@kaushalkonnect.in,Greater Noida,Knowledge Park,Painting,Greater Noida,Greater Noida,1,13,4.11,375,0.83,0.08,65,395,1130,2.3,0
+688,Suman Menon,+918750601978,worker688@kaushalkonnect.in,Greater Noida,Alpha 1,Plumbing,Greater Noida,Greater Noida,1,15,4.11,469,0.9,0.12,30,439,2423,13.9,1
+689,Yash Bhatia,+918475539145,worker689@kaushalkonnect.in,Ghaziabad,Indirapuram,Appliance Repair,Ghaziabad,Ghaziabad,0,3,3.52,110,0.84,0.09,10,734,772,2.1,1
+690,Aman Qureshi,+916683226409,worker690@kaushalkonnect.in,Ghaziabad,Vaishali,Plumbing,Ghaziabad,Ghaziabad,1,8,4.42,399,0.86,0.05,33,523,1449,13.4,1
+691,Aditi Ansari,+917344668141,worker691@kaushalkonnect.in,Ghaziabad,Kaushambi,Electrical,Ghaziabad,Ghaziabad,1,6,4.29,152,0.95,0.05,39,538,945,9.8,0
+692,Dev Kumar,+918804300662,worker692@kaushalkonnect.in,Gurugram,Sector 14,Carpentry,Gurugram,Gurugram,1,4,4.39,315,0.81,0.05,48,494,2763,14.7,0
+693,Bhavna Ansari,+919047892164,worker693@kaushalkonnect.in,Gurugram,Sector 56,Carpentry,Gurugram,Gurugram,1,13,4.73,7,0.89,0.03,23,640,809,5.8,1
+694,Gaurav Khan,+916789207455,worker694@kaushalkonnect.in,Gurugram,DLF Phase 3,Plumbing,Gurugram,Gurugram,1,7,4.4,527,0.93,0.03,54,562,2354,8.3,1
+695,Deepika Saxena,+917683333324,worker695@kaushalkonnect.in,Faridabad,Sector 15,Plumbing,Faridabad,Faridabad,0,5,4.17,454,0.96,0.04,87,694,2153,5.0,1
+696,Naman Verma,+916413456064,worker696@kaushalkonnect.in,Faridabad,Sector 21,Painting,Faridabad,Faridabad,0,13,3.54,11,0.91,0.14,25,415,1518,3.9,1
+697,Sanjay Sheikh,+917815259295,worker697@kaushalkonnect.in,Delhi,Laxmi Nagar,Appliance Repair,East,East,1,9,4.59,532,0.93,0.16,112,1066,3285,12.7,1
+698,Ashish Thakur,+919269668060,worker698@kaushalkonnect.in,Delhi,Preet Vihar,Painting,East,East,1,9,3.99,79,0.93,0.06,10,458,2227,13.8,0
+699,Ananya Dutta,+917255336066,worker699@kaushalkonnect.in,Delhi,Rohini,Plumbing,North,North,1,10,3.71,199,0.86,0.06,101,609,2050,4.4,1
+700,Sachin Thakur,+919846450932,worker700@kaushalkonnect.in,Delhi,Pitampura,Home Cleaning,North,North,1,10,4.33,107,0.93,0.09,102,304,512,7.0,0
+701,Aditi Ali,+919041573361,worker701@kaushalkonnect.in,Delhi,Dwarka,Home Cleaning,West,West,0,15,4.57,230,0.95,0.08,18,391,1437,5.9,1
+702,Ayush Kumar,+917337321717,worker702@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,0,5,4.42,350,0.91,0.13,20,1013,1783,6.9,1
+703,Sanjay Yadav,+919621157524,worker703@kaushalkonnect.in,Delhi,Saket,Plumbing,South,South,1,5,3.86,260,0.85,0.17,69,520,655,8.1,0
+704,Rakesh Gupta,+916462937471,worker704@kaushalkonnect.in,Delhi,Malviya Nagar,Carpentry,South,South,1,9,3.97,456,0.96,0.22,25,845,815,14.4,1
+705,Aditi Mehta,+918968699506,worker705@kaushalkonnect.in,Delhi,Karol Bagh,Carpentry,Central,Central,1,3,4.27,231,0.98,0.14,29,533,3344,11.8,0
+706,Shreya Bisht,+917083476935,worker706@kaushalkonnect.in,Delhi,Rajouri Garden,Home Cleaning,West,West,0,9,4.07,445,0.87,0.08,54,512,1759,12.2,1
+707,Neeraj Jain,+918036814836,worker707@kaushalkonnect.in,Noida,Sector 62,Home Cleaning,Noida,Noida,1,11,3.44,596,0.84,0.11,63,497,1585,8.4,1
+708,Vinay Tiwari,+917920116349,worker708@kaushalkonnect.in,Noida,Sector 18,Home Cleaning,Noida,Noida,1,10,4.13,168,0.89,0.07,54,463,709,3.7,0
+709,Nisha Arora,+917771057434,worker709@kaushalkonnect.in,Noida,Sector 50,Home Cleaning,Noida,Noida,1,3,4.45,314,0.79,0.13,22,300,836,2.5,0
+710,Nisha Srivastava,+919470079401,worker710@kaushalkonnect.in,Noida,Sector 137,Home Cleaning,Noida,Noida,1,6,4.09,630,0.99,0.18,60,419,855,14.5,1
+711,Simran Gupta,+919444528242,worker711@kaushalkonnect.in,Greater Noida,Knowledge Park,Home Cleaning,Greater Noida,Greater Noida,1,11,4.21,505,0.78,0.15,47,439,1121,8.6,1
+712,Sachin Patel,+917284022069,worker712@kaushalkonnect.in,Greater Noida,Alpha 1,Carpentry,Greater Noida,Greater Noida,1,7,3.94,647,0.97,0.09,25,768,2022,2.5,1
+713,Siddharth Nair,+917031559137,worker713@kaushalkonnect.in,Ghaziabad,Indirapuram,Carpentry,Ghaziabad,Ghaziabad,1,11,3.94,445,0.87,0.07,59,637,1329,11.4,1
+714,Siddharth Dutta,+916615729909,worker714@kaushalkonnect.in,Ghaziabad,Vaishali,Electrical,Ghaziabad,Ghaziabad,1,9,4.81,310,0.91,0.01,51,591,1728,7.7,0
+715,Vivek Agarwal,+918209520181,worker715@kaushalkonnect.in,Ghaziabad,Kaushambi,Plumbing,Ghaziabad,Ghaziabad,1,5,4.26,398,0.95,0.12,21,643,2290,4.8,1
+716,Yogesh Singh,+916752540957,worker716@kaushalkonnect.in,Gurugram,Sector 14,Plumbing,Gurugram,Gurugram,0,3,4.0,348,0.91,0.12,17,705,1417,11.3,1
+717,Shivam Mishra,+917654005006,worker717@kaushalkonnect.in,Gurugram,Sector 56,Appliance Repair,Gurugram,Gurugram,1,7,4.26,30,0.94,0.07,68,757,956,11.3,0
+718,Ankit Bhardwaj,+916134505006,worker718@kaushalkonnect.in,Gurugram,DLF Phase 3,Home Cleaning,Gurugram,Gurugram,1,10,4.72,224,0.8,0.01,51,542,926,5.1,1
+719,Manish Shah,+918918597250,worker719@kaushalkonnect.in,Faridabad,Sector 15,Appliance Repair,Faridabad,Faridabad,1,2,3.85,429,0.99,0.01,12,807,2399,3.5,1
+720,Vinay Tripathi,+917949196401,worker720@kaushalkonnect.in,Faridabad,Sector 21,Plumbing,Faridabad,Faridabad,0,8,4.42,373,0.97,0.12,29,603,1567,9.6,0
+721,Sachin Singh,+919023171575,worker721@kaushalkonnect.in,Delhi,Laxmi Nagar,Home Cleaning,East,East,0,12,4.54,204,0.94,0.05,41,474,525,9.2,1
+722,Sonu Menon,+916726924517,worker722@kaushalkonnect.in,Delhi,Preet Vihar,Painting,East,East,1,7,3.66,600,0.99,0.03,45,390,1705,11.8,0
+723,Ashish Gupta,+919703041855,worker723@kaushalkonnect.in,Delhi,Rohini,Carpentry,North,North,1,6,4.15,275,0.8,0.09,73,704,3912,1.8,0
+724,Ankit Rawat,+918379057645,worker724@kaushalkonnect.in,Delhi,Pitampura,Plumbing,North,North,0,11,3.96,247,0.98,0.11,20,669,959,5.1,0
+725,Arjun Reddy,+919889826728,worker725@kaushalkonnect.in,Delhi,Dwarka,Painting,West,West,1,4,4.48,301,0.89,0.06,40,606,1681,4.6,1
+726,Deepika Bhatia,+917778484121,worker726@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,1,16,3.79,276,0.79,0.04,38,609,2112,2.6,1
+727,Ravi Joshi,+919234477908,worker727@kaushalkonnect.in,Delhi,Saket,Electrical,South,South,0,5,3.83,630,0.99,0.12,53,487,667,4.8,0
+728,Neeraj Patel,+918092794706,worker728@kaushalkonnect.in,Delhi,Malviya Nagar,Carpentry,South,South,0,10,4.55,429,0.95,0.14,43,498,1512,1.0,0
+729,Karan Kumar,+918353851877,worker729@kaushalkonnect.in,Delhi,Karol Bagh,Appliance Repair,Central,Central,0,13,3.78,154,0.91,0.07,52,707,3376,14.7,1
+730,Karan Joshi,+916518271903,worker730@kaushalkonnect.in,Delhi,Rajouri Garden,Appliance Repair,West,West,1,3,4.47,647,0.86,0.01,44,1010,3767,4.7,1
+731,Nikhil Patel,+919427405654,worker731@kaushalkonnect.in,Noida,Sector 62,Painting,Noida,Noida,1,8,3.86,558,0.85,0.02,67,564,3112,4.2,1
+732,Shivam Kapoor,+918249947429,worker732@kaushalkonnect.in,Noida,Sector 18,Appliance Repair,Noida,Noida,1,14,4.27,114,0.84,0.01,68,529,2981,13.2,1
+733,Priya Naidu,+918422519196,worker733@kaushalkonnect.in,Noida,Sector 50,Appliance Repair,Noida,Noida,1,6,3.29,94,0.98,0.12,61,611,2628,5.2,0
+734,Yash Kohli,+916906344987,worker734@kaushalkonnect.in,Noida,Sector 137,Appliance Repair,Noida,Noida,1,3,4.66,233,0.79,0.09,48,765,3966,13.6,0
+735,Ankit Gupta,+919021523728,worker735@kaushalkonnect.in,Greater Noida,Knowledge Park,Plumbing,Greater Noida,Greater Noida,0,8,4.39,442,0.79,0.06,81,479,2027,9.6,1
+736,Isha Bisht,+916602822941,worker736@kaushalkonnect.in,Greater Noida,Alpha 1,Electrical,Greater Noida,Greater Noida,0,10,4.23,165,0.99,0.04,37,743,866,3.1,1
+737,Raj Chauhan,+918201448098,worker737@kaushalkonnect.in,Ghaziabad,Indirapuram,Carpentry,Ghaziabad,Ghaziabad,1,9,4.61,623,0.88,0.03,79,583,3071,3.2,1
+738,Vikas Sood,+916845633375,worker738@kaushalkonnect.in,Ghaziabad,Vaishali,Plumbing,Ghaziabad,Ghaziabad,1,10,4.2,495,0.81,0.07,82,650,1258,11.6,0
+739,Sanjay Saini,+916609231841,worker739@kaushalkonnect.in,Ghaziabad,Kaushambi,Electrical,Ghaziabad,Ghaziabad,1,7,3.51,228,0.79,0.09,79,484,2578,1.9,0
+740,Meera Thakur,+919757684906,worker740@kaushalkonnect.in,Gurugram,Sector 14,Plumbing,Gurugram,Gurugram,0,14,4.48,297,0.99,0.21,54,471,2382,4.7,1
+741,Divya Chauhan,+916718881541,worker741@kaushalkonnect.in,Gurugram,Sector 56,Appliance Repair,Gurugram,Gurugram,1,7,4.07,393,0.86,0.16,42,1028,4448,3.7,0
+742,Aarav Verma,+917401332184,worker742@kaushalkonnect.in,Gurugram,DLF Phase 3,Painting,Gurugram,Gurugram,1,11,5.0,293,0.97,0.03,66,634,1974,4.1,0
+743,Yash Gupta,+917860986431,worker743@kaushalkonnect.in,Faridabad,Sector 15,Plumbing,Faridabad,Faridabad,1,4,4.08,391,0.89,0.01,82,734,1250,5.0,1
+744,Neeraj Nair,+918661076118,worker744@kaushalkonnect.in,Faridabad,Sector 21,Plumbing,Faridabad,Faridabad,1,10,4.0,472,0.98,0.07,22,719,803,7.3,0
+745,Neha Tripathi,+917672454680,worker745@kaushalkonnect.in,Delhi,Laxmi Nagar,Painting,East,East,0,8,4.69,307,0.81,0.01,68,520,2960,10.5,1
+746,Naman Kumar,+916087939258,worker746@kaushalkonnect.in,Delhi,Preet Vihar,Painting,East,East,0,13,3.96,473,0.92,0.1,33,350,2323,10.2,1
+747,Pankaj Sheikh,+919216925412,worker747@kaushalkonnect.in,Delhi,Rohini,Painting,North,North,1,7,4.08,546,0.93,0.05,62,551,2190,5.2,1
+748,Sanjay Singh,+918671257798,worker748@kaushalkonnect.in,Delhi,Pitampura,Plumbing,North,North,1,11,4.88,82,0.78,0.03,34,588,2011,3.4,1
+749,Vikram Bhardwaj,+919872803183,worker749@kaushalkonnect.in,Delhi,Dwarka,Plumbing,West,West,1,14,3.82,613,0.83,0.04,45,646,1616,1.2,0
+750,Ananya Mehta,+916444040298,worker750@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,1,8,4.03,450,0.94,0.17,10,932,1542,5.9,1
+751,Arnav Bisht,+919322273640,worker751@kaushalkonnect.in,Delhi,Saket,Electrical,South,South,0,8,4.98,328,0.84,0.01,10,563,1701,13.2,1
+752,Ayush Ali,+919200280083,worker752@kaushalkonnect.in,Delhi,Malviya Nagar,Carpentry,South,South,1,1,4.33,349,0.89,0.05,10,456,1383,9.2,0
+753,Rakesh Chauhan,+918986132168,worker753@kaushalkonnect.in,Delhi,Karol Bagh,Painting,Central,Central,0,11,4.48,296,0.86,0.08,13,392,3869,11.6,1
+754,Ayush Negi,+918387611291,worker754@kaushalkonnect.in,Delhi,Rajouri Garden,Painting,West,West,1,15,4.19,133,0.81,0.15,107,530,1501,8.2,1
+755,Priya Rawat,+917111268198,worker755@kaushalkonnect.in,Noida,Sector 62,Home Cleaning,Noida,Noida,1,3,3.84,500,0.8,0.14,18,388,1620,13.6,0
+756,Akash Mehta,+916090238969,worker756@kaushalkonnect.in,Noida,Sector 18,Electrical,Noida,Noida,1,3,3.72,25,0.95,0.11,53,446,1430,9.5,1
+757,Siddharth Khanna,+919381750394,worker757@kaushalkonnect.in,Noida,Sector 50,Home Cleaning,Noida,Noida,0,10,4.5,646,0.84,0.03,42,443,1262,11.6,1
+758,Vivek Patel,+916245170652,worker758@kaushalkonnect.in,Noida,Sector 137,Electrical,Noida,Noida,0,16,4.03,218,0.94,0.07,62,588,2009,2.9,1
+759,Neha Sood,+918378177234,worker759@kaushalkonnect.in,Greater Noida,Knowledge Park,Home Cleaning,Greater Noida,Greater Noida,1,9,4.35,407,0.88,0.05,28,365,673,9.2,0
+760,Karan Tiwari,+919943766676,worker760@kaushalkonnect.in,Greater Noida,Alpha 1,Electrical,Greater Noida,Greater Noida,1,8,4.51,408,0.84,0.14,28,627,638,0.9,0
+761,Deepika Pandey,+919657149570,worker761@kaushalkonnect.in,Ghaziabad,Indirapuram,Plumbing,Ghaziabad,Ghaziabad,1,6,4.28,314,0.89,0.05,72,722,2134,10.2,1
+762,Yash Chauhan,+916283514377,worker762@kaushalkonnect.in,Ghaziabad,Vaishali,Electrical,Ghaziabad,Ghaziabad,0,11,4.53,20,0.9,0.01,77,660,2578,7.4,1
+763,Sunil Khan,+917815526202,worker763@kaushalkonnect.in,Ghaziabad,Kaushambi,Electrical,Ghaziabad,Ghaziabad,1,12,4.13,72,0.95,0.14,63,622,2665,4.5,0
+764,Pankaj Ansari,+917370369592,worker764@kaushalkonnect.in,Gurugram,Sector 14,Painting,Gurugram,Gurugram,0,8,4.37,271,0.87,0.15,44,471,2200,2.0,1
+765,Ankit Rana,+918562126176,worker765@kaushalkonnect.in,Gurugram,Sector 56,Home Cleaning,Gurugram,Gurugram,0,6,3.76,626,0.76,0.11,74,486,1344,8.3,0
+766,Dev Malhotra,+919198195774,worker766@kaushalkonnect.in,Gurugram,DLF Phase 3,Appliance Repair,Gurugram,Gurugram,1,11,4.36,561,0.97,0.08,60,894,2800,10.9,1
+767,Yogesh Sood,+918329841475,worker767@kaushalkonnect.in,Faridabad,Sector 15,Appliance Repair,Faridabad,Faridabad,1,14,4.12,237,0.84,0.03,38,616,2323,6.5,1
+768,Yogesh Saini,+919604773118,worker768@kaushalkonnect.in,Faridabad,Sector 21,Home Cleaning,Faridabad,Faridabad,0,14,3.58,646,0.86,0.07,73,540,1668,2.6,1
+769,Sameer Qureshi,+916589866753,worker769@kaushalkonnect.in,Delhi,Laxmi Nagar,Painting,East,East,0,9,4.28,276,0.98,0.06,58,628,1100,7.2,1
+770,Amit Sood,+917015176247,worker770@kaushalkonnect.in,Delhi,Preet Vihar,Painting,East,East,1,4,4.39,129,0.94,0.11,24,509,1936,12.3,1
+771,Shivam Negi,+916786996266,worker771@kaushalkonnect.in,Delhi,Rohini,Painting,North,North,1,11,4.76,385,0.78,0.07,66,572,2958,15.0,1
+772,Anmol Qureshi,+917927798459,worker772@kaushalkonnect.in,Delhi,Pitampura,Appliance Repair,North,North,1,4,3.92,395,0.84,0.01,83,1049,1721,10.1,1
+773,Priya Dutta,+917774900726,worker773@kaushalkonnect.in,Delhi,Dwarka,Home Cleaning,West,West,1,13,3.98,68,0.96,0.17,69,312,1007,11.8,0
+774,Sakshi Singh,+916317405303,worker774@kaushalkonnect.in,Delhi,Janakpuri,Electrical,West,West,1,1,3.78,370,0.98,0.13,10,637,2957,14.5,1
+775,Kavita Verma,+916424801640,worker775@kaushalkonnect.in,Delhi,Saket,Plumbing,South,South,1,9,5.0,335,0.85,0.07,76,481,2004,3.3,0
+776,Kunal Saxena,+919156264775,worker776@kaushalkonnect.in,Delhi,Malviya Nagar,Painting,South,South,1,3,4.17,159,0.81,0.06,43,452,2567,7.9,0
+777,Ayush Rana,+916386832417,worker777@kaushalkonnect.in,Delhi,Karol Bagh,Appliance Repair,Central,Central,1,3,4.46,173,0.87,0.04,10,999,2772,13.7,0
+778,Vikram Reddy,+916701793682,worker778@kaushalkonnect.in,Delhi,Rajouri Garden,Appliance Repair,West,West,1,3,4.2,261,0.88,0.15,84,839,4452,7.7,1
+779,Sonu Bhardwaj,+916434102869,worker779@kaushalkonnect.in,Noida,Sector 62,Plumbing,Noida,Noida,1,10,4.21,301,0.99,0.11,53,557,885,7.4,0
+780,Siddharth Khan,+918009697051,worker780@kaushalkonnect.in,Noida,Sector 18,Carpentry,Noida,Noida,1,8,3.82,358,0.89,0.09,33,612,4190,9.6,0
+781,Suraj Thakur,+918753853241,worker781@kaushalkonnect.in,Noida,Sector 50,Carpentry,Noida,Noida,1,6,3.65,521,0.95,0.01,32,628,3252,2.5,0
+782,Vivek Saini,+916537192692,worker782@kaushalkonnect.in,Noida,Sector 137,Plumbing,Noida,Noida,1,9,3.79,51,0.99,0.07,93,511,2360,10.8,1
+783,Pankaj Patel,+918198237912,worker783@kaushalkonnect.in,Greater Noida,Knowledge Park,Home Cleaning,Greater Noida,Greater Noida,0,10,3.57,558,0.88,0.08,15,417,960,2.4,0
+784,Divya Shah,+919233044055,worker784@kaushalkonnect.in,Greater Noida,Alpha 1,Plumbing,Greater Noida,Greater Noida,1,11,4.43,322,0.88,0.08,37,582,689,14.5,1
+785,Manish Khan,+919699270580,worker785@kaushalkonnect.in,Ghaziabad,Indirapuram,Carpentry,Ghaziabad,Ghaziabad,1,3,4.61,236,0.89,0.15,59,803,3170,10.5,0
+786,Sanjay Iyer,+918314494026,worker786@kaushalkonnect.in,Ghaziabad,Vaishali,Carpentry,Ghaziabad,Ghaziabad,1,9,4.87,585,0.83,0.19,72,496,2959,12.2,1
+787,Isha Bhardwaj,+919487826448,worker787@kaushalkonnect.in,Ghaziabad,Kaushambi,Home Cleaning,Ghaziabad,Ghaziabad,1,1,4.45,351,0.99,0.01,10,445,901,9.5,1
+788,Suman Bansal,+916450189414,worker788@kaushalkonnect.in,Gurugram,Sector 14,Carpentry,Gurugram,Gurugram,1,7,4.4,384,0.86,0.01,29,830,2116,15.0,1
+789,Sanjay Agarwal,+916608584922,worker789@kaushalkonnect.in,Gurugram,Sector 56,Appliance Repair,Gurugram,Gurugram,1,13,4.11,239,0.85,0.11,117,832,1682,13.1,0
+790,Anjali Kohli,+918540233355,worker790@kaushalkonnect.in,Gurugram,DLF Phase 3,Painting,Gurugram,Gurugram,1,4,4.33,414,0.99,0.03,72,642,1110,1.5,1
+791,Mohit Bansal,+916362971360,worker791@kaushalkonnect.in,Faridabad,Sector 15,Carpentry,Faridabad,Faridabad,1,11,3.34,627,0.99,0.08,80,676,1300,5.7,1
+792,Yogesh Mehta,+916099804458,worker792@kaushalkonnect.in,Faridabad,Sector 21,Home Cleaning,Faridabad,Faridabad,1,9,3.98,243,0.92,0.14,29,457,1278,1.9,1
+793,Sonu Sharma,+917428685728,worker793@kaushalkonnect.in,Delhi,Laxmi Nagar,Painting,East,East,0,7,4.38,360,0.97,0.11,31,519,2244,13.9,0
+794,Arnav Tripathi,+918639695875,worker794@kaushalkonnect.in,Delhi,Preet Vihar,Appliance Repair,East,East,0,13,4.46,637,0.86,0.1,45,511,2953,0.7,0
+795,Isha Agarwal,+917765219926,worker795@kaushalkonnect.in,Delhi,Rohini,Painting,North,North,0,14,4.05,586,0.91,0.07,45,592,2591,4.9,1
+796,Neha Yadav,+917469546468,worker796@kaushalkonnect.in,Delhi,Pitampura,Carpentry,North,North,1,7,3.84,594,0.99,0.14,49,557,1866,6.3,0
+797,Aman Chaudhary,+917421530915,worker797@kaushalkonnect.in,Delhi,Dwarka,Electrical,West,West,1,5,4.13,580,0.89,0.03,84,428,1599,15.0,0
+798,Aditi Chauhan,+917308316794,worker798@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,1,5,3.85,539,0.95,0.09,56,655,1192,15.0,1
+799,Neeraj Gupta,+916971513790,worker799@kaushalkonnect.in,Delhi,Saket,Plumbing,South,South,0,9,4.77,126,0.87,0.03,43,578,2240,3.4,1
+800,Suman Sharma,+916290264769,worker800@kaushalkonnect.in,Delhi,Malviya Nagar,Carpentry,South,South,1,12,4.16,421,0.82,0.09,140,561,1184,9.8,1
+801,Sunil Bisht,+918505767430,worker801@kaushalkonnect.in,Delhi,Karol Bagh,Appliance Repair,Central,Central,1,5,4.02,53,0.83,0.02,82,600,1266,3.0,1
+802,Neha Sheikh,+917118604325,worker802@kaushalkonnect.in,Delhi,Rajouri Garden,Electrical,West,West,1,1,4.14,164,0.74,0.11,10,692,2182,12.9,1
+803,Arjun Chauhan,+916976901825,worker803@kaushalkonnect.in,Noida,Sector 62,Painting,Noida,Noida,1,13,4.05,106,0.91,0.11,43,406,2485,9.3,1
+804,Siddharth Ansari,+918965300974,worker804@kaushalkonnect.in,Noida,Sector 18,Painting,Noida,Noida,0,9,4.78,133,0.9,0.05,113,422,2957,1.8,1
+805,Anmol Yadav,+917698529067,worker805@kaushalkonnect.in,Noida,Sector 50,Painting,Noida,Noida,1,5,4.66,488,0.99,0.12,43,512,3884,3.7,0
+806,Siddharth Bhatia,+918586567825,worker806@kaushalkonnect.in,Noida,Sector 137,Painting,Noida,Noida,1,13,3.88,188,0.95,0.05,31,447,1264,8.2,1
+807,Ravi Patel,+917675441984,worker807@kaushalkonnect.in,Greater Noida,Knowledge Park,Home Cleaning,Greater Noida,Greater Noida,1,10,3.93,223,0.96,0.09,77,522,1564,5.6,1
+808,Isha Khan,+917611053102,worker808@kaushalkonnect.in,Greater Noida,Alpha 1,Painting,Greater Noida,Greater Noida,1,9,4.26,502,0.89,0.06,35,497,3637,8.2,1
+809,Rahul Thakur,+918146762061,worker809@kaushalkonnect.in,Ghaziabad,Indirapuram,Painting,Ghaziabad,Ghaziabad,1,9,4.61,413,0.92,0.11,74,433,3654,5.9,1
+810,Anmol Kohli,+919049029926,worker810@kaushalkonnect.in,Ghaziabad,Vaishali,Carpentry,Ghaziabad,Ghaziabad,1,9,4.59,340,0.83,0.09,58,886,1956,1.4,1
+811,Bhavna Ali,+919106438882,worker811@kaushalkonnect.in,Ghaziabad,Kaushambi,Appliance Repair,Ghaziabad,Ghaziabad,1,18,4.67,296,0.89,0.11,93,1053,1316,1.3,1
+812,Siddharth Kohli,+918025990417,worker812@kaushalkonnect.in,Gurugram,Sector 14,Carpentry,Gurugram,Gurugram,0,2,3.0,523,0.86,0.08,82,622,3149,4.0,1
+813,Ankit Roy,+917558516145,worker813@kaushalkonnect.in,Gurugram,Sector 56,Appliance Repair,Gurugram,Gurugram,1,16,4.41,309,0.83,0.07,126,1085,4717,1.1,1
+814,Kavita Joshi,+917192129635,worker814@kaushalkonnect.in,Gurugram,DLF Phase 3,Painting,Gurugram,Gurugram,0,4,4.02,397,0.95,0.09,10,449,3882,14.2,0
+815,Karan Tripathi,+916774204941,worker815@kaushalkonnect.in,Faridabad,Sector 15,Carpentry,Faridabad,Faridabad,1,7,4.03,224,0.81,0.02,64,736,2203,11.9,1
+816,Yogesh Pandey,+916389763568,worker816@kaushalkonnect.in,Faridabad,Sector 21,Appliance Repair,Faridabad,Faridabad,1,12,4.46,445,0.75,0.15,26,673,3666,14.4,1
+817,Pankaj Sood,+917734424142,worker817@kaushalkonnect.in,Delhi,Laxmi Nagar,Home Cleaning,East,East,1,11,4.23,5,0.91,0.1,40,529,1111,1.4,0
+818,Simran Joshi,+917853190997,worker818@kaushalkonnect.in,Delhi,Preet Vihar,Carpentry,East,East,1,6,3.87,600,0.91,0.13,28,855,3231,9.5,1
+819,Aditi Kapoor,+919716377216,worker819@kaushalkonnect.in,Delhi,Rohini,Home Cleaning,North,North,1,11,3.52,455,0.99,0.09,108,511,1201,2.0,0
+820,Deepika Jain,+916173019539,worker820@kaushalkonnect.in,Delhi,Pitampura,Electrical,North,North,1,2,3.98,155,0.87,0.18,37,518,1915,11.2,1
+821,Neeraj Yadav,+919079581750,worker821@kaushalkonnect.in,Delhi,Dwarka,Plumbing,West,West,1,9,3.69,481,0.95,0.06,76,459,1145,1.5,1
+822,Amit Roy,+916724047552,worker822@kaushalkonnect.in,Delhi,Janakpuri,Electrical,West,West,0,11,4.17,463,0.73,0.08,66,748,1224,1.0,1
+823,Sonu Tripathi,+916466469269,worker823@kaushalkonnect.in,Delhi,Saket,Electrical,South,South,1,7,4.28,317,0.79,0.08,10,755,853,11.9,1
+824,Sameer Sharma,+918133144631,worker824@kaushalkonnect.in,Delhi,Malviya Nagar,Appliance Repair,South,South,1,12,4.54,185,0.84,0.06,47,652,3428,4.7,0
+825,Arjun Kumar,+918936209872,worker825@kaushalkonnect.in,Delhi,Karol Bagh,Home Cleaning,Central,Central,1,1,4.13,24,0.96,0.15,37,307,1259,4.2,1
+826,Kavita Menon,+919965747496,worker826@kaushalkonnect.in,Delhi,Rajouri Garden,Appliance Repair,West,West,1,12,5.0,282,0.82,0.1,28,863,2915,10.2,1
+827,Aman Das,+919384079946,worker827@kaushalkonnect.in,Noida,Sector 62,Carpentry,Noida,Noida,1,7,4.13,381,0.87,0.14,100,642,2143,12.3,1
+828,Vivek Srivastava,+916499579668,worker828@kaushalkonnect.in,Noida,Sector 18,Painting,Noida,Noida,1,3,4.59,97,0.85,0.06,82,537,2952,8.6,1
+829,Amit Naidu,+918505207050,worker829@kaushalkonnect.in,Noida,Sector 50,Electrical,Noida,Noida,1,14,4.38,365,0.93,0.09,60,697,2393,2.5,1
+830,Vinay Gupta,+918710744000,worker830@kaushalkonnect.in,Noida,Sector 137,Electrical,Noida,Noida,0,7,4.04,375,0.84,0.11,32,533,2963,13.2,1
+831,Mohit Saini,+919081717974,worker831@kaushalkonnect.in,Greater Noida,Knowledge Park,Carpentry,Greater Noida,Greater Noida,1,1,3.47,311,0.85,0.06,81,724,2995,0.8,1
+832,Naman Arora,+919606213650,worker832@kaushalkonnect.in,Greater Noida,Alpha 1,Painting,Greater Noida,Greater Noida,1,8,3.9,611,0.86,0.18,55,437,1618,2.1,1
+833,Raj Malhotra,+916896429168,worker833@kaushalkonnect.in,Ghaziabad,Indirapuram,Carpentry,Ghaziabad,Ghaziabad,0,11,4.04,379,0.95,0.01,52,699,4280,13.9,1
+834,Siddharth Srivastava,+917792462617,worker834@kaushalkonnect.in,Ghaziabad,Vaishali,Painting,Ghaziabad,Ghaziabad,1,9,4.41,443,0.93,0.15,28,466,2480,7.5,0
+835,Kunal Nair,+916793592397,worker835@kaushalkonnect.in,Ghaziabad,Kaushambi,Painting,Ghaziabad,Ghaziabad,1,9,3.52,399,0.77,0.05,49,369,1783,11.5,0
+836,Gaurav Gupta,+916015028738,worker836@kaushalkonnect.in,Gurugram,Sector 14,Electrical,Gurugram,Gurugram,1,9,3.91,525,0.87,0.01,35,597,883,7.3,1
+837,Vikas Mehta,+918994180656,worker837@kaushalkonnect.in,Gurugram,Sector 56,Home Cleaning,Gurugram,Gurugram,1,12,4.14,345,0.91,0.08,98,361,1527,11.7,1
+838,Sanjay Das,+917450490590,worker838@kaushalkonnect.in,Gurugram,DLF Phase 3,Appliance Repair,Gurugram,Gurugram,1,5,4.26,531,0.93,0.09,41,625,786,5.1,0
+839,Isha Tripathi,+919154911156,worker839@kaushalkonnect.in,Faridabad,Sector 15,Appliance Repair,Faridabad,Faridabad,1,15,4.28,180,0.96,0.01,52,612,1125,11.3,1
+840,Suraj Ali,+916861879118,worker840@kaushalkonnect.in,Faridabad,Sector 21,Home Cleaning,Faridabad,Faridabad,1,14,4.55,616,0.95,0.05,104,428,971,14.7,0
+841,Divya Ghosh,+919712736189,worker841@kaushalkonnect.in,Delhi,Laxmi Nagar,Carpentry,East,East,1,13,4.21,22,0.91,0.04,10,840,1413,1.7,1
+842,Suraj Shah,+917495144263,worker842@kaushalkonnect.in,Delhi,Preet Vihar,Carpentry,East,East,0,12,4.72,207,0.9,0.02,52,463,1573,7.3,0
+843,Dev Rawat,+919054755133,worker843@kaushalkonnect.in,Delhi,Rohini,Electrical,North,North,1,9,4.83,647,0.86,0.01,103,636,897,12.4,0
+844,Dev Agarwal,+917857653318,worker844@kaushalkonnect.in,Delhi,Pitampura,Carpentry,North,North,1,12,4.56,213,0.91,0.12,107,666,2185,3.6,0
+845,Aman Ghosh,+918965555478,worker845@kaushalkonnect.in,Delhi,Dwarka,Home Cleaning,West,West,1,10,4.74,314,0.88,0.04,54,505,638,2.9,1
+846,Shivam Sood,+919814352125,worker846@kaushalkonnect.in,Delhi,Janakpuri,Electrical,West,West,1,10,4.28,70,0.83,0.13,45,671,1718,14.0,1
+847,Sameer Rana,+918073197329,worker847@kaushalkonnect.in,Delhi,Saket,Carpentry,South,South,0,5,3.65,207,0.83,0.02,56,629,1048,5.4,0
+848,Vikas Ali,+918349319725,worker848@kaushalkonnect.in,Delhi,Malviya Nagar,Plumbing,South,South,1,6,3.62,551,0.83,0.06,42,558,1055,10.6,1
+849,Vikram Chauhan,+916396585636,worker849@kaushalkonnect.in,Delhi,Karol Bagh,Plumbing,Central,Central,1,10,3.5,356,0.74,0.01,65,482,1845,7.0,1
+850,Rohit Saini,+918280939365,worker850@kaushalkonnect.in,Delhi,Rajouri Garden,Electrical,West,West,1,11,3.8,76,0.9,0.03,10,603,1381,1.9,1
+851,Vinay Rawat,+916918434168,worker851@kaushalkonnect.in,Noida,Sector 62,Plumbing,Noida,Noida,1,11,4.39,350,0.95,0.07,50,516,1488,15.0,0
+852,Rahul Bansal,+918800868730,worker852@kaushalkonnect.in,Noida,Sector 18,Home Cleaning,Noida,Noida,1,9,4.21,355,0.79,0.06,51,473,1476,10.0,0
+853,Ankit Khanna,+918760117122,worker853@kaushalkonnect.in,Noida,Sector 50,Electrical,Noida,Noida,1,16,4.13,463,0.85,0.12,68,796,2453,13.6,1
+854,Deepika Kumar,+917915891560,worker854@kaushalkonnect.in,Noida,Sector 137,Painting,Noida,Noida,1,3,4.09,417,0.85,0.08,121,570,4000,3.6,1
+855,Kavita Kohli,+916062993855,worker855@kaushalkonnect.in,Greater Noida,Knowledge Park,Electrical,Greater Noida,Greater Noida,1,11,4.34,37,0.84,0.08,129,567,1073,10.0,1
+856,Nikhil Das,+917103554910,worker856@kaushalkonnect.in,Greater Noida,Alpha 1,Appliance Repair,Greater Noida,Greater Noida,1,5,4.42,65,0.92,0.14,89,670,1131,1.2,1
+857,Ananya Thakur,+917317850655,worker857@kaushalkonnect.in,Ghaziabad,Indirapuram,Home Cleaning,Ghaziabad,Ghaziabad,1,13,4.22,15,0.85,0.07,85,441,1151,6.9,0
+858,Rahul Khan,+918890255285,worker858@kaushalkonnect.in,Ghaziabad,Vaishali,Carpentry,Ghaziabad,Ghaziabad,1,13,3.84,307,0.99,0.02,15,886,1316,8.5,0
+859,Pradeep Arora,+918822073017,worker859@kaushalkonnect.in,Ghaziabad,Kaushambi,Plumbing,Ghaziabad,Ghaziabad,0,11,3.7,434,0.9,0.08,24,613,1484,12.5,1
+860,Sameer Srivastava,+917044388694,worker860@kaushalkonnect.in,Gurugram,Sector 14,Home Cleaning,Gurugram,Gurugram,1,11,3.97,141,0.79,0.19,91,311,1248,3.0,1
+861,Deepak Sheikh,+917975425397,worker861@kaushalkonnect.in,Gurugram,Sector 56,Plumbing,Gurugram,Gurugram,1,12,3.87,39,0.97,0.15,44,645,2160,12.4,0
+862,Mohit Joshi,+919187328074,worker862@kaushalkonnect.in,Gurugram,DLF Phase 3,Plumbing,Gurugram,Gurugram,1,14,4.06,207,0.83,0.1,48,483,1005,6.7,0
+863,Yogesh Khanna,+916964544093,worker863@kaushalkonnect.in,Faridabad,Sector 15,Appliance Repair,Faridabad,Faridabad,1,10,3.72,400,0.86,0.11,83,1062,4601,3.7,1
+864,Ankit Arora,+919057303884,worker864@kaushalkonnect.in,Faridabad,Sector 21,Appliance Repair,Faridabad,Faridabad,0,4,4.35,449,0.94,0.05,12,761,4419,11.3,1
+865,Sachin Das,+916481857537,worker865@kaushalkonnect.in,Delhi,Laxmi Nagar,Appliance Repair,East,East,0,10,3.97,243,0.96,0.1,26,1080,3621,13.7,1
+866,Mohit Patel,+917518470071,worker866@kaushalkonnect.in,Delhi,Preet Vihar,Painting,East,East,1,7,4.34,346,0.95,0.06,59,603,1223,6.9,1
+867,Arjun Naidu,+917944699872,worker867@kaushalkonnect.in,Delhi,Rohini,Carpentry,North,North,0,16,3.85,590,0.91,0.11,61,832,1001,13.7,1
+868,Sakshi Ghosh,+918652543011,worker868@kaushalkonnect.in,Delhi,Pitampura,Plumbing,North,North,1,3,4.06,326,0.95,0.07,30,673,1914,8.2,1
+869,Suraj Chaudhary,+916783493583,worker869@kaushalkonnect.in,Delhi,Dwarka,Electrical,West,West,1,9,3.67,641,0.92,0.1,62,719,1278,8.9,1
+870,Gaurav Roy,+918058234136,worker870@kaushalkonnect.in,Delhi,Janakpuri,Plumbing,West,West,1,14,4.04,449,0.81,0.02,15,696,2360,11.0,1
+871,Karan Bansal,+918276843449,worker871@kaushalkonnect.in,Delhi,Saket,Plumbing,South,South,1,7,4.4,253,0.9,0.04,17,662,1647,9.0,1
+872,Sunil Das,+918581282654,worker872@kaushalkonnect.in,Delhi,Malviya Nagar,Carpentry,South,South,1,8,3.8,386,0.93,0.14,73,635,3941,11.8,1
+873,Sachin Sharma,+918151293917,worker873@kaushalkonnect.in,Delhi,Karol Bagh,Carpentry,Central,Central,1,9,4.03,338,0.99,0.08,24,877,2746,3.1,1
+874,Amit Bansal,+916108177428,worker874@kaushalkonnect.in,Delhi,Rajouri Garden,Appliance Repair,West,West,1,11,3.44,246,0.78,0.08,102,871,3676,10.6,0
+875,Sakshi Bisht,+919635281553,worker875@kaushalkonnect.in,Noida,Sector 62,Plumbing,Noida,Noida,1,4,3.86,629,0.92,0.06,46,475,1186,1.5,0
+876,Dev Dutta,+919762353679,worker876@kaushalkonnect.in,Noida,Sector 18,Appliance Repair,Noida,Noida,1,14,4.55,282,0.79,0.12,10,1071,1451,4.0,1
+877,Shreya Shah,+918915802032,worker877@kaushalkonnect.in,Noida,Sector 50,Painting,Noida,Noida,1,6,3.95,643,0.96,0.01,65,470,1397,12.8,1
+878,Riya Rao,+916412395183,worker878@kaushalkonnect.in,Noida,Sector 137,Electrical,Noida,Noida,1,13,3.65,123,0.84,0.05,23,501,2199,10.1,1
+879,Sachin Joshi,+918891512559,worker879@kaushalkonnect.in,Greater Noida,Knowledge Park,Electrical,Greater Noida,Greater Noida,1,8,4.79,140,0.99,0.09,29,583,970,1.6,1
+880,Raj Singh,+919692593000,worker880@kaushalkonnect.in,Greater Noida,Alpha 1,Home Cleaning,Greater Noida,Greater Noida,1,1,3.56,373,0.92,0.08,104,306,520,7.4,0
+881,Isha Bhatia,+919572341533,worker881@kaushalkonnect.in,Ghaziabad,Indirapuram,Home Cleaning,Ghaziabad,Ghaziabad,1,1,5.0,7,0.89,0.03,52,372,830,11.2,1
+882,Deepika Yadav,+918788300524,worker882@kaushalkonnect.in,Ghaziabad,Vaishali,Home Cleaning,Ghaziabad,Ghaziabad,1,10,4.25,348,0.9,0.09,118,343,960,8.6,0
+883,Rahul Kapoor,+918868196445,worker883@kaushalkonnect.in,Ghaziabad,Kaushambi,Painting,Ghaziabad,Ghaziabad,1,2,3.87,25,0.82,0.08,75,638,2028,3.4,0
+884,Rohit Patel,+917375375763,worker884@kaushalkonnect.in,Gurugram,Sector 14,Appliance Repair,Gurugram,Gurugram,1,10,3.84,504,0.98,0.03,29,910,2065,10.6,1
+885,Pankaj Bisht,+917748804053,worker885@kaushalkonnect.in,Gurugram,Sector 56,Appliance Repair,Gurugram,Gurugram,1,14,4.24,307,0.97,0.06,81,753,3618,7.3,1
+886,Akash Nair,+919433763831,worker886@kaushalkonnect.in,Gurugram,DLF Phase 3,Appliance Repair,Gurugram,Gurugram,1,12,4.21,151,0.97,0.02,85,655,1543,2.9,0
+887,Divya Patel,+917770760108,worker887@kaushalkonnect.in,Faridabad,Sector 15,Electrical,Faridabad,Faridabad,1,5,3.92,80,0.93,0.13,68,748,1282,0.7,0
+888,Kunal Mehta,+918152778974,worker888@kaushalkonnect.in,Faridabad,Sector 21,Painting,Faridabad,Faridabad,1,5,4.53,411,0.8,0.11,58,608,2627,7.0,1
+889,Neeraj Ali,+918435512450,worker889@kaushalkonnect.in,Delhi,Laxmi Nagar,Appliance Repair,East,East,1,10,4.73,142,0.98,0.06,66,996,2788,9.1,0
+890,Gaurav Naidu,+917030516158,worker890@kaushalkonnect.in,Delhi,Preet Vihar,Appliance Repair,East,East,0,15,4.5,263,0.83,0.12,13,457,3358,6.8,1
+891,Sakshi Das,+919447459545,worker891@kaushalkonnect.in,Delhi,Rohini,Painting,North,North,1,12,4.17,339,0.93,0.07,63,453,801,11.9,0
+892,Deepika Rawat,+918196495869,worker892@kaushalkonnect.in,Delhi,Pitampura,Home Cleaning,North,North,1,1,4.74,368,0.95,0.06,30,460,526,12.3,1
+893,Nikhil Negi,+917094400991,worker893@kaushalkonnect.in,Delhi,Dwarka,Home Cleaning,West,West,0,4,3.91,246,0.97,0.12,89,395,542,10.5,1
+894,Vikram Yadav,+918798451897,worker894@kaushalkonnect.in,Delhi,Janakpuri,Electrical,West,West,1,17,5.0,282,0.93,0.05,83,509,837,2.1,1
+895,Ashish Patel,+918386687121,worker895@kaushalkonnect.in,Delhi,Saket,Appliance Repair,South,South,1,9,5.0,597,0.89,0.13,60,686,3218,7.9,0
+896,Gaurav Sharma,+919548522979,worker896@kaushalkonnect.in,Delhi,Malviya Nagar,Painting,South,South,0,10,3.72,154,0.86,0.06,89,526,1255,2.7,1
+897,Akash Pandey,+919394375115,worker897@kaushalkonnect.in,Delhi,Karol Bagh,Carpentry,Central,Central,0,6,3.83,516,0.91,0.1,80,883,3599,13.6,1
+898,Sanjay Jain,+916673057374,worker898@kaushalkonnect.in,Delhi,Rajouri Garden,Painting,West,West,1,6,4.29,603,0.88,0.08,116,638,1461,6.8,0
+899,Divya Qureshi,+918977262046,worker899@kaushalkonnect.in,Noida,Sector 62,Appliance Repair,Noida,Noida,1,14,4.46,272,0.91,0.03,10,968,4147,8.8,0
+900,Bhavna Joshi,+917418249588,worker900@kaushalkonnect.in,Noida,Sector 18,Appliance Repair,Noida,Noida,1,4,4.08,454,0.79,0.08,63,829,3154,13.1,1
+901,Priya Rao,+917769480175,worker901@kaushalkonnect.in,Noida,Sector 50,Painting,Noida,Noida,1,9,3.57,44,0.92,0.14,38,383,1749,8.5,1
+902,Neeraj Ansari,+917434073050,worker902@kaushalkonnect.in,Noida,Sector 137,Painting,Noida,Noida,1,9,4.1,478,0.96,0.11,17,543,1377,7.7,1
+903,Arjun Mehta,+917893661428,worker903@kaushalkonnect.in,Greater Noida,Knowledge Park,Plumbing,Greater Noida,Greater Noida,0,12,3.76,450,0.91,0.04,67,695,1604,12.3,1
+904,Rahul Malhotra,+916507452425,worker904@kaushalkonnect.in,Greater Noida,Alpha 1,Electrical,Greater Noida,Greater Noida,1,6,4.5,41,0.9,0.06,29,506,1326,8.8,1
+905,Sachin Bisht,+919998782452,worker905@kaushalkonnect.in,Ghaziabad,Indirapuram,Home Cleaning,Ghaziabad,Ghaziabad,1,4,4.23,253,0.86,0.16,75,322,1678,14.7,0
+906,Priya Patel,+919106197545,worker906@kaushalkonnect.in,Ghaziabad,Vaishali,Appliance Repair,Ghaziabad,Ghaziabad,1,15,4.87,294,0.91,0.07,81,691,720,1.0,0
+907,Manish Menon,+917040217958,worker907@kaushalkonnect.in,Ghaziabad,Kaushambi,Carpentry,Ghaziabad,Ghaziabad,1,15,3.88,645,0.85,0.09,49,622,2362,7.2,1
+908,Pooja Rana,+917857685282,worker908@kaushalkonnect.in,Gurugram,Sector 14,Appliance Repair,Gurugram,Gurugram,1,5,4.04,633,0.89,0.11,46,1036,2536,4.6,1
+909,Deepika Qureshi,+917281328341,worker909@kaushalkonnect.in,Gurugram,Sector 56,Carpentry,Gurugram,Gurugram,1,14,4.66,14,0.88,0.01,18,743,4427,13.2,1
+910,Anmol Agarwal,+916094652946,worker910@kaushalkonnect.in,Gurugram,DLF Phase 3,Home Cleaning,Gurugram,Gurugram,1,7,4.42,448,0.94,0.02,37,493,1294,1.4,1
+911,Sachin Negi,+918448368472,worker911@kaushalkonnect.in,Faridabad,Sector 15,Electrical,Faridabad,Faridabad,1,7,4.72,149,0.78,0.08,57,625,789,3.7,1
+912,Divya Mehta,+918426785347,worker912@kaushalkonnect.in,Faridabad,Sector 21,Painting,Faridabad,Faridabad,1,9,4.17,161,0.82,0.04,71,382,1722,8.0,0
+913,Aman Kapoor,+916537058488,worker913@kaushalkonnect.in,Delhi,Laxmi Nagar,Electrical,East,East,1,10,3.79,28,0.99,0.09,66,559,1024,2.9,0
+914,Rohit Joshi,+919777700046,worker914@kaushalkonnect.in,Delhi,Preet Vihar,Electrical,East,East,1,9,4.51,288,0.76,0.03,59,474,943,6.3,0
+915,Simran Pandey,+916951599512,worker915@kaushalkonnect.in,Delhi,Rohini,Painting,North,North,1,10,4.97,319,0.89,0.05,107,539,3350,14.4,1
+916,Suraj Naidu,+918496477643,worker916@kaushalkonnect.in,Delhi,Pitampura,Appliance Repair,North,North,1,15,4.06,50,0.96,0.08,74,756,2653,9.1,1
+917,Shivam Srivastava,+917552548775,worker917@kaushalkonnect.in,Delhi,Dwarka,Electrical,West,West,1,9,4.91,341,0.73,0.01,34,541,815,10.7,0
+918,Isha Joshi,+919692234675,worker918@kaushalkonnect.in,Delhi,Janakpuri,Plumbing,West,West,0,9,4.61,51,0.96,0.08,76,692,1510,10.8,1
+919,Manish Rao,+916745842975,worker919@kaushalkonnect.in,Delhi,Saket,Home Cleaning,South,South,1,12,3.51,377,0.91,0.04,68,528,1331,2.8,1
+920,Suman Thakur,+919496101727,worker920@kaushalkonnect.in,Delhi,Malviya Nagar,Plumbing,South,South,1,7,3.87,510,0.9,0.09,60,455,1822,6.2,0
+921,Sanjay Bisht,+916362812494,worker921@kaushalkonnect.in,Delhi,Karol Bagh,Painting,Central,Central,1,14,4.65,580,0.86,0.13,51,594,923,9.7,1
+922,Sameer Saxena,+919007335628,worker922@kaushalkonnect.in,Delhi,Rajouri Garden,Carpentry,West,West,1,7,4.89,555,0.94,0.13,25,828,3546,4.4,1
+923,Anmol Pandey,+917063258493,worker923@kaushalkonnect.in,Noida,Sector 62,Painting,Noida,Noida,0,12,3.52,64,0.99,0.09,24,590,2177,12.3,1
+924,Aditi Bhatia,+918319017860,worker924@kaushalkonnect.in,Noida,Sector 18,Painting,Noida,Noida,1,9,4.09,30,0.98,0.07,61,572,2042,3.9,0
+925,Sanjay Kumar,+919192754002,worker925@kaushalkonnect.in,Noida,Sector 50,Plumbing,Noida,Noida,1,16,4.15,177,0.89,0.05,51,440,1108,2.9,0
+926,Yash Saini,+916020704723,worker926@kaushalkonnect.in,Noida,Sector 137,Plumbing,Noida,Noida,0,5,3.7,228,0.78,0.18,36,656,1420,13.2,0
+927,Mohit Jain,+916662095378,worker927@kaushalkonnect.in,Greater Noida,Knowledge Park,Plumbing,Greater Noida,Greater Noida,1,12,3.95,315,0.98,0.2,10,728,810,1.5,0
+928,Kavita Ali,+917269578254,worker928@kaushalkonnect.in,Greater Noida,Alpha 1,Plumbing,Greater Noida,Greater Noida,1,14,4.36,23,0.8,0.15,28,662,1619,5.5,0
+929,Ashish Singh,+918753442059,worker929@kaushalkonnect.in,Ghaziabad,Indirapuram,Home Cleaning,Ghaziabad,Ghaziabad,1,8,3.89,132,0.97,0.08,77,403,778,12.0,0
+930,Aman Bansal,+917573771292,worker930@kaushalkonnect.in,Ghaziabad,Vaishali,Painting,Ghaziabad,Ghaziabad,0,11,4.65,506,0.87,0.06,103,590,3918,12.2,0
+931,Arjun Singh,+916805075393,worker931@kaushalkonnect.in,Ghaziabad,Kaushambi,Plumbing,Ghaziabad,Ghaziabad,1,17,4.7,560,0.82,0.03,112,417,740,5.4,0
+932,Deepika Malhotra,+918005650442,worker932@kaushalkonnect.in,Gurugram,Sector 14,Painting,Gurugram,Gurugram,1,2,4.11,361,0.87,0.1,73,390,3536,0.8,1
+933,Vivek Rao,+917117231937,worker933@kaushalkonnect.in,Gurugram,Sector 56,Painting,Gurugram,Gurugram,1,10,3.62,616,0.99,0.13,53,641,3232,7.7,0
+934,Sameer Bhatia,+918396713267,worker934@kaushalkonnect.in,Gurugram,DLF Phase 3,Electrical,Gurugram,Gurugram,1,5,4.75,234,0.92,0.01,55,587,1070,7.8,1
+935,Rakesh Chaudhary,+918548295993,worker935@kaushalkonnect.in,Faridabad,Sector 15,Plumbing,Faridabad,Faridabad,1,3,4.57,282,0.97,0.08,54,479,1602,13.0,0
+936,Aditi Khan,+916039212156,worker936@kaushalkonnect.in,Faridabad,Sector 21,Carpentry,Faridabad,Faridabad,1,10,4.16,70,0.75,0.05,69,462,1527,1.7,0
+937,Riya Kumar,+917307355279,worker937@kaushalkonnect.in,Delhi,Laxmi Nagar,Electrical,East,East,0,5,4.09,451,0.78,0.09,60,796,1589,3.8,1
+938,Ankit Iyer,+919144582522,worker938@kaushalkonnect.in,Delhi,Preet Vihar,Carpentry,East,East,1,12,4.3,607,0.88,0.13,28,786,4292,8.2,0
+939,Rohit Yadav,+919662786951,worker939@kaushalkonnect.in,Delhi,Rohini,Electrical,North,North,1,7,3.86,611,0.75,0.09,53,569,2584,9.2,0
+940,Neeraj Sharma,+916981194855,worker940@kaushalkonnect.in,Delhi,Pitampura,Carpentry,North,North,1,5,3.81,245,0.91,0.05,63,734,2031,4.4,0
+941,Akash Bansal,+919348813674,worker941@kaushalkonnect.in,Delhi,Dwarka,Appliance Repair,West,West,1,14,4.39,447,0.82,0.04,26,593,3535,6.3,1
+942,Ravi Jain,+917859768754,worker942@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,1,14,4.31,379,0.83,0.13,26,749,3549,9.8,1
+943,Anjali Kumar,+917990151385,worker943@kaushalkonnect.in,Delhi,Saket,Carpentry,South,South,0,3,3.45,66,0.88,0.14,10,795,1018,5.1,1
+944,Deepak Chauhan,+916258486662,worker944@kaushalkonnect.in,Delhi,Malviya Nagar,Appliance Repair,South,South,1,11,4.15,310,0.9,0.08,37,761,3326,6.0,1
+945,Suman Tripathi,+918572096892,worker945@kaushalkonnect.in,Delhi,Karol Bagh,Appliance Repair,Central,Central,1,9,4.13,376,0.9,0.1,46,975,1345,3.7,1
+946,Shivam Khan,+917645874921,worker946@kaushalkonnect.in,Delhi,Rajouri Garden,Plumbing,West,West,1,7,4.28,500,0.82,0.01,57,738,785,6.2,1
+947,Deepak Rao,+916816372626,worker947@kaushalkonnect.in,Noida,Sector 62,Painting,Noida,Noida,0,6,4.12,16,0.92,0.13,26,604,1210,9.2,1
+948,Sonu Kohli,+916765407904,worker948@kaushalkonnect.in,Noida,Sector 18,Appliance Repair,Noida,Noida,1,8,4.5,196,0.97,0.08,62,903,4746,1.9,0
+949,Yogesh Ali,+917743318695,worker949@kaushalkonnect.in,Noida,Sector 50,Painting,Noida,Noida,0,4,4.08,301,0.79,0.19,125,525,1486,13.1,0
+950,Aarav Patel,+917371075847,worker950@kaushalkonnect.in,Noida,Sector 137,Carpentry,Noida,Noida,1,9,4.33,539,0.9,0.06,85,764,3121,2.8,1
+951,Neeraj Arora,+919482755803,worker951@kaushalkonnect.in,Greater Noida,Knowledge Park,Carpentry,Greater Noida,Greater Noida,0,11,5.0,519,0.8,0.07,32,891,4137,8.0,1
+952,Manish Saini,+917364068498,worker952@kaushalkonnect.in,Greater Noida,Alpha 1,Plumbing,Greater Noida,Greater Noida,1,10,3.81,417,0.88,0.12,48,640,1304,14.7,0
+953,Vikram Saini,+917901880694,worker953@kaushalkonnect.in,Ghaziabad,Indirapuram,Home Cleaning,Ghaziabad,Ghaziabad,1,9,4.18,626,0.88,0.1,81,337,1174,4.9,1
+954,Anmol Ghosh,+919061871303,worker954@kaushalkonnect.in,Ghaziabad,Vaishali,Appliance Repair,Ghaziabad,Ghaziabad,1,4,5.0,198,0.82,0.03,25,594,2186,8.1,0
+955,Suraj Srivastava,+916870420345,worker955@kaushalkonnect.in,Ghaziabad,Kaushambi,Carpentry,Ghaziabad,Ghaziabad,1,1,4.29,316,0.9,0.07,20,671,855,1.5,1
+956,Suman Arora,+916281594469,worker956@kaushalkonnect.in,Gurugram,Sector 14,Carpentry,Gurugram,Gurugram,0,9,4.48,29,0.8,0.1,35,857,3576,2.4,1
+957,Ankit Wadhwa,+919607407966,worker957@kaushalkonnect.in,Gurugram,Sector 56,Carpentry,Gurugram,Gurugram,0,10,4.71,598,0.91,0.13,63,562,2715,9.2,0
+958,Sanjay Patel,+918943623415,worker958@kaushalkonnect.in,Gurugram,DLF Phase 3,Carpentry,Gurugram,Gurugram,1,11,3.7,472,0.86,0.12,52,886,1437,13.5,1
+959,Sachin Nair,+916364041397,worker959@kaushalkonnect.in,Faridabad,Sector 15,Plumbing,Faridabad,Faridabad,1,11,3.91,356,0.95,0.06,83,613,1298,14.3,1
+960,Divya Yadav,+918322449615,worker960@kaushalkonnect.in,Faridabad,Sector 21,Electrical,Faridabad,Faridabad,1,8,4.16,120,0.91,0.03,77,529,1609,0.9,1
+961,Anjali Qureshi,+916932510823,worker961@kaushalkonnect.in,Delhi,Laxmi Nagar,Painting,East,East,0,11,4.18,444,0.77,0.18,79,469,1977,6.5,1
+962,Ankit Verma,+918207356636,worker962@kaushalkonnect.in,Delhi,Preet Vihar,Electrical,East,East,0,11,3.47,240,0.99,0.12,68,516,1653,14.6,1
+963,Siddharth Bansal,+916434289988,worker963@kaushalkonnect.in,Delhi,Rohini,Painting,North,North,1,6,3.59,588,0.72,0.11,57,384,2196,0.8,0
+964,Yogesh Chaudhary,+916276432014,worker964@kaushalkonnect.in,Delhi,Pitampura,Home Cleaning,North,North,1,14,3.99,647,0.85,0.12,45,322,841,12.7,0
+965,Pooja Rawat,+916615895679,worker965@kaushalkonnect.in,Delhi,Dwarka,Electrical,West,West,1,4,4.55,563,0.99,0.01,30,792,1946,5.6,1
+966,Suman Reddy,+918992124089,worker966@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,1,5,4.25,239,0.85,0.12,10,829,4984,11.5,0
+967,Aarav Khan,+917147626018,worker967@kaushalkonnect.in,Delhi,Saket,Plumbing,South,South,1,2,4.87,258,0.79,0.04,39,677,2487,2.6,1
+968,Anil Nair,+918447877096,worker968@kaushalkonnect.in,Delhi,Malviya Nagar,Plumbing,South,South,1,9,4.31,266,0.76,0.03,62,638,1204,9.8,1
+969,Riya Ghosh,+917713094247,worker969@kaushalkonnect.in,Delhi,Karol Bagh,Home Cleaning,Central,Central,1,14,4.31,19,0.94,0.11,70,451,1731,10.8,1
+970,Neha Khan,+917816227044,worker970@kaushalkonnect.in,Delhi,Rajouri Garden,Painting,West,West,1,8,3.81,491,0.97,0.12,10,475,2631,3.5,0
+971,Sakshi Negi,+919917177388,worker971@kaushalkonnect.in,Noida,Sector 62,Plumbing,Noida,Noida,1,11,4.29,636,0.74,0.03,13,570,1920,14.2,0
+972,Vinay Patel,+917050800554,worker972@kaushalkonnect.in,Noida,Sector 18,Electrical,Noida,Noida,1,6,3.91,194,0.99,0.15,96,592,2670,11.8,1
+973,Kunal Pandey,+918276118444,worker973@kaushalkonnect.in,Noida,Sector 50,Home Cleaning,Noida,Noida,1,7,3.87,324,0.97,0.09,24,373,934,7.1,0
+974,Deepika Mehta,+918227426713,worker974@kaushalkonnect.in,Noida,Sector 137,Home Cleaning,Noida,Noida,1,2,4.14,245,0.9,0.18,42,447,1406,6.1,1
+975,Yogesh Nair,+918579360877,worker975@kaushalkonnect.in,Greater Noida,Knowledge Park,Appliance Repair,Greater Noida,Greater Noida,1,13,3.86,368,0.82,0.1,33,454,1507,8.9,1
+976,Priya Shah,+917701946984,worker976@kaushalkonnect.in,Greater Noida,Alpha 1,Carpentry,Greater Noida,Greater Noida,1,20,5.0,193,0.86,0.2,17,739,3296,14.2,1
+977,Pradeep Menon,+916890274436,worker977@kaushalkonnect.in,Ghaziabad,Indirapuram,Painting,Ghaziabad,Ghaziabad,1,7,4.53,64,0.93,0.07,109,637,1636,10.3,1
+978,Pankaj Chauhan,+916233955951,worker978@kaushalkonnect.in,Ghaziabad,Vaishali,Carpentry,Ghaziabad,Ghaziabad,1,9,3.49,408,0.99,0.12,29,884,3994,10.5,0
+979,Kunal Sood,+916760070994,worker979@kaushalkonnect.in,Ghaziabad,Kaushambi,Home Cleaning,Ghaziabad,Ghaziabad,1,10,4.78,644,0.87,0.12,42,421,1460,6.6,1
+980,Riya Ansari,+916068851683,worker980@kaushalkonnect.in,Gurugram,Sector 14,Painting,Gurugram,Gurugram,1,6,4.29,475,0.88,0.1,11,521,2281,10.8,1
+981,Ashish Roy,+917270188546,worker981@kaushalkonnect.in,Gurugram,Sector 56,Home Cleaning,Gurugram,Gurugram,1,6,4.84,144,0.89,0.08,78,391,1732,1.4,0
+982,Kavita Nair,+919238485296,worker982@kaushalkonnect.in,Gurugram,DLF Phase 3,Home Cleaning,Gurugram,Gurugram,0,6,4.28,271,0.76,0.11,29,359,573,4.0,1
+983,Akash Dutta,+918859313508,worker983@kaushalkonnect.in,Faridabad,Sector 15,Electrical,Faridabad,Faridabad,1,5,4.42,26,0.96,0.03,51,766,751,1.8,1
+984,Arjun Sharma,+916648309975,worker984@kaushalkonnect.in,Faridabad,Sector 21,Appliance Repair,Faridabad,Faridabad,1,4,4.47,292,0.87,0.08,29,496,834,1.7,0
+985,Anjali Das,+916898035176,worker985@kaushalkonnect.in,Delhi,Laxmi Nagar,Home Cleaning,East,East,1,14,4.26,25,0.84,0.01,49,373,1463,6.4,1
+986,Sunil Nair,+917839015437,worker986@kaushalkonnect.in,Delhi,Preet Vihar,Painting,East,East,1,10,4.46,456,0.91,0.01,73,620,3807,7.5,1
+987,Mohit Mehta,+917185263747,worker987@kaushalkonnect.in,Delhi,Rohini,Appliance Repair,North,North,0,15,3.78,135,0.96,0.08,54,642,2290,2.9,1
+988,Vinay Das,+917613790920,worker988@kaushalkonnect.in,Delhi,Pitampura,Painting,North,North,1,6,4.1,121,0.88,0.11,66,565,1574,3.6,0
+989,Shreya Naidu,+916530977379,worker989@kaushalkonnect.in,Delhi,Dwarka,Painting,West,West,1,13,4.19,25,0.94,0.13,80,557,3391,10.5,0
+990,Aman Dutta,+918572594693,worker990@kaushalkonnect.in,Delhi,Janakpuri,Appliance Repair,West,West,1,13,4.42,393,0.9,0.18,42,855,2835,12.5,1
+991,Kavita Sharma,+916072456734,worker991@kaushalkonnect.in,Delhi,Saket,Appliance Repair,South,South,1,13,4.08,25,0.95,0.12,62,709,1031,1.7,1
+992,Shivam Verma,+917794093156,worker992@kaushalkonnect.in,Delhi,Malviya Nagar,Plumbing,South,South,1,2,4.94,341,0.96,0.09,26,641,1090,8.9,1
+993,Ankit Kumar,+919871380233,worker993@kaushalkonnect.in,Delhi,Karol Bagh,Carpentry,Central,Central,1,6,4.14,214,0.76,0.12,158,765,4200,3.8,1
+994,Suman Bisht,+916987613186,worker994@kaushalkonnect.in,Delhi,Rajouri Garden,Carpentry,West,West,1,7,4.66,498,0.93,0.06,70,837,1336,4.6,0
+995,Priya Saxena,+919057637587,worker995@kaushalkonnect.in,Noida,Sector 62,Plumbing,Noida,Noida,1,2,5.0,331,0.86,0.08,65,479,2213,2.6,1
+996,Shivam Qureshi,+917554625408,worker996@kaushalkonnect.in,Noida,Sector 18,Electrical,Noida,Noida,1,8,4.45,338,0.84,0.01,75,595,2470,11.5,1
+997,Akash Reddy,+917201362006,worker997@kaushalkonnect.in,Noida,Sector 50,Electrical,Noida,Noida,1,11,3.72,92,0.93,0.09,81,423,2727,6.9,0
+998,Yogesh Agarwal,+918999906131,worker998@kaushalkonnect.in,Noida,Sector 137,Carpentry,Noida,Noida,1,10,4.21,297,0.95,0.17,30,537,4444,7.5,1
+999,Vinay Shah,+917500995859,worker999@kaushalkonnect.in,Greater Noida,Knowledge Park,Painting,Greater Noida,Greater Noida,1,10,4.27,627,0.89,0.08,75,572,3153,14.2,0
+1000,Riya Sharma,+918287557575,worker1000@kaushalkonnect.in,Greater Noida,Alpha 1,Appliance Repair,Greater Noida,Greater Noida,0,12,4.05,405,0.94,0.01,26,575,1199,2.8,1
+1001,Pankaj Ghosh,+919389492410,worker1001@kaushalkonnect.in,Ghaziabad,Indirapuram,Plumbing,Ghaziabad,Ghaziabad,1,13,4.24,268,0.83,0.02,34,749,1613,3.8,1
+1002,Ankit Qureshi,+918750387791,worker1002@kaushalkonnect.in,Ghaziabad,Vaishali,Home Cleaning,Ghaziabad,Ghaziabad,1,5,4.73,115,0.85,0.12,91,437,1521,4.9,1

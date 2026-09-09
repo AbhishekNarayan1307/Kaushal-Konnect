@@ -11,6 +11,8 @@ Kaushal Konnect is a unified platform that connects cooperative societies of ver
 
 ## Development
 
+For a quick start guide, see [HOW_TO_START.md](HOW_TO_START.md).
+
 ### Frontend
 Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
@@ -31,7 +33,7 @@ Install/configure PostgreSQL, create kaushal_konnect database, configure SQLAlch
 Status: DONE
 Create DB Models + Migrate CSV Data
 Convert the approved schema into SQLAlchemy models, create Alembic migration, and migrate existing CSV data into PostgreSQL.
-Status: NEXT
+Status: DONE
 Restructure FastAPI
 Organize the backend into production folders such as api/, models/, services/, core/, and db/.
 Status: NOT STARTED
@@ -40,7 +42,7 @@ Create request/response schemas and consistent API validation and error handling
 Status: NOT STARTED
 Rebuild APIs Using PostgreSQL
 Replace CSV-based /workers, /bookings, services, etc. with PostgreSQL-backed APIs.
-Status: NOT STARTED
+Status: NEXT
 Authentication + Authorization
 Add authentication and role-based access for Customer, Worker, Co-op Manager, and Admin.
 Status: NOT STARTED

@@ -25,6 +25,9 @@ class WorkerRead(WorkerBase):
     user_id: UUID
     coop_id: UUID
     service_id: str
+    full_name: str
+    city: Optional[str] = None
+    locality: Optional[str] = None
     created_at: datetime
 
     class Config:

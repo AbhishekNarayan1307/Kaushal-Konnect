@@ -117,10 +117,10 @@ export default function SignupPage() {
               </Select>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="zone">City/Zone</Label>
+              <Label htmlFor="zone">City</Label>
               <Input
                 id="zone"
-                placeholder="e.g. Koramangala, Bengaluru"
+                placeholder="e.g. Delhi"
                 value={formData.zone}
                 onChange={(e) => setFormData({ ...formData, zone: e.target.value })}
               />

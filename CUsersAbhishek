@@ -1,0 +1,15 @@
+
+---
+
+## 28. API Evolution: Rebuilding for PostgreSQL
+
+### What is meant by 'Rebuild API using PostgreSQL'?
+
+During the initial prototyping phase, many API endpoints (e.g., , ) were designed to read data directly from static CSV files using libraries like . This is fast for a demo but not suitable for a real application.
+
+**Rebuilding the API** involves the following technical transition:
+
+1. **From File I/O to DB Queries**: Replacing logic like  with SQLAlchemy queries such as .
+2. **Implementing CRUD**: Moving from read-only static files to full Create, Read, Update, and Delete (CRUD) operations in PostgreSQL.
+3. **Schema Validation**: Using **Pydantic** schemas to strictly validate that data retrieved from the database matches the expected JSON response format for the frontend.
+4. **State Persistence**: Ensuring that any changes made via the API (e.g., booking a service) are persisted in the database rather than lost when the server restarts. NarayanKaushal-Konnectguide.md

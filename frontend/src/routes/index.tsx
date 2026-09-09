@@ -19,6 +19,7 @@ import {
 
 import { BookingFlow, ReviewDialog } from "@/components/dashboard/BookingFlow";
 import { ComplaintDialog } from "@/components/dashboard/ComplaintDialog";
+import { CustomerAnalytics } from "@/components/dashboard/CustomerAnalytics";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -32,6 +33,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   currency,
   initialBookings,
@@ -77,12 +85,12 @@ const icons = {
 };
 
 const categoryMapping: Record<string, string> = {
-  cleaning: "Cleaner",
-  plumbing: "Plumber",
-  electrical: "Electrician",
-  painting: "Painter",
-  carpentry: "Carpenter",
-  appliance: "Mechanic",
+  cleaning: "Home Cleaning",
+  plumbing: "Plumbing",
+  electrical: "Electrical",
+  painting: "Painting",
+  carpentry: "Carpentry",
+  appliance: "Appliance Repair",
 };
 
 function CustomerDashboard() {
@@ -92,16 +100,15 @@ function CustomerDashboard() {
     </ProtectedRoute>
   );
 }
-
 function DashboardContent() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const [userLocation, setUserLocation] = useState("South");
+  const [userLocation, setUserLocation] = useState("Delhi");
   const [serviceId, setServiceId] = useState("cleaning");
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState("rating");
   const [budget, setBudget] = useState("1000");
-  const [bookings, setBookings] =
+  const [bookings] = useState([]);
     useState<Booking[]>([]);
   const [bookingWorker, setBookingWorker] =
     useState<Worker | null>(null);
@@ -164,18 +171,21 @@ function DashboardContent() {
       );
 
       const mappedWorkers: Worker[] = data.map((w: any) => ({
-        id: String(w.worker_id),
-        name: "Verified Professional " + w.worker_id,
+        id: String(w.id),
+        name: w.full_name || "Unknown Professional",
         serviceId: selectedServiceId,
         rating: w.rating,
         reviews: w.completed_jobs,
-        pricePerHour: w.price,
-        distanceKm: w.distance_km,
+        pricePerHour: w.hourly_rate,
+        distanceKm: 0, // Not using GPS distance
         skills: [
-          categoryMapping[serviceId] || "Professional",
+          w.service_id || "Professional",
         ],
-        verified: true,
+        verified: w.is_verified,
         jobs: w.completed_jobs,
+        // Adding these to the Worker type mapping internally
+        city: w.city,
+        locality: w.locality,
       }));
 
       setRealWorkers(mappedWorkers);
@@ -265,9 +275,50 @@ function DashboardContent() {
                   navigate({ to: '/login' });
                 }}
               >
-                <LogOut className="mr-2 size-3.5" />
-                Logout
-              </Button>
+                <Link
+                  to="/cooperative"
+                  className="..."
+                >
+                  Co-op view
+                </Link>
+
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      className="flex items-center gap-2 text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary hover:bg-navy-foreground/10"
+                    >
+                      <div className="grid size-6 place-items-center rounded-full bg-gradient-gold text-[10px] font-bold text-primary-foreground">
+                        {user?.full_name?.charAt(0) || "U"}
+                      </div>
+                      My Account
+                    </Button>
+                  </SheetTrigger>
+
+                  <SheetContent className="w-full sm:max-w-xl">
+                    <SheetHeader className="mb-6">
+                      <SheetTitle className="font-display text-2xl font-bold">
+                        User Dashboard
+                      </SheetTitle>
+                    </SheetHeader>
+
+                    <div className="overflow-y-auto h-full pb-10">
+                      <CustomerAnalytics bookings={bookings} user={user} />
+                    </div>
+                  </SheetContent>
+                </Sheet>
+
+                <Button
+                  variant="ghost"
+                  className="text-xs uppercase tracking-widest"
+                  onClick={() => {
+                    logout();
+                    navigate("/login");
+                  }}
+                >
+                  <LogOut className="mr-2 size-3.5" />
+                  Logout
+                </Button>
               <Badge className="bg-primary/15 text-primary hover:bg-primary/15">
                 <BadgeCheck className="mr-1 size-3.5" />
                 Verified workers only
@@ -302,10 +353,12 @@ function DashboardContent() {
                   </SelectTrigger>
 
                   <SelectContent>
-                    <SelectItem value="North">North</SelectItem>
-                    <SelectItem value="South">South</SelectItem>
-                    <SelectItem value="East">East</SelectItem>
-                    <SelectItem value="West">West</SelectItem>
+                    <SelectItem value="Delhi">Delhi</SelectItem>
+                    <SelectItem value="Noida">Noida</SelectItem>
+                    <SelectItem value="Ghaziabad">Ghaziabad</SelectItem>
+                    <SelectItem value="Gurugram">Gurugram</SelectItem>
+                    <SelectItem value="Faridabad">Faridabad</SelectItem>
+                    <SelectItem value="Greater Noida">Greater Noida</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -349,11 +402,11 @@ function DashboardContent() {
                 htmlFor="budget"
                 className="text-xs uppercase tracking-widest text-navy-foreground/60"
               >
-                Your budget
+                Your budget (₹)
               </Label>
 
               <div className="relative">
-                <Receipt className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-primary" />
+                <span className="absolute top-1/2 left-3 -translate-y-1/2 text-primary font-bold">₹</span>
 
                 <Input
                   id="budget"
@@ -412,7 +465,6 @@ function DashboardContent() {
             <TabsTrigger value="browse">
               Browse & book
             </TabsTrigger>
-
             <TabsTrigger value="history">
               Booking history
             </TabsTrigger>
@@ -577,8 +629,7 @@ function DashboardContent() {
 
                         <span className="flex items-center gap-1 text-muted-foreground">
                           <MapPin className="size-4 text-primary" />
-
-                          {w.distanceKm} km away
+                          {(w as any).locality ? `${(w as any).locality}, ${(w as any).city}` : "Location not set"}
                         </span>
                       </div>
 
