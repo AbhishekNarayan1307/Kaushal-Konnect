@@ -24,9 +24,9 @@ def create_user(email, password, full_name, role="customer"):
             role=role,
             # Providing defaults for other fields
             phone="0000000000",
-            zone="South",
-            latitude=0.0,
-            longitude=0.0
+            zone="South"
+            # latitude=0.0,
+            # longitude=0.0
         )
 
         db.add(db_user)

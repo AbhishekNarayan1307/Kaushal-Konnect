@@ -16,7 +16,7 @@ If you have Docker installed, you can launch the entire environment in one comma
 
 1. **Launch the system**:
    ```bash
-   docker-compose up --build
+   docker-compose up -d --build
    ```
 2. **Initialize Database**:
    Once the containers are running, run the migration script inside the backend container:
