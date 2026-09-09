@@ -7,6 +7,8 @@ export interface User {
   role: 'customer' | 'worker' | 'coop_manager' | 'admin';
   phone?: string;
   zone?: string;
+  city?: string;
+  locality?: string;
 }
 
 interface AuthContextType {

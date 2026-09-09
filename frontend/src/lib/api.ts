@@ -58,6 +58,7 @@ export async function createBooking(bookingData: {
   customer_id: string;
   user_zone: string;
   budget: number;
+  payment_method: string;
 }) {
   const response = await authenticatedFetch(`${API_BASE_URL}/bookings`, {
     method: 'POST',

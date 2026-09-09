@@ -6,7 +6,6 @@ from decimal import Decimal
 from app.models import BookingStatus
 
 class BookingBase(BaseModel):
-    customer_id: UUID
     worker_id: UUID
     service_id: str
     amount: Optional[Decimal] = None
@@ -14,10 +13,11 @@ class BookingBase(BaseModel):
     booking_date: Optional[datetime] = None
 
 class BookingCreate(BookingBase):
-    pass
+    payment_method: Optional[str] = None
 
 class BookingRead(BookingBase):
     id: UUID
+    customer_id: UUID
     status: BookingStatus
     created_at: datetime
 

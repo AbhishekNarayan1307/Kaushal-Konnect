@@ -10,8 +10,8 @@ class UserBase(BaseModel):
     phone: Optional[str] = None
     role: UserRole
     zone: Optional[str] = None
-    latitude: Optional[float] = None
-    longitude: Optional[float] = None
+    city: Optional[str] = None
+    locality: Optional[str] = None
 
 class UserCreate(UserBase):
     password: str

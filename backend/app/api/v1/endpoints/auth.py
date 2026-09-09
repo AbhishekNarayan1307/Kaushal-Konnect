@@ -27,8 +27,8 @@ def signup(user_in: UserCreate, db: Session = Depends(get_db)):
         phone=user_in.phone,
         role=user_in.role,
         zone=user_in.zone,
-        latitude=user_in.latitude,
-        longitude=user_in.longitude
+        city=user_in.city,
+        locality=user_in.locality,
     )
 
     db.add(db_user)
@@ -54,6 +54,9 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
             "id": user.id,
             "email": user.email,
             "full_name": user.full_name,
-            "role": user.role
+            "role": user.role,
+            "phone": user.phone,
+            "city": user.city,
+            "locality": user.locality,
         }
     }

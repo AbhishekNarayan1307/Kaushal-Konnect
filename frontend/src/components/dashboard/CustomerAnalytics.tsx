@@ -13,7 +13,18 @@ interface CustomerAnalyticsProps {
 export function CustomerAnalytics({ bookings, user }: CustomerAnalyticsProps) {
   // 1. Aggregate Spend per Service
   const spendData = useMemo(() => {
+    const defaultCategories = [
+      "Carpentry",
+      "Electrical",
+      "Appliance Repair",
+      "Painting",
+      "Plumbing",
+      "Home Cleaning",
+    ];
     const map: Record<string, number> = {};
+    defaultCategories.forEach((cat) => {
+      map[cat] = 0;
+    });
     bookings.forEach((b) => {
       map[b.serviceName] = (map[b.serviceName] || 0) + b.amount;
     });
@@ -25,7 +36,10 @@ export function CustomerAnalytics({ bookings, user }: CustomerAnalyticsProps) {
 
   // 2. Aggregate Status Distribution
   const statusData = useMemo(() => {
-    const map: Record<string, number> = {};
+    const map: Record<string, number> = {
+      Completed: 0,
+      Upcoming: 0,
+    };
     bookings.forEach((b) => {
       map[b.status] = (map[b.status] || 0) + 1;
     });
@@ -66,7 +80,11 @@ export function CustomerAnalytics({ bookings, user }: CustomerAnalyticsProps) {
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <MapPin className="size-4 text-primary" />
-                  <span className="text-muted-foreground">{user.zone || "Not provided"}</span>
+                  <span className="text-muted-foreground">
+                    {user.city && user.locality
+                      ? `${user.locality}, ${user.city}`
+                      : user.city || user.zone || "Not provided"}
+                  </span>
                 </div>
               </div>
             </div>
