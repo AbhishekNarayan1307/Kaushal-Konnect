@@ -47,7 +47,7 @@ export const workerProfile: WorkerProfile = {
   name: "Amara Okafor",
   headline: "Deep-clean specialist · Eco-friendly products",
   service: "Home Cleaning",
-  city: "Koramangala, Bengaluru",
+  city: "Noida",
   phone: "+91 98450 22114",
   hourlyRate: 22,
   experienceYears: 7,
@@ -86,7 +86,7 @@ export const initialRequests: JobRequest[] = [
     slot: "10:00 – 12:00",
     hours: 2,
     amount: 44,
-    address: "4th Block, Koramangala",
+    address: "Sector 62, Noida",
     note: "Two bedrooms + kitchen deep clean.",
   },
   {
@@ -97,7 +97,7 @@ export const initialRequests: JobRequest[] = [
     slot: "14:00 – 16:00",
     hours: 3,
     amount: 66,
-    address: "HSR Layout Sector 2",
+    address: "Sector 18, Noida",
   },
 ];
 
@@ -140,7 +140,7 @@ export const initialWorkerBookings: WorkerBooking[] = [
 ];
 
 export const welfare = [
-  { id: "i1", label: "Accident insurance", provider: "SecureLife", status: "Active", detail: "Cover up to $10,000 · renews 12 Feb 2027" },
+  { id: "i1", label: "Accident insurance", provider: "SecureLife", status: "Active", detail: "Cover up to ₹10,000 · renews 12 Feb 2027" },
   { id: "i2", label: "Health top-up", provider: "CareFirst", status: "Active", detail: "OPD + hospitalisation for 2 dependants" },
   { id: "i3", label: "Pension contribution", provider: "HomeHands Welfare Fund", status: "Enrolled", detail: "2% of each payout matched monthly" },
   { id: "i4", label: "Paid leave wallet", provider: "HomeHands", status: "3 days left", detail: "Accrues 1 day per 20 completed jobs" },

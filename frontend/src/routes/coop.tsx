@@ -106,7 +106,7 @@ function CoopDashboard() {
         id,
         name: newWorker.name.trim(),
         service: newWorker.service,
-        city: newWorker.city.trim() || "Bengaluru",
+        city: newWorker.city.trim() || "Delhi",
         rating: 0,
         jobs: 0,
         hourlyRate:
@@ -280,7 +280,7 @@ function CoopDashboard() {
                     <Label>Locality</Label>
                     <Input
                       value={newWorker.city}
-                      placeholder="e.g. Koramangala"
+                      placeholder="e.g. Noida"
                       onChange={(e) => setNewWorker({ ...newWorker, city: e.target.value })}
                     />
                   </div>
@@ -609,7 +609,7 @@ function CoopDashboard() {
                         </p>
                         <p className="mt-2 text-sm text-muted-foreground">
                           {w.insurance === "Active"
-                            ? "Accident cover $10,000 · health top-up active"
+                            ? "Accident cover ₹10,000 · health top-up active"
                             : "Needs enrolment before next payout cycle."}
                         </p>
                       </div>
