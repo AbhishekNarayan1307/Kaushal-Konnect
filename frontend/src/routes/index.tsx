@@ -9,7 +9,6 @@ import {
   Paintbrush,
   Receipt,
   Refrigerator,
-  Search,
   Sparkles,
   Star,
   Wrench,
@@ -42,9 +41,7 @@ import {
 } from "@/components/ui/sheet";
 import {
   currency,
-  initialBookings,
   services,
-  workers,
   type Booking,
   type Worker,
 } from "@/lib/dashboard-data";
@@ -105,11 +102,9 @@ function DashboardContent() {
   const navigate = useNavigate();
   const [userLocation, setUserLocation] = useState("Delhi");
   const [serviceId, setServiceId] = useState("cleaning");
-  const [query, setQuery] = useState("");
   const [sort, setSort] = useState("rating");
   const [budget, setBudget] = useState("1000");
-  const [bookings] = useState([]);
-    useState<Booking[]>([]);
+  const [bookings, setBookings] = useState<Booking[]>([]);
   const [bookingWorker, setBookingWorker] =
     useState<Worker | null>(null);
   const [reviewTarget, setReviewTarget] =
@@ -217,7 +212,7 @@ function DashboardContent() {
 
     // Fallback to mock data if no search has been performed
     return [];
-  }, [serviceId, query, sort, realWorkers]);
+  }, [serviceId, sort, realWorkers]);
 
   const upcoming = bookings.filter(
     (b) => b.status === "Upcoming",
@@ -257,7 +252,6 @@ function DashboardContent() {
                   >
                     Worker view
                   </Link>
-
                   <Link
                     to="/coop"
                     className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
@@ -266,6 +260,29 @@ function DashboardContent() {
                   </Link>
                 </>
               )}
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    className="flex items-center gap-2 text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary hover:bg-navy-foreground/10"
+                  >
+                    <div className="grid size-6 place-items-center rounded-full bg-gradient-gold text-[10px] font-bold text-primary-foreground">
+                      {user?.full_name?.charAt(0) || "U"}
+                    </div>
+                    My Account
+                  </Button>
+                </SheetTrigger>
+                <SheetContent className="w-full sm:max-w-xl">
+                  <SheetHeader className="mb-6">
+                    <SheetTitle className="font-display text-2xl font-bold">
+                      User Dashboard
+                    </SheetTitle>
+                  </SheetHeader>
+                  <div className="overflow-y-auto h-full pb-10">
+                    <CustomerAnalytics bookings={bookings} user={user} />
+                  </div>
+                </SheetContent>
+              </Sheet>
               <Button
                 variant="ghost"
                 size="sm"
@@ -275,50 +292,9 @@ function DashboardContent() {
                   navigate({ to: '/login' });
                 }}
               >
-                <Link
-                  to="/cooperative"
-                  className="..."
-                >
-                  Co-op view
-                </Link>
-
-                <Sheet>
-                  <SheetTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className="flex items-center gap-2 text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary hover:bg-navy-foreground/10"
-                    >
-                      <div className="grid size-6 place-items-center rounded-full bg-gradient-gold text-[10px] font-bold text-primary-foreground">
-                        {user?.full_name?.charAt(0) || "U"}
-                      </div>
-                      My Account
-                    </Button>
-                  </SheetTrigger>
-
-                  <SheetContent className="w-full sm:max-w-xl">
-                    <SheetHeader className="mb-6">
-                      <SheetTitle className="font-display text-2xl font-bold">
-                        User Dashboard
-                      </SheetTitle>
-                    </SheetHeader>
-
-                    <div className="overflow-y-auto h-full pb-10">
-                      <CustomerAnalytics bookings={bookings} user={user} />
-                    </div>
-                  </SheetContent>
-                </Sheet>
-
-                <Button
-                  variant="ghost"
-                  className="text-xs uppercase tracking-widest"
-                  onClick={() => {
-                    logout();
-                    navigate("/login");
-                  }}
-                >
-                  <LogOut className="mr-2 size-3.5" />
-                  Logout
-                </Button>
+                <LogOut className="mr-2 size-3.5" />
+                Logout
+              </Button>
               <Badge className="bg-primary/15 text-primary hover:bg-primary/15">
                 <BadgeCheck className="mr-1 size-3.5" />
                 Verified workers only

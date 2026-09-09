@@ -70,6 +70,7 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
         customer_id: user.id,
         user_zone: location || "South",
         budget: worker.pricePerHour * qty,
+        payment_method: method,
       };
 
       const result = await createBooking(bookingData);
