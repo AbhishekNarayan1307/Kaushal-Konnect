@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMemo, useState, useEffect } from "react";
 import {
   BadgeCheck,
@@ -14,6 +14,7 @@ import {
   Star,
   Wrench,
   Zap,
+  LogOut,
 } from "lucide-react";
 
 import { BookingFlow, ReviewDialog } from "@/components/dashboard/BookingFlow";
@@ -94,20 +95,20 @@ const categoryMapping: Record<string, string> = {
 
 function CustomerDashboard() {
   return (
-    <ProtectedRoute>
+    <ProtectedRoute allowedRoles={['customer', 'admin']}>
       <DashboardContent />
     </ProtectedRoute>
   );
 }
-
 function DashboardContent() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const [userLocation, setUserLocation] = useState("Delhi");
   const [serviceId, setServiceId] = useState("cleaning");
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState("rating");
   const [budget, setBudget] = useState("1000");
-  const [bookings, setBookings] =
+  const [bookings] = useState([]);
     useState<Booking[]>([]);
   const [bookingWorker, setBookingWorker] =
     useState<Worker | null>(null);
@@ -248,43 +249,76 @@ function DashboardContent() {
             </div>
 
             <div className="flex items-center gap-4">
-              <Link
-                to="/worker"
-                className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
-              >
-                Worker view
-              </Link>
-
-              <Link
-                to="/coop"
-                className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
-              >
-                Co-op view
-              </Link>
-
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    className="flex items-center gap-2 text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary hover:bg-navy-foreground/10"
+              {user?.role === 'admin' && (
+                <>
+                  <Link
+                    to="/worker"
+                    className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
                   >
-                    <div className="grid size-6 place-items-center rounded-full bg-gradient-gold text-[10px] font-bold text-primary-foreground">
-                      {user?.full_name.charAt(0) || "U"}
+                    Worker view
+                  </Link>
+
+                  <Link
+                    to="/coop"
+                    className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary"
+                  >
+                    Co-op view
+                  </Link>
+                </>
+              )}
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-destructive"
+                onClick={() => {
+                  logout();
+                  navigate({ to: '/login' });
+                }}
+              >
+                <Link
+                  to="/cooperative"
+                  className="..."
+                >
+                  Co-op view
+                </Link>
+
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      className="flex items-center gap-2 text-xs uppercase tracking-widest text-navy-foreground/70 hover:text-primary hover:bg-navy-foreground/10"
+                    >
+                      <div className="grid size-6 place-items-center rounded-full bg-gradient-gold text-[10px] font-bold text-primary-foreground">
+                        {user?.full_name?.charAt(0) || "U"}
+                      </div>
+                      My Account
+                    </Button>
+                  </SheetTrigger>
+
+                  <SheetContent className="w-full sm:max-w-xl">
+                    <SheetHeader className="mb-6">
+                      <SheetTitle className="font-display text-2xl font-bold">
+                        User Dashboard
+                      </SheetTitle>
+                    </SheetHeader>
+
+                    <div className="overflow-y-auto h-full pb-10">
+                      <CustomerAnalytics bookings={bookings} user={user} />
                     </div>
-                    My Account
-                  </Button>
-                </SheetTrigger>
-                <SheetContent className="w-full sm:max-w-xl">
-                  <SheetHeader className="mb-6">
-                    <SheetTitle className="font-display text-2xl font-bold">
-                      User Dashboard
-                    </SheetTitle>
-                  </SheetHeader>
-                  <div className="overflow-y-auto h-full pb-10">
-                    <CustomerAnalytics bookings={bookings} user={user} />
-                  </div>
-                </SheetContent>
-              </Sheet>
+                  </SheetContent>
+                </Sheet>
+
+                <Button
+                  variant="ghost"
+                  className="text-xs uppercase tracking-widest"
+                  onClick={() => {
+                    logout();
+                    navigate("/login");
+                  }}
+                >
+                  <LogOut className="mr-2 size-3.5" />
+                  Logout
+                </Button>
               <Badge className="bg-primary/15 text-primary hover:bg-primary/15">
                 <BadgeCheck className="mr-1 size-3.5" />
                 Verified workers only
