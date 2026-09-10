@@ -15,22 +15,24 @@ app = FastAPI(
 )
 
 
-FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
+FRONTEND_URL = os.getenv(
+    "FRONTEND_URL",
+    "http://localhost:5173"
+)
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost",
+        "https://kaushal-konnect-frontend.onrender.com",
         "http://localhost:5173",
+        "http://localhost:3000",
         "http://localhost:8080",
-        "http://127.0.0.1:5173",
         FRONTEND_URL,
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
