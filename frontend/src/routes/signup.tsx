@@ -32,15 +32,32 @@ const [formData, setFormData] = useState({
     e.preventDefault();
     setIsLoading(true);
     try {
+      // Construct a clean payload to avoid Pydantic validation errors (422)
+      const payload: any = {
+        email: formData.email,
+        password: formData.password,
+        full_name: formData.full_name,
+        phone: formData.phone,
+        role: formData.role,
+        zone: formData.zone,
+        city: formData.city,
+        locality: formData.locality,
+      };
+
+      if (formData.role === 'worker') {
+        payload.service_id = formData.service_id;
+        payload.hourly_rate = formData.hourly_rate ? Number(formData.hourly_rate) : undefined;
+      }
+
       const response = await fetch(`${API_BASE_URL}/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Signup failed');
+        throw new Error(errorData.detail || errorData.message || 'Signup failed');
       }
 
       toast.success('Account created successfully!');
@@ -143,14 +160,66 @@ const [formData, setFormData] = useState({
               </Select>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="zone">City</Label>
+              <Label htmlFor="city">City</Label>
+              <Input
+                id="city"
+                placeholder="e.g. Delhi"
+                value={formData.city}
+                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="locality">Locality</Label>
+              <Input
+                id="locality"
+                placeholder="e.g. Rohini"
+                value={formData.locality}
+                onChange={(e) => setFormData({ ...formData, locality: e.target.value })}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="zone">Zone/Area</Label>
               <Input
                 id="zone"
-                placeholder="e.g. Delhi"
+                placeholder="e.g. North Delhi"
                 value={formData.zone}
                 onChange={(e) => setFormData({ ...formData, zone: e.target.value })}
               />
             </div>
+
+            {formData.role === 'worker' && (
+              <>
+                <div className="space-y-2">
+                  <Label htmlFor="service_id">Service Category</Label>
+                  <Select
+                    value={formData.service_id}
+                    onValueChange={(value) => setFormData({ ...formData, service_id: value })}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select your service" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="home-cleaning">Home Cleaning</SelectItem>
+                      <SelectItem value="plumbing">Plumbing</SelectItem>
+                      <SelectItem value="electrical">Electrical</SelectItem>
+                      <SelectItem value="painting">Painting</SelectItem>
+                      <SelectItem value="carpentry">Carpentry</SelectItem>
+                      <SelectItem value="appliance-repair">Appliance Repair</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="hourly_rate">Hourly Rate (₹)</Label>
+                  <Input
+                    id="hourly_rate"
+                    type="number"
+                    placeholder="e.g. 500"
+                    value={formData.hourly_rate}
+                    onChange={(e) => setFormData({ ...formData, hourly_rate: e.target.value })}
+                  />
+                </div>
+              </>
+            )}
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
             <Button type="submit" className="w-full" disabled={isLoading}>
