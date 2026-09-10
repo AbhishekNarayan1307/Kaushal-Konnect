@@ -204,13 +204,13 @@ function WorkerDashboard() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          full_name: profile.full_name,
-          phone: profile.phone,
-          city: profile.city,
-          locality: profile.locality,
-          worker_zone: profile.worker_zone,
-          service_id: profile.service_id,
-          hourly_rate: profile.hourly_rate,
+          full_name: profile?.full_name,
+          phone: profile?.phone,
+          city: profile?.city,
+          locality: profile?.locality,
+          worker_zone: profile?.worker_zone,
+          service_id: profile?.service_id,
+          hourly_rate: profile?.hourly_rate,
         }),
       });
       if (!res.ok) throw new Error("Failed to update profile");
