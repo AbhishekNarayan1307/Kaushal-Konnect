@@ -35,7 +35,7 @@ services:
     environment:
       - PORT=3000
       - HOST=0.0.0.0
-      - VITE_API_URL=http://localhost:8000
+      - VITE_API_URL=https://kaushal-konnect.onrender.com
 
 volumes:
   postgres_data:

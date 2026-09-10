@@ -107,7 +107,7 @@ The application uses a `.env` file to manage configuration. Copy `.env.example` 
 | `SECRET_KEY` | JWT signing key | `your-long-random-string` | Yes | Backend |
 | `ALGORITHM` | JWT hashing algorithm | `HS256` | No | Backend |
 | `ACCESS_TOKEN_EXPIRE_MINUTES` | JWT validity duration | `1440` | No | Backend |
-| `VITE_API_URL` | Backend API URL for frontend | `http://localhost:8000` | Yes | Frontend |
+| `VITE_API_URL` | Backend API URL for frontend | `http://kaushal-konnect.onrender.com` | Yes | Frontend |
 
 ### Important Notes
 - **Frontend Variables**: `VITE_API_URL` is used at build-time. If you change this variable, you MUST rebuild the frontend container.
@@ -162,8 +162,8 @@ docker exec -it kk_backend python create_user.py admin@example.com admin123 "Sys
 
 ### Step 7 - Access the Application
 - **Frontend**: [http://localhost](http://localhost)
-- **Backend API Docs (Swagger)**: [http://localhost:8000/docs](http://localhost:8000/docs)
-- **Backend API Docs (ReDoc)**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+- **Backend API Docs (Swagger)**: [http://kaushal-konnect.onrender.com/docs](http://kaushal-konnect.onrender.com/docs)
+- **Backend API Docs (ReDoc)**: [http://kaushal-konnect.onrender.com/redoc](http://kaushal-konnect.onrender.com/redoc)
 
 ### Stopping the Application
 - **Stop and remove containers**: `docker compose down`
@@ -199,7 +199,7 @@ docker exec -it kk_backend python create_user.py admin@example.com admin123 "Sys
    ```
 2. **Environment**: Create `frontend/.env` with:
    ```env
-   VITE_API_URL=http://localhost:8000
+   VITE_API_URL=http://kaushal-konnect.onrender.com
    ```
 3. **Start Dev Server**: `npm run dev`
 
@@ -230,7 +230,7 @@ docker exec -it kk_backend python create_user.py admin@example.com admin123 "Sys
 - **Entry Point**: `backend/main.py`
 - **Framework**: FastAPI
 - **Startup Command**: `uvicorn main:app --host 0.0.0.0 --port 8000`
-- **URL**: `http://localhost:8000`
+- **URL**: `http://kaushal-konnect.onrender.com`
 
 ### Internal Structure
 - `app/api/v1/endpoints/`: Contains the route handlers for auth, workers, bookings, and recommendations.
@@ -252,8 +252,8 @@ The API is self-documenting via FastAPI.
 | `POST` | `/bookings` | Request a service | JWT Token |
 | `PATCH` | `/workers/{id}/verify` | Verify worker credentials | JWT Token (Admin) |
 
-- **Interactive Docs**: `http://localhost:8000/docs`
-- **Static Docs**: `http://localhost:8000/redoc`
+- **Interactive Docs**: `http://kaushal-konnect.onrender.com/docs`
+- **Static Docs**: `http://kaushal-konnect.onrender.com/redoc`
 
 ---
 
@@ -359,7 +359,7 @@ docker exec -it kk_backend python create_user.py test@example.com pass123 "Test 
 | `db` | `kk_db` | `5432:5432` | PostgreSQL Database |
 
 **Network Flow**:
-`Browser` $\rightarrow$ `kk_frontend` $\rightarrow$ `http://localhost:8000` (via browser) $\rightarrow$ `kk_backend` $\rightarrow$ `db:5432` (via internal Docker network).
+`Browser` $\rightarrow$ `kk_frontend` $\rightarrow$ `http://kaushal-konnect.onrender.com` (via browser) $\rightarrow$ `kk_backend` $\rightarrow$ `db:5432` (via internal Docker network).
 
 ---
 
@@ -368,9 +368,9 @@ docker exec -it kk_backend python create_user.py test@example.com pass123 "Test 
 | Component | Browser URL | Internal Docker Host | Purpose |
 |-----------|-------------|----------------------|---------|
 | Frontend | `http://localhost` | `kk_frontend:3000` | Web Application |
-| Backend | `http://localhost:8000` | `kk_backend:8000` | REST API |
-| Swagger | `http://localhost:8000/docs` | `kk_backend:8000/docs` | API Testing |
-| ReDoc | `http://localhost:8000/redoc` | `kk_backend:8000/redoc` | API Documentation |
+| Backend | `http://kaushal-konnect.onrender.com` | `kk_backend:8000` | REST API |
+| Swagger | `http://kaushal-konnect.onrender.com/docs` | `kk_backend:8000/docs` | API Testing |
+| ReDoc | `http://kaushal-konnect.onrender.com/redoc` | `kk_backend:8000/redoc` | API Documentation |
 | PostgreSQL | N/A | `db:5432` | Database Storage |
 
 ---
@@ -399,7 +399,7 @@ docker exec -it kk_backend python create_user.py test@example.com pass123 "Test 
 | `password authentication failed` | `.env` password mismatch with DB volume | `docker compose down -v` then `docker compose up -d` |
 | `Frontend 404` | Route not defined in TanStack Router | Check `frontend/src/routes/` |
 | `Connection Refused` (Backend) | Backend container not running | `docker compose logs backend` to check for crashes |
-| `localhost:8000` not working | Backend port mapping failed | Check `docker ps` to see if 8000 is mapped |
+| `kaushal-konnect.onrender.com` not working | Backend port mapping failed | Check `docker ps` to see if 8000 is mapped |
 
 ---
 
@@ -488,7 +488,7 @@ If you are a new developer, do this:
 3. **Start**: `docker compose up -d --build`
 4. **DB Init**: `docker exec -it kk_backend alembic upgrade head`
 5. **User**: `docker exec -it kk_backend python create_user.py admin@example.com admin123 "Admin" admin`
-6. **Verify**: Open `http://localhost` and `http://localhost:8000/docs`
+6. **Verify**: Open `http://localhost` and `http://kaushal-konnect.onrender.com/docs`
 
 ---
 

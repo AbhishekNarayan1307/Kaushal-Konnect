@@ -38,7 +38,7 @@ import {
   type WorkerBooking,
 } from "@/lib/worker-data";
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://kaushal-konnect.onrender.com";
 
 export const Route = createFileRoute("/worker")({
   head: () => ({

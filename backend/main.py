@@ -1,3 +1,4 @@
+import os
 import json
 import traceback
 
@@ -14,6 +15,8 @@ app = FastAPI(
 )
 
 
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -21,6 +24,7 @@ app.add_middleware(
         "http://localhost:5173",
         "http://localhost:8080",
         "http://127.0.0.1:5173",
+        FRONTEND_URL,
     ],
     allow_credentials=True,
     allow_methods=["*"],

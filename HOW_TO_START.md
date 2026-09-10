@@ -25,7 +25,7 @@ If you have Docker installed, you can launch the entire environment in one comma
    ```
 3. **Access the App**:
    - Frontend: `http://localhost:5173`
-   - Backend API: `http://localhost:8000`
+   - Backend API: `https://kaushal-konnect.onrender.com`
 
 ---
 
