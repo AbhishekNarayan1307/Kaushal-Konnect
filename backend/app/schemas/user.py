@@ -2,7 +2,9 @@ from pydantic import BaseModel, EmailStr
 from typing import Optional
 from uuid import UUID
 from datetime import datetime
+from decimal import Decimal
 from app.models import UserRole
+
 
 class UserBase(BaseModel):
     email: EmailStr
@@ -13,8 +15,14 @@ class UserBase(BaseModel):
     city: Optional[str] = None
     locality: Optional[str] = None
 
+
 class UserCreate(UserBase):
     password: str
+
+    # Worker-specific signup fields
+    service_id: Optional[str] = None
+    hourly_rate: Optional[Decimal] = None
+
 
 class UserRead(UserBase):
     id: UUID

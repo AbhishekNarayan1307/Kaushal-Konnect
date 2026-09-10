@@ -27,6 +27,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { currency } from "@/lib/dashboard-data";
 import {
   weekDays,
@@ -37,7 +38,7 @@ import {
   type WorkerBooking,
 } from "@/lib/worker-data";
 
-const API_BASE = "http://localhost:8000/api/v1";
+const API_BASE = "http://localhost:8000";
 
 export const Route = createFileRoute("/worker")({
   head: () => ({
@@ -175,6 +176,24 @@ function WorkerDashboard() {
     }
   };
 
+  const updateSkills = async (skills: string[]) => {
+    if (!token) return;
+    try {
+      const res = await fetch(`${API_BASE}/workers/me/skills`, {
+        method: "PUT",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ skills }),
+      });
+      if (!res.ok) throw new Error("Failed to update skills");
+      toast.success("Skills updated");
+    } catch (err) {
+      toast.error("Error updating skills");
+    }
+  };
+
   const updateProfile = async () => {
     if (!token) return;
     try {
@@ -189,6 +208,8 @@ function WorkerDashboard() {
           phone: profile.phone,
           city: profile.city,
           locality: profile.locality,
+          worker_zone: profile.worker_zone,
+          service_id: profile.service_id,
           hourly_rate: profile.hourly_rate,
         }),
       });
@@ -516,8 +537,24 @@ function WorkerDashboard() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Field label="Full name" value={profile?.full_name || ""} onChange={(v) => setProfile({ ...profile, full_name: v })} />
                   <Field label="Headline" value={profile?.headline || ""} onChange={(v) => setProfile({ ...profile, headline: v })} />
-                  <Field label="Service category" value={profile?.service_id || ""} onChange={(v) => setProfile({ ...profile, service_id: v })} />
-                  <Field label="Service area" value={profile?.city || ""} onChange={(v) => setProfile({ ...profile, city: v })} />
+                  <Label>Service category</Label>
+                  <Select
+                    value={profile?.service_id || ""}
+                    onValueChange={(v) => setProfile({ ...profile, service_id: v })}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a category" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="home-cleaning">Home Cleaning</SelectItem>
+                      <SelectItem value="plumbing">Plumbing</SelectItem>
+                      <SelectItem value="electrical">Electrical</SelectItem>
+                      <SelectItem value="painting">Painting</SelectItem>
+                      <SelectItem value="carpentry">Carpentry</SelectItem>
+                      <SelectItem value="appliance-repair">Appliance Repair</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <Field label="Service area" value={profile?.worker_zone || ""} onChange={(v) => setProfile({ ...profile, worker_zone: v })} />
                   <Field label="Phone" value={profile?.phone || ""} onChange={(v) => setProfile({ ...profile, phone: v })} />
                   <div className="grid grid-cols-2 gap-4">
                     <Field
@@ -583,7 +620,13 @@ function WorkerDashboard() {
                     Add
                   </Button>
                 </div>
-                <h2 className="pt-2 text-xl font-bold">Certifications</h2>
+                <Button
+                  className="shadow-gold mt-4"
+                  onClick={() => updateSkills(profile?.skills || [])}
+                >
+                  Save skills
+                </Button>
+                <h2 className="pt-6 text-xl font-bold">Certifications</h2>
                 <div className="space-y-3">
                   {profile?.certifications?.map((c: any) => (
                     <div

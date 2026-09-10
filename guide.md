@@ -1,7 +1,5 @@
 # Kaushal-Konnect - Complete Developer Guide
 
-For a quick-start guide to getting the project running, please see [HOW_TO_START.md](HOW_TO_START.md).
-
 ## 1. Project Overview
 
 Kaushal-Konnect is a unified platform connecting cooperative societies of verified skilled workers with customers for domestic and community services, integrated with an AI-powered recommendation system.
@@ -146,27 +144,23 @@ docker compose up -d --build
 ```powershell
 docker compose ps
 ```
+
 You should see `kk_frontend`, `kk_backend`, and `kk_db` as `Up` (healthy).
 
 ### Step 5 - Initialize Database
 The project uses Alembic for migrations. Run the following command to apply the schema to the database:
 ```powershell
 docker exec -it kk_backend alembic upgrade head
+docker exec -it kk_backend python migrate_data.py "use this"
 ```
 
-### Step 6 - Seed Data
-Populate the database with initial data from CSVs:
-```powershell
-docker exec -it kk_backend python migrate_data.py
-```
-
-### Step 7 - Create Initial Admin User
+### Step 6 - Create Initial Admin User
 Create an admin user to access the management dashboards:
 ```powershell
 docker exec -it kk_backend python create_user.py admin@example.com admin123 "System Admin" admin
 ```
 
-### Step 8 - Access the Application
+### Step 7 - Access the Application
 - **Frontend**: [http://localhost](http://localhost)
 - **Backend API Docs (Swagger)**: [http://localhost:8000/docs](http://localhost:8000/docs)
 - **Backend API Docs (ReDoc)**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
@@ -187,7 +181,6 @@ docker exec -it kk_backend python create_user.py admin@example.com admin123 "Sys
    python -m venv .venv
    .\\.venv\\Scripts\\activate
    pip install -r requirements.txt
-   pip install bcrypt  # Ensure bcrypt is installed for password hashing
    ```
 2. **Environment**: Create `backend/.env` with:
    ```env
@@ -374,7 +367,7 @@ docker exec -it kk_backend python create_user.py test@example.com pass123 "Test 
 
 | Component | Browser URL | Internal Docker Host | Purpose |
 |-----------|-------------|----------------------|---------|
-| Frontend | `http://localhost` (Docker) / `http://localhost:8080` (Local) | `kk_frontend:3000` | Web Application |
+| Frontend | `http://localhost` | `kk_frontend:3000` | Web Application |
 | Backend | `http://localhost:8000` | `kk_backend:8000` | REST API |
 | Swagger | `http://localhost:8000/docs` | `kk_backend:8000/docs` | API Testing |
 | ReDoc | `http://localhost:8000/redoc` | `kk_backend:8000/redoc` | API Documentation |
@@ -494,9 +487,8 @@ If you are a new developer, do this:
 2. **Env**: `copy .env.example .env` $\rightarrow$ *Update SECRET_KEY*
 3. **Start**: `docker compose up -d --build`
 4. **DB Init**: `docker exec -it kk_backend alembic upgrade head`
-5. **Data Migration**: `docker exec -it kk_backend python migrate_data.py`
-6. **User**: `docker exec -it kk_backend python create_user.py admin@example.com admin123 "Admin" admin`
-7. **Verify**: Open `http://localhost` and `http://localhost:8000/docs`
+5. **User**: `docker exec -it kk_backend python create_user.py admin@example.com admin123 "Admin" admin`
+6. **Verify**: Open `http://localhost` and `http://localhost:8000/docs`
 
 ---
 
@@ -529,18 +521,3 @@ If you are a new developer, do this:
 - **Known Issues**:
   - Database volume persistence requires `down -v` for password changes.
   - Frontend build-time variables require rebuild on change.
-
----
-
-## 28. API Evolution: Rebuilding for PostgreSQL
-
-### What is meant by 'Rebuild API using PostgreSQL'?
-
-During the initial prototyping phase, many API endpoints (e.g., `/workers`, `/bookings`) were designed to read data directly from static CSV files using libraries like `pandas`. This is fast for a demo but not suitable for a real application.
-
-**Rebuilding the API** involves the following technical transition:
-
-1. **From File I/O to DB Queries**: Replacing logic like `pd.read_csv('data.csv')` with SQLAlchemy queries such as `session.query(Worker).all()`.
-2. **Implementing CRUD**: Moving from read-only static files to full Create, Read, Update, and Delete (CRUD) operations in PostgreSQL.
-3. **Schema Validation**: Using **Pydantic** schemas to strictly validate that data retrieved from the database matches the expected JSON response format for the frontend.
-4. **State Persistence**: Ensuring that any changes made via the API (e.g., booking a service) are persisted in the database rather than lost when the server restarts.

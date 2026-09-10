@@ -13,14 +13,18 @@ export const Route = createFileRoute('/signup')({
 });
 
 export default function SignupPage() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    full_name: '',
-    phone: '',
-    role: 'customer',
-    zone: '',
-  });
+const [formData, setFormData] = useState({
+  email: '',
+  password: '',
+  full_name: '',
+  phone: '',
+  role: 'customer',
+  zone: '',
+  city: '',
+  locality: '',
+  service_id: '',
+  hourly_rate: '',
+});
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
