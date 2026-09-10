@@ -43,6 +43,7 @@ venv/
 .env
 .env.save
 *.env.save
+frontend/.env
 
 # Jupyter
 .ipynb_checkpoints/
