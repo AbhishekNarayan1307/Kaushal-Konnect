@@ -20,14 +20,14 @@ export default function LoginPage() {
   const navigate = useNavigate();
   useEffect(() => {
   if (user) {
-    if (user.role === 'worker') {
-      navigate({ to: '/worker' });
-    } else if (user.role === 'coop_manager') {
-      navigate({ to: '/coop' });
-    } else {
-      navigate({ to: '/' });
-    }
+  if (user.role === 'worker') {
+    navigate({ to: '/worker' });
+  } else if (user.role === 'coop_manager') {
+    navigate({ to: '/coop' });
+  } else {
+    navigate({ to: '/' });
   }
+}
 }, [user, navigate]);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -71,7 +71,23 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center">Login</CardTitle>
+  <div className="flex flex-col items-center mb-4">
+    <div className="flex items-center gap-3">
+      <span className="grid size-10 place-items-center rounded-xl bg-gradient-gold font-display text-lg font-bold text-primary-foreground">
+        KK
+      </span>
+
+      <p className="font-display text-2xl font-bold">
+        Kaushal Konnect
+      </p>
+    </div>
+
+    <p className="mt-1 text-xs text-muted-foreground">
+     Connect. Book. Get it done.
+    </p>
+  </div>
+
+  <CardTitle className="text-2xl font-bold text-center">Login</CardTitle>
           <CardDescription className="text-center">
             Enter your email and password to access your account
           </CardDescription>

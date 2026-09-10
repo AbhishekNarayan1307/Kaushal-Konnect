@@ -55,9 +55,10 @@ export async function getRecommendedWorkers(
 
 export async function createBooking(bookingData: {
   worker_id: string;
-  customer_id: string;
-  user_zone: string;
-  budget: number;
+  service_id: string;
+  amount: number;
+  slot: string;
+  booking_date: string;
   payment_method: string;
 }) {
   const response = await authenticatedFetch(`${API_BASE_URL}/bookings`, {

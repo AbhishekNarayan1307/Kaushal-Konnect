@@ -66,12 +66,13 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
     setIsLoading(true);
     try {
       const bookingData = {
-        worker_id: worker.id,
-        customer_id: user.id,
-        user_zone: location || "South",
-        budget: worker.pricePerHour * qty,
-        payment_method: method,
-      };
+  worker_id: worker.id,
+  service_id: worker.serviceId,
+  amount: total,
+  slot,
+  booking_date: new Date(`${date}T${slot.slice(0, 5)}:00`).toISOString(),
+  payment_method: method,
+};
 
       const result = await createBooking(bookingData);
 

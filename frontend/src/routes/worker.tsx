@@ -44,7 +44,7 @@ import {
 export const Route = createFileRoute("/worker")({
   head: () => ({
     meta: [
-      { title: "Worker Dashboard | HomeHands Services" },
+      { title: "Worker Dashboard | Kaushal Konnect" },
       {
         name: "description",
         content:
@@ -127,10 +127,10 @@ const [profile, setProfile] = useState({
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <span className="grid size-10 place-items-center rounded-xl bg-gradient-gold font-display text-lg font-bold text-primary-foreground">
-                H
+                KK
               </span>
               <div>
-                <p className="font-display text-lg font-bold leading-none">HomeHands</p>
+                <p className="font-display text-lg font-bold leading-none">Kaushal Konnect</p>
                 <p className="text-xs text-navy-foreground/60">Worker dashboard</p>
               </div>
             </div>

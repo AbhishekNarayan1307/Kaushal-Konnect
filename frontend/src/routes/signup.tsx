@@ -52,11 +52,30 @@ export default function SignupPage() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center">Create Account</CardTitle>
-          <CardDescription className="text-center">
-            Join Kaushal Konnect today
-          </CardDescription>
-        </CardHeader>
+  <div className="flex flex-col items-center mb-4">
+    <div className="flex items-center gap-3">
+      <span className="grid size-10 place-items-center rounded-xl bg-gradient-gold font-display text-lg font-bold text-primary-foreground">
+        KK
+      </span>
+
+      <p className="font-display text-2xl font-bold">
+        Kaushal Konnect
+      </p>
+    </div>
+
+    <p className="mt-1 text-xs text-muted-foreground">
+      Connect. Book. Get it done.
+    </p>
+  </div>
+
+  <CardTitle className="text-2xl font-bold text-center">
+    Create Account
+  </CardTitle>
+
+  <CardDescription className="text-center">
+    Join Kaushal Konnect today
+  </CardDescription>
+</CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
@@ -112,7 +131,6 @@ export default function SignupPage() {
                   <SelectItem value="customer">Customer</SelectItem>
                   <SelectItem value="worker">Worker</SelectItem>
                   <SelectItem value="coop_manager">Co-op Manager</SelectItem>
-                  <SelectItem value="admin">Admin</SelectItem>
                 </SelectContent>
               </Select>
             </div>

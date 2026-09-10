@@ -52,7 +52,7 @@ import { useAuth } from "@/hooks/use-auth";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Customer Dashboard | HomeHands Services" },
+      { title: "Customer Dashboard | Kaushal Konnect" },
       {
         name: "description",
         content:
@@ -230,12 +230,12 @@ function DashboardContent() {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <span className="grid size-10 place-items-center rounded-xl bg-gradient-gold font-display text-lg font-bold text-primary-foreground">
-                H
+                KK
               </span>
 
               <div>
                 <p className="font-display text-lg font-bold leading-none">
-                  HomeHands
+                  Kaushal Konnect
                 </p>
                 <p className="text-xs text-navy-foreground/60">
                   Customer dashboard

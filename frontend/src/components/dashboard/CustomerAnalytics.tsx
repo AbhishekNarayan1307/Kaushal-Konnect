@@ -69,24 +69,30 @@ export function CustomerAnalytics({ bookings, user }: CustomerAnalyticsProps) {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                <div className="flex items-center gap-2 text-sm">
-                  <Mail className="size-4 text-primary" />
-                  <span className="text-muted-foreground">{user.email}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <Phone className="size-4 text-primary" />
-                  <span className="text-muted-foreground">{user.phone || "Not provided"}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <MapPin className="size-4 text-primary" />
-                  <span className="text-muted-foreground">
-                    {user.city && user.locality
-                      ? `${user.locality}, ${user.city}`
-                      : user.city || user.zone || "Not provided"}
-                  </span>
-                </div>
-              </div>
+              <div className="grid grid-cols-1 gap-3 w-full sm:w-auto sm:min-w-0">
+  <div className="flex items-start gap-3 text-sm min-w-0">
+    <Mail className="mt-0.5 size-4 shrink-0 text-primary" />
+    <span className="text-muted-foreground break-all">
+      {user.email}
+    </span>
+  </div>
+
+  <div className="flex items-start gap-3 text-sm min-w-0">
+    <Phone className="mt-0.5 size-4 shrink-0 text-primary" />
+    <span className="text-muted-foreground break-words">
+      {user.phone || "Not provided"}
+    </span>
+  </div>
+
+  <div className="flex items-start gap-3 text-sm min-w-0">
+    <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
+    <span className="text-muted-foreground break-words">
+      {user.city && user.locality
+        ? `${user.locality}, ${user.city}`
+        : user.city || user.zone || "Not provided"}
+    </span>
+  </div>
+</div>
             </div>
           </CardContent>
         </Card>

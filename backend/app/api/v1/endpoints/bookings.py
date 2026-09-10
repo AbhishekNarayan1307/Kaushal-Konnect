@@ -48,8 +48,19 @@ def create_booking(
         )
 
 @router.get("/", response_model=List[BookingRead])
-def read_bookings(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    return db.query(Booking).offset(skip).limit(limit).all()
+def read_bookings(
+    skip: int = 0,
+    limit: int = 100,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    return (
+        db.query(Booking)
+        .filter(Booking.customer_id == current_user.id)
+        .offset(skip)
+        .limit(limit)
+        .all()
+    )
 
 @router.get("/{booking_id}", response_model=BookingRead)
 def read_booking(booking_id: str, db: Session = Depends(get_db)):
