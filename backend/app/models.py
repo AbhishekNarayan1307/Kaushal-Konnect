@@ -79,8 +79,6 @@ class Worker(Base):
     locality = Column(String, nullable=True)
     is_verified = Column(Boolean, default=False, nullable=False)
     available = Column(Boolean, default=True, nullable=False)
-    working_days = Column(JSON, nullable=True)
-    slots = Column(JSON, nullable=True)
     hourly_rate = Column(Numeric(10, 2), nullable=False)
     rating = Column(Numeric(3, 2), default=0.0, nullable=False)
     completed_jobs = Column(Integer, default=0, nullable=False)
