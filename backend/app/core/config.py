@@ -3,8 +3,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     DATABASE_URL: str
-
     SECRET_KEY: str
+
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 1440
 
@@ -14,5 +14,5 @@ class Settings(BaseSettings):
         extra="ignore"
     )
 
+
 settings = Settings()
-print("DATABASE URL:", settings.DATABASE_URL)
