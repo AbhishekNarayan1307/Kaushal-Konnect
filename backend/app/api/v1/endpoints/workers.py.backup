@@ -1,0 +1,193 @@
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
+from sqlalchemy.orm import Session
+from typing import List
+from uuid import UUID
+from app.db.session import get_db
+from app.models import Worker, User, UserRole, VerificationDocument
+from app.schemas.worker import (
+    WorkerCreate, WorkerRead, WorkerProfileRead,
+    WorkerProfileUpdate, AvailabilityUpdate,
+    VerificationDocumentCreate, VerificationDocumentRead
+)
+from app.api.deps import get_current_user, check_role
+
+router = APIRouter()
+
+@router.post("/", response_model=WorkerRead)
+def create_worker(
+    worker: WorkerCreate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    db_worker = Worker(**worker.model_dump())
+    db.add(db_worker)
+    db.commit()
+    db.refresh(db_worker)
+    return db_worker
+
+@router.patch("/{worker_id}/verify", response_model=WorkerRead)
+def verify_worker(
+    worker_id: str,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(check_role([UserRole.admin, UserRole.coop_manager]))
+):
+    db_worker = db.query(Worker).filter(Worker.id == worker_id).first()
+    if not db_worker:
+        raise HTTPException(status_code=404, detail="Worker not found")
+
+    db_worker.is_verified = True
+    db.commit()
+    db.refresh(db_worker)
+    return db_worker
+
+@router.get("/", response_model=List[WorkerRead])
+def read_workers(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    return db.query(Worker).offset(skip).limit(limit).all()
+
+@router.get("/{worker_id}", response_model=WorkerRead)
+def read_worker(worker_id: str, db: Session = Depends(get_db)):
+    db_worker = db.query(Worker).filter(Worker.id == worker_id).first()
+    if not db_worker:
+        raise HTTPException(status_code=404, detail="Worker not found")
+    return db_worker
+
+@router.get("/me", response_model=WorkerProfileRead)
+def read_worker_me(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    if current_user.role != UserRole.worker:
+        raise HTTPException(status_code=403, detail="Only workers can access this endpoint")
+
+    worker = db.query(Worker).filter(Worker.user_id == current_user.id).first()
+    if not worker:
+        raise HTTPException(status_code=404, detail="Worker profile not found")
+
+    return {
+        **worker.__dict__,
+        "email": current_user.email,
+        "full_name": current_user.full_name,
+        "phone": current_user.phone,
+        "role": current_user.role,
+    }
+
+@router.patch("/me", response_model=WorkerProfileRead)
+def update_worker_me(
+    update_data: WorkerProfileUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    if current_user.role != UserRole.worker:
+        raise HTTPException(status_code=403, detail="Only workers can access this endpoint")
+
+    worker = db.query(Worker).filter(Worker.user_id == current_user.id).first()
+    if not worker:
+        raise HTTPException(status_code=404, detail="Worker profile not found")
+
+    # Update User fields
+    if update_data.full_name:
+        current_user.full_name = update_data.full_name
+    if update_data.phone:
+        current_user.phone = update_data.phone
+    if update_data.city:
+        current_user.city = update_data.city
+    if update_data.locality:
+        current_user.locality = update_data.locality
+
+    # Update Worker fields
+    if update_data.hourly_rate:
+        worker.hourly_rate = update_data.hourly_rate
+
+    db.commit()
+    db.refresh(worker)
+
+    return {
+        **worker.__dict__,
+        "email": current_user.email,
+        "full_name": current_user.full_name,
+        "phone": current_user.phone,
+        "role": current_user.role,
+    }
+
+@router.patch("/me/availability", response_model=WorkerRead)
+def update_worker_availability(
+    update_data: AvailabilityUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    if current_user.role != UserRole.worker:
+        raise HTTPException(status_code=403, detail="Only workers can access this endpoint")
+
+    worker = db.query(Worker).filter(Worker.user_id == current_user.id).first()
+    if not worker:
+        raise HTTPException(status_code=404, detail="Worker profile not found")
+
+    worker.available = update_data.available
+    if update_data.working_days is not None:
+        worker.working_days = update_data.working_days
+    if update_data.slots is not None:
+        worker.slots = update_data.slots
+
+    db.commit()
+    db.refresh(worker)
+    return worker
+
+@router.get("/me/documents", response_model=List[VerificationDocumentRead])
+def read_worker_documents(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    if current_user.role != UserRole.worker:
+        raise HTTPException(status_code=403, detail="Only workers can access this endpoint")
+
+    worker = db.query(Worker).filter(Worker.user_id == current_user.id).first()
+    if not worker:
+        raise HTTPException(status_code=404, detail="Worker profile not found")
+
+    return db.query(VerificationDocument).filter(VerificationDocument.worker_id == worker.id).all()
+
+@router.post("/me/documents", response_model=VerificationDocumentRead)
+def upload_worker_document(
+    document_type: str,
+    file: UploadFile = File(...),
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    if current_user.role != UserRole.worker:
+        raise HTTPException(status_code=403, detail="Only workers can access this endpoint")
+
+    worker = db.query(Worker).filter(Worker.user_id == current_user.id).first()
+    if not worker:
+        raise HTTPException(status_code=404, detail="Worker profile not found")
+
+    # In a real app, we would save the file to disk or S3.
+    # Here we just simulate it.
+    file_path = f"uploads/workers/{worker.id}/{file.filename}"
+
+    doc = VerificationDocument(
+        worker_id=worker.id,
+        document_type=document_type,
+        file_path=file_path,
+        status="Pending"
+    )
+    db.add(doc)
+    db.commit()
+    db.refresh(doc)
+    return doc
+
+@router.patch("/me/documents/{doc_id}", response_model=VerificationDocumentRead)
+def update_document_status(
+    doc_id: UUID,
+    status: str,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(check_role([UserRole.admin, UserRole.coop_manager]))
+):
+    doc = db.query(VerificationDocument).filter(VerificationDocument.id == doc_id).first()
+    if not doc:
+        raise HTTPException(status_code=404, detail="Document not found")
+
+    doc.status = status
+    db.commit()
+    db.refresh(doc)
+    return doc
+

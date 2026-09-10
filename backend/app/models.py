@@ -3,7 +3,7 @@ from datetime import datetime
 from enum import Enum as PyEnum
 from sqlalchemy import (
     Column, String, Integer, Boolean, Numeric, DateTime,
-    ForeignKey, Enum, Table, CheckConstraint, UniqueConstraint, Text
+    ForeignKey, Enum, Table, CheckConstraint, UniqueConstraint, Text, JSON
 )
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
@@ -79,6 +79,8 @@ class Worker(Base):
     locality = Column(String, nullable=True)
     is_verified = Column(Boolean, default=False, nullable=False)
     available = Column(Boolean, default=True, nullable=False)
+    working_days = Column(JSON, nullable=True)
+    slots = Column(JSON, nullable=True)
     hourly_rate = Column(Numeric(10, 2), nullable=False)
     rating = Column(Numeric(3, 2), default=0.0, nullable=False)
     completed_jobs = Column(Integer, default=0, nullable=False)
@@ -90,6 +92,20 @@ class Worker(Base):
     cooperative = relationship("Cooperative", back_populates="workers")
     skills = relationship("WorkerSkill", back_populates="worker")
     bookings = relationship("Booking", back_populates="worker")
+    documents = relationship("VerificationDocument", back_populates="worker")
+
+class VerificationDocument(Base):
+    __tablename__ = "verification_documents"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    worker_id = Column(UUID(as_uuid=True), ForeignKey("workers.id"), nullable=False)
+    document_type = Column(String, nullable=False) # e.g., "ID Proof", "Certification"
+    file_path = Column(String, nullable=True)
+    status = Column(String, default="Pending", nullable=False) # "Pending", "Verified", "Rejected"
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    # Relationships
+    worker = relationship("Worker", back_populates="documents")
 
 class WorkerSkill(Base):
     __tablename__ = "worker_skills"

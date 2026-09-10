@@ -49,8 +49,12 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <Card className="w-full max-w-md">
+    <div
+      className="flex min-h-screen items-center justify-center px-4 bg-cover bg-center bg-no-repeat relative"
+      style={{ backgroundImage: "url('/loginbg.png')" }}
+    >
+      <div className="absolute inset-0 bg-black/40" />
+      <Card className="w-full max-w-md relative z-10 bg-card/70 backdrop-blur-md border-white/20">
         <CardHeader className="space-y-1">
   <div className="flex flex-col items-center mb-4">
     <div className="flex items-center gap-3">
