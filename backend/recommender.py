@@ -51,7 +51,6 @@ def get_recommendations(category, zone, budget, worker_data, top_n=10):
 
     eligible_workers = worker_data[
         (worker_data["category"] == category)
-        & (worker_data["worker_zone"] == zone)
         & (worker_data["available"] == 1)
         & (worker_data["price"] <= budget)
     ].copy()
@@ -66,7 +65,6 @@ def get_recommendations(category, zone, budget, worker_data, top_n=10):
 
     eligible_workers = worker_data[
         (worker_data["category"] == category)
-        & (worker_data["worker_zone"] == zone)
         & (worker_data["available"] == 1)
         & (worker_data["price"] <= budget)
     ].copy()

@@ -4,8 +4,26 @@ from app.models import Worker, User
 from recommender import get_recommendations
 
 def get_worker_recommendations(db: Session, category: str, zone: str, budget: float, top_n: int):
+    # The frontend sends canonical category names like "Home Cleaning", "Plumbing", etc.
+    # The DB uses IDs like "home-cleaning", "plumbing".
+    category_mapping = {
+        "Home Cleaning": "home-cleaning",
+        "Plumbing": "plumbing",
+        "Electrical": "electrical",
+        "Painting": "painting",
+        "Carpentry": "carpentry",
+        "Appliance Repair": "appliance-repair",
+    }
+
+    service_id = category_mapping.get(category, category)
+
     # Fetch relevant workers from DB to create a DataFrame for the ML model
-    workers = db.query(Worker).all()
+    # Filter by service_id, city (passed as zone), and availability
+    workers = db.query(Worker).filter(
+        Worker.service_id == service_id,
+        Worker.city == zone,
+        Worker.available == True
+    ).all()
 
     if not workers:
         return pd.DataFrame()
@@ -32,7 +50,7 @@ def get_worker_recommendations(db: Session, category: str, zone: str, budget: fl
 
     # Get the ranked worker IDs from the ML model
     ranked_df = get_recommendations(
-        category=category,
+        category=service_id,
         zone=zone,
         budget=budget,
         worker_data=worker_df,

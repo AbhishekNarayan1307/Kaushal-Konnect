@@ -82,12 +82,12 @@ const icons = {
 };
 
 const categoryMapping: Record<string, string> = {
-  cleaning: "Home Cleaning",
+  "home-cleaning": "Home Cleaning",
   plumbing: "Plumbing",
   electrical: "Electrical",
   painting: "Painting",
   carpentry: "Carpentry",
-  appliance: "Appliance Repair",
+  "appliance-repair": "Appliance Repair",
 };
 
 function CustomerDashboard() {
@@ -101,7 +101,7 @@ function DashboardContent() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [userLocation, setUserLocation] = useState("Delhi");
-  const [serviceId, setServiceId] = useState("cleaning");
+  const [serviceId, setServiceId] = useState("home-cleaning");
   const [sort, setSort] = useState("rating");
   const [budget, setBudget] = useState("1000");
   const [bookings, setBookings] = useState<Booking[]>([]);

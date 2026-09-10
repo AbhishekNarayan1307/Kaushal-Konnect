@@ -36,12 +36,12 @@ export type Booking = {
 };
 
 export const services: Service[] = [
-  { id: "cleaning", name: "Home Cleaning", icon: "Sparkles", from: 18, blurb: "Deep & regular cleaning" },
+  { id: "home-cleaning", name: "Home Cleaning", icon: "Sparkles", from: 18, blurb: "Deep & regular cleaning" },
   { id: "plumbing", name: "Plumbing", icon: "Wrench", from: 26, blurb: "Leaks, fittings, drainage" },
   { id: "electrical", name: "Electrical", icon: "Zap", from: 30, blurb: "Wiring, fixtures, repairs" },
   { id: "painting", name: "Painting", icon: "Paintbrush", from: 22, blurb: "Interior & exterior walls" },
   { id: "carpentry", name: "Carpentry", icon: "Hammer", from: 28, blurb: "Furniture & fittings" },
-  { id: "appliance", name: "Appliance Repair", icon: "Refrigerator", from: 24, blurb: "AC, washer, fridge" },
+  { id: "appliance-repair", name: "Appliance Repair", icon: "Refrigerator", from: 24, blurb: "AC, washer, fridge" },
 ];
 
 export const workers: Worker[] = [];

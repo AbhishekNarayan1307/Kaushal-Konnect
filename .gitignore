@@ -41,6 +41,8 @@ venv/
 
 # Environment variables
 .env
+.env.save
+*.env.save
 
 # Jupyter
 .ipynb_checkpoints/

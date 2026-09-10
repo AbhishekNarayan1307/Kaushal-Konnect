@@ -1,6 +1,6 @@
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import {
   BadgeCheck,
@@ -29,17 +29,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { currency } from "@/lib/dashboard-data";
 import {
-  initialDocs,
-  initialRequests,
-  initialWorkerBookings,
   weekDays,
   welfare,
-  workerProfile,
   workerSlots,
   type JobRequest,
   type VerificationDoc,
   type WorkerBooking,
 } from "@/lib/worker-data";
+
+const API_BASE = "http://localhost:8000/api/v1";
 
 export const Route = createFileRoute("/worker")({
   head: () => ({
@@ -64,22 +62,78 @@ export const Route = createFileRoute("/worker")({
 });
 
 function WorkerDashboard() {
-  const { user } = useAuth();
+  const { user, token } = useAuth();
 
-const [profile, setProfile] = useState({
-  ...workerProfile,
-  name: user?.full_name || workerProfile.name,
-  city: (user as any)?.zone || workerProfile.city,
-  phone: (user as any)?.phone || workerProfile.phone,
-});
-  
+  const [profile, setProfile] = useState<any>(null);
   const [skillInput, setSkillInput] = useState("");
-  const [docs, setDocs] = useState<VerificationDoc[]>(initialDocs);
-  const [requests, setRequests] = useState<JobRequest[]>(initialRequests);
-  const [bookings, setBookings] = useState<WorkerBooking[]>(initialWorkerBookings);
+  const [docs, setDocs] = useState<VerificationDoc[]>([]);
+  const [requests, setRequests] = useState<JobRequest[]>([]);
+  const [bookings, setBookings] = useState<WorkerBooking[]>([]);
   const [availableOnline, setAvailableOnline] = useState(true);
-  const [days, setDays] = useState<string[]>(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]);
-  const [slots, setSlots] = useState<string[]>(workerSlots.slice(0, 4));
+  const [days, setDays] = useState<string[]>([]);
+  const [slots, setSlots] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadDashboardData() {
+      if (!token) return;
+      setIsLoading(true);
+      try {
+        const headers = { Authorization: `Bearer ${token}` };
+
+        // 1. Fetch Profile
+        const profRes = await fetch(`${API_BASE}/workers/me`, { headers });
+        if (profRes.ok) {
+          const data = await profRes.json();
+          setProfile(data);
+          setAvailableOnline(data.available);
+          setDays(data.working_days || []);
+          setSlots(data.slots || []);
+        }
+
+        // 2. Fetch Bookings (and requests)
+        const bookRes = await fetch(`${API_BASE}/bookings/`, { headers });
+        if (bookRes.ok) {
+          const data = await bookRes.json();
+          const allBookings = data.map((b: any) => ({
+            ...b,
+            customer: b.customer?.full_name || "Unknown Customer",
+            service: b.service_id,
+            status: b.status === "REQUESTED" ? "Requested" : (b.status === "ACCEPTED" ? "Upcoming" : b.status),
+            payout: b.status === "COMPLETED" ? "Paid" : "Pending",
+            amount: b.amount,
+            date: b.booking_date ? new Date(b.booking_date).toLocaleDateString() : "N/A",
+            slot: b.slot,
+            hours: 1,
+          }));
+
+          const reqs = allBookings.filter(b => b.status === "Requested");
+          const bks = allBookings.filter(b => b.status !== "Requested");
+
+          setRequests(reqs as any);
+          setBookings(bks as any);
+        }
+
+        // 3. Fetch Documents
+        const docRes = await fetch(`${API_BASE}/workers/me/documents`, { headers });
+        if (docRes.ok) {
+          const data = await docRes.json();
+          setDocs(data.map((d: any) => ({
+            ...d,
+            label: d.document_type,
+            status: d.status === "Verified" ? "Verified" : (d.status === "Rejected" ? "Rejected" : "Pending")
+          })));
+        }
+      } catch (err) {
+        console.error("Failed to load dashboard data:", err);
+        toast.error("Failed to load dashboard data");
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadDashboardData();
+  }, [token]);
 
   const verifiedCount = docs.filter((d) => d.status === "Verified").length;
   const earnings = bookings
@@ -98,26 +152,127 @@ const [profile, setProfile] = useState({
   const toggle = (list: string[], set: (v: string[]) => void, value: string) =>
     set(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
 
-  const decide = (req: JobRequest, accept: boolean) => {
-    setRequests((prev) => prev.filter((r) => r.id !== req.id));
-    setBookings((prev) => [
-      ...prev,
-      {
-        id: req.id.replace("RQ", "BK"),
-        customer: req.customer,
-        service: req.service,
-        date: req.date,
-        slot: req.slot,
-        hours: req.hours,
-        amount: req.amount,
-        status: accept ? "Upcoming" : "Rejected",
-        payout: accept ? "Pending" : "Pending",
-      },
-    ]);
-    toast[accept ? "success" : "info"](accept ? "Booking accepted" : "Booking rejected", {
-      description: `${req.customer} · ${req.date} · ${req.slot}`,
-    });
+  const decide = async (req: JobRequest, accept: boolean) => {
+    if (!token) return;
+    try {
+      const status = accept ? "ACCEPTED" : "REJECTED";
+      const res = await fetch(`${API_BASE}/bookings/${req.id}/status?status=${status}`, {
+        method: "PATCH",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (!res.ok) throw new Error("Failed to update booking status");
+
+      setRequests((prev) => prev.filter((r) => r.id !== req.id));
+      if (accept) {
+        setBookings((prev) => [...prev, { ...req, id: req.id, status: "Upcoming", payout: "Pending" }]);
+      }
+      toast[accept ? "success" : "info"](accept ? "Booking accepted" : "Booking rejected", {
+        description: `${req.customer} · ${req.date} · ${req.slot}`,
+      });
+    } catch (err) {
+      toast.error("Error updating booking status");
+    }
   };
+
+  const updateProfile = async () => {
+    if (!token) return;
+    try {
+      const res = await fetch(`${API_BASE}/workers/me`, {
+        method: "PATCH",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          full_name: profile.full_name,
+          phone: profile.phone,
+          city: profile.city,
+          locality: profile.locality,
+          hourly_rate: profile.hourly_rate,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed to update profile");
+      toast.success("Profile updated");
+    } catch (err) {
+      toast.error("Error updating profile");
+    }
+  };
+
+  const updateAvailability = async () => {
+    if (!token) return;
+    try {
+      const res = await fetch(`${API_BASE}/workers/me/availability`, {
+        method: "PATCH",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          available: availableOnline,
+          working_days: days,
+          slots: slots,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed to update availability");
+      toast.success("Availability saved", {
+        description: `${days.length} days · ${slots.length} slots per day`,
+      });
+    } catch (err) {
+      toast.error("Error updating availability");
+    }
+  };
+
+  const handleUploadDoc = async (doc: VerificationDoc) => {
+    if (!token) return;
+    try {
+      const formData = new FormData();
+      formData.append("document_type", doc.label);
+      formData.append("file", new Blob(["mock file content"]), { name: `${doc.label}.pdf` });
+
+      const res = await fetch(`${API_BASE}/workers/me/documents`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+        body: formData,
+      });
+      if (!res.ok) throw new Error("Failed to upload document");
+
+      setDocs((prev) => prev.map(d => d.id === doc.id ? { ...d, status: "Under review", fileName: `${doc.label}.pdf` } : d));
+      toast.success("Document uploaded", {
+        description: "Our team reviews documents within 48 hours.",
+      });
+    } catch (err) {
+      toast.error("Error uploading document");
+    }
+  };
+
+  const markComplete = async (bookingId: string) => {
+    if (!token) return;
+    try {
+      const res = await fetch(`${API_BASE}/bookings/${bookingId}/complete`, {
+        method: "PATCH",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok) throw new Error("Failed to mark complete");
+
+      setBookings((prev) =>
+        prev.map((x) =>
+          x.id === bookingId ? { ...x, status: "Completed", payout: "Paid" } : x,
+        ),
+      );
+      toast.success("Job marked complete", { description: "Payout released to your wallet." });
+    } catch (err) {
+      toast.error("Error completing booking");
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <p className="text-muted-foreground animate-pulse">Loading dashboard...</p>
+      </div>
+    );
+  }
 
   return (
     <ProtectedRoute allowedRoles={['worker', 'admin']}>
@@ -179,14 +334,13 @@ const [profile, setProfile] = useState({
               </div>
             </div>
           </div>
-
           <h1 className="mt-10 max-w-xl text-4xl font-bold leading-tight sm:text-5xl">
-            Welcome back, {profile?.name?.split(" ")[0] || "Worker"}.{" "}
+            Welcome back, {profile?.full_name?.split(" ")[0] || "Worker"}.{" "}
             <span className="text-primary">{requests?.length || 0} new request{requests?.length === 1 ? "" : "s"}.</span>
           </h1>
           <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-navy-foreground/70">
             <span className="flex items-center gap-1.5">
-              <BadgeCheck className="size-4 text-primary" /> {profile.service} · {profile.city}
+              <BadgeCheck className="size-4 text-primary" /> {profile?.service_id} · {profile?.city}
             </span>
             <span className="flex items-center gap-1.5">
               <Star className="size-4 fill-primary text-primary" /> {avgRating} average rating
@@ -194,7 +348,6 @@ const [profile, setProfile] = useState({
           </p>
         </div>
       </header>
-
       <div className="mx-auto -mt-16 max-w-6xl px-5 sm:px-8">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <StatCard icon={<Inbox className="size-5" />} label="Job requests" value={String(requests.length)} />
@@ -202,7 +355,6 @@ const [profile, setProfile] = useState({
           <StatCard icon={<Wallet className="size-5" />} label="Earnings paid" value={currency(earnings)} />
           <StatCard icon={<ShieldCheck className="size-5" />} label="Docs verified" value={`${verifiedCount}/${docs.length}`} />
         </div>
-
         <Tabs defaultValue="jobs" className="mt-10">
           <TabsList className="flex-wrap">
             <TabsTrigger value="jobs">Jobs</TabsTrigger>
@@ -212,7 +364,6 @@ const [profile, setProfile] = useState({
             <TabsTrigger value="earnings">Earnings</TabsTrigger>
             <TabsTrigger value="welfare">Welfare</TabsTrigger>
           </TabsList>
-
           {/* JOBS */}
           <TabsContent value="jobs" className="mt-6 space-y-8">
             <section>
@@ -255,7 +406,6 @@ const [profile, setProfile] = useState({
                 )}
               </div>
             </section>
-
             <section>
               <h2 className="text-xl font-bold">Upcoming & completed bookings</h2>
               <div className="mt-4 space-y-4">
@@ -288,14 +438,7 @@ const [profile, setProfile] = useState({
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => {
-                            setBookings((prev) =>
-                              prev.map((x) =>
-                                x.id === b.id ? { ...x, status: "Completed", payout: "Paid" } : x,
-                              ),
-                            );
-                            toast.success("Job marked complete", { description: "Payout released to your wallet." });
-                          }}
+                          onClick={() => markComplete(b.id)}
                         >
                           <Check className="mr-1 size-4" /> Mark complete
                         </Button>
@@ -306,7 +449,6 @@ const [profile, setProfile] = useState({
               </div>
             </section>
           </TabsContent>
-
           {/* AVAILABILITY */}
           <TabsContent value="availability" className="mt-6 space-y-6">
             <Card>
@@ -334,7 +476,6 @@ const [profile, setProfile] = useState({
                     })}
                   </div>
                 </div>
-
                 <div>
                   <h2 className="text-xl font-bold">Available slots</h2>
                   <p className="text-sm text-muted-foreground">Customers can only book these windows.</p>
@@ -358,41 +499,35 @@ const [profile, setProfile] = useState({
                     })}
                   </div>
                 </div>
-
                 <Button
                   className="shadow-gold"
-                  onClick={() =>
-                    toast.success("Availability saved", {
-                      description: `${days.length} days · ${slots.length} slots per day`,
-                    })
-                  }
+                  onClick={updateAvailability}
                 >
                   Save availability
                 </Button>
               </CardContent>
             </Card>
           </TabsContent>
-
           {/* PROFILE */}
           <TabsContent value="profile" className="mt-6 space-y-6">
             <Card>
               <CardContent className="space-y-5 p-6">
                 <h2 className="text-xl font-bold">Profile details</h2>
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <Field label="Full name" value={profile.name} onChange={(v) => setProfile({ ...profile, name: v })} />
-                  <Field label="Headline" value={profile.headline} onChange={(v) => setProfile({ ...profile, headline: v })} />
-                  <Field label="Service category" value={profile.service} onChange={(v) => setProfile({ ...profile, service: v })} />
-                  <Field label="Service area" value={profile.city} onChange={(v) => setProfile({ ...profile, city: v })} />
-                  <Field label="Phone" value={profile.phone} onChange={(v) => setProfile({ ...profile, phone: v })} />
+                  <Field label="Full name" value={profile?.full_name || ""} onChange={(v) => setProfile({ ...profile, full_name: v })} />
+                  <Field label="Headline" value={profile?.headline || ""} onChange={(v) => setProfile({ ...profile, headline: v })} />
+                  <Field label="Service category" value={profile?.service_id || ""} onChange={(v) => setProfile({ ...profile, service_id: v })} />
+                  <Field label="Service area" value={profile?.city || ""} onChange={(v) => setProfile({ ...profile, city: v })} />
+                  <Field label="Phone" value={profile?.phone || ""} onChange={(v) => setProfile({ ...profile, phone: v })} />
                   <div className="grid grid-cols-2 gap-4">
                     <Field
                       label="Rate / hour"
-                      value={String(profile.hourlyRate)}
-                      onChange={(v) => setProfile({ ...profile, hourlyRate: Number(v) || 0 })}
+                      value={String(profile?.hourly_rate || 0)}
+                      onChange={(v) => setProfile({ ...profile, hourly_rate: Number(v) || 0 })}
                     />
                     <Field
                       label="Experience (yrs)"
-                      value={String(profile.experienceYears)}
+                      value={String(profile?.experienceYears || 0)}
                       onChange={(v) => setProfile({ ...profile, experienceYears: Number(v) || 0 })}
                     />
                   </div>
@@ -402,28 +537,27 @@ const [profile, setProfile] = useState({
                   <Textarea
                     id="bio"
                     rows={4}
-                    value={profile.bio}
+                    value={profile?.bio || ""}
                     onChange={(e) => setProfile({ ...profile, bio: e.target.value })}
                   />
                 </div>
-                <Button className="shadow-gold" onClick={() => toast.success("Profile updated")}>
+                <Button className="shadow-gold" onClick={updateProfile}>
                   Save profile
                 </Button>
               </CardContent>
             </Card>
-
             <Card>
               <CardContent className="space-y-4 p-6">
                 <h2 className="text-xl font-bold">Skills</h2>
                 <div className="flex flex-wrap gap-2">
-                  {profile.skills.map((s) => (
+                  {profile?.skills?.map((s: string) => (
                     <Badge key={s} variant="secondary" className="gap-1 font-normal">
                       {s}
                       <button
                         type="button"
                         aria-label={`Remove ${s}`}
                         onClick={() =>
-                          setProfile({ ...profile, skills: profile.skills.filter((x) => x !== s) })
+                          setProfile({ ...profile, skills: profile.skills.filter((x: string) => x !== s) })
                         }
                       >
                         <X className="size-3" />
@@ -441,18 +575,17 @@ const [profile, setProfile] = useState({
                     variant="outline"
                     onClick={() => {
                       const v = skillInput.trim();
-                      if (!v || profile.skills.includes(v)) return;
-                      setProfile({ ...profile, skills: [...profile.skills, v] });
+                      if (!v || profile?.skills?.includes(v)) return;
+                      setProfile({ ...profile, skills: [...(profile?.skills || []), v] });
                       setSkillInput("");
                     }}
                   >
                     Add
                   </Button>
                 </div>
-
                 <h2 className="pt-2 text-xl font-bold">Certifications</h2>
                 <div className="space-y-3">
-                  {profile.certifications.map((c) => (
+                  {profile?.certifications?.map((c: any) => (
                     <div
                       key={c.id}
                       className="flex items-center justify-between gap-4 rounded-lg border border-border bg-card p-4"
@@ -477,11 +610,11 @@ const [profile, setProfile] = useState({
                 <Button
                   variant="outline"
                   onClick={() => {
-                    const id = `c${profile.certifications.length + 1}`;
+                    const id = `c${(profile?.certifications?.length || 0) + 1}`;
                     setProfile({
                       ...profile,
                       certifications: [
-                        ...profile.certifications,
+                        ...(profile?.certifications || []),
                         { id, name: "New certification", issuer: "Pending issuer", year: 2026 },
                       ],
                     });
@@ -493,7 +626,6 @@ const [profile, setProfile] = useState({
               </CardContent>
             </Card>
           </TabsContent>
-
           {/* VERIFICATION */}
           <TabsContent value="verification" className="mt-6">
             <Card>
@@ -526,22 +658,7 @@ const [profile, setProfile] = useState({
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => {
-                            setDocs((prev) =>
-                              prev.map((x) =>
-                                x.id === d.id
-                                  ? {
-                                      ...x,
-                                      status: "Under review",
-                                      fileName: `${d.label.toLowerCase().replace(/\s+/g, "-")}.pdf`,
-                                    }
-                                  : x,
-                              ),
-                            );
-                            toast.success("Document uploaded", {
-                              description: "Our team reviews documents within 48 hours.",
-                            });
-                          }}
+                          onClick={() => handleUploadDoc(d)}
                         >
                           <Upload className="mr-1 size-4" /> {d.fileName ? "Replace" : "Upload"}
                         </Button>
@@ -552,7 +669,6 @@ const [profile, setProfile] = useState({
               </CardContent>
             </Card>
           </TabsContent>
-
           {/* EARNINGS */}
           <TabsContent value="earnings" className="mt-6 space-y-6">
             <div className="grid gap-4 sm:grid-cols-3">
@@ -593,7 +709,6 @@ const [profile, setProfile] = useState({
               </CardContent>
             </Card>
           </TabsContent>
-
           {/* WELFARE */}
           <TabsContent value="welfare" className="mt-6">
             <h2 className="text-xl font-bold">Insurance & welfare</h2>
