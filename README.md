@@ -26,6 +26,8 @@ The system follows a role-based architecture with four major user roles:
 Each role receives access to the features and information required for its responsibilities.
 The platform is built using a scalable React/TanStack Start frontend, FastAPI backend, PostgreSQL database, and a Python-based AI module.
 
+## Initialisation steps : read HOW_TO_START.md
+
 ## 4. Key Features
 ### Cooperative-Verified Worker Profiles
 Co-op Managers can verify and manage skilled workers associated with their cooperative societies, creating a trusted source of worker information.
@@ -48,6 +50,8 @@ The platform provides structured digital records for:
 * Worker earnings
 ### Worker Management
 Workers can maintain their professional information and manage service-related activities.
+
+
 
 ## 5. Why Kaushal Konnect?
 Unlike conventional gig platforms where workers may only be verified once during onboarding, *Kaushal Konnect keeps the cooperative society involved throughout the platform ecosystem.*
@@ -80,6 +84,8 @@ This approach combines digital service discovery with the existing trust structu
 * Recommendation / Matching Module
 
 ### DevOps & Deployment
+* Render for frontend and backend
+* Neon for database
 * Docker
 * Docker Compose
 
