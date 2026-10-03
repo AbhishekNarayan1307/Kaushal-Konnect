@@ -50,16 +50,18 @@ async def global_exception_handler(request: Request, exc: Exception):
     )
 
 
-app.include_router(
-    auth.router,
-    prefix="/auth",
-    tags=["Authentication"]
-)
+from app.api.v1.endpoints.locations import router as locations_router
 
 app.include_router(
     workers.router,
     prefix="/workers",
     tags=["Workers"]
+)
+
+app.include_router(
+    locations_router,
+    prefix="/locations",
+    tags=["Locations"]
 )
 
 app.include_router(

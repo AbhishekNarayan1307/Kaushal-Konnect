@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
+from typing import Optional
 from sqlalchemy.orm import Session
 import json
 from app.db.session import get_db
@@ -12,6 +13,9 @@ def recommendations(
     zone: str = Query(...),
     budget: float = Query(...),
     top_n: int = Query(10, ge=1, le=20),
+    user_lat: Optional[float] = Query(None),
+    user_lon: Optional[float] = Query(None),
+    radius_km: Optional[float] = Query(None),
     db: Session = Depends(get_db)
 ):
     
@@ -26,7 +30,10 @@ def recommendations(
         category=category,
         zone=zone,
         budget=budget,
-        top_n=top_n
+        top_n=top_n,
+        user_lat=user_lat,
+        user_lon=user_lon,
+        radius_km=radius_km
     )
 
     if ranked_workers.empty:
