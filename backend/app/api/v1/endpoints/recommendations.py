@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from typing import Optional
 from sqlalchemy.orm import Session
-import json
+
 from app.db.session import get_db
 from app.services.recommender_service import get_worker_recommendations
 

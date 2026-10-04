@@ -155,12 +155,15 @@ function DashboardContent() {
       const category =
   categoryMapping[selectedServiceId] || selectedServiceId;
 
-      console.log("SEARCH:", {
-        category,
-        zone: userLocation.trim(),
-        budget: parseFloat(budget) || 1000,
-      });
-      const zone = selectedLocation?.address || "";
+      
+    const zone = selectedLocation?.address || "";
+
+    console.log("SEARCH:", {
+      category,
+      zone,
+      budget: parseFloat(budget) || 1000,
+    });
+
 
       const budgetVal = parseFloat(budget) || 1000;
 
@@ -198,7 +201,8 @@ function DashboardContent() {
         rating: w.rating,
         reviews: w.completed_jobs,
         pricePerHour: w.hourly_rate,
-        distanceKm: 0, // Not using GPS distance
+        distanceKm:
+         w.distance_km != null ? Number(w.distance_km) : Infinity,
         skills: [
           w.service_id || "Professional",
         ],
@@ -546,7 +550,7 @@ function DashboardContent() {
                 <div>
                   <h2 className="text-xl font-bold">
                     {activeService.name} near{" "}
-                    {userLocation.split(",")[0] || "you"}
+                    {selectedLocation?.name || "you"}
                   </h2>
 
                   <p className="text-sm text-muted-foreground">

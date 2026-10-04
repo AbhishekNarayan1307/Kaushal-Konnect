@@ -4,7 +4,7 @@ import pandas as pd
 from typing import Optional
 from sqlalchemy.orm import Session, joinedload
 from app.models import Worker
-from app.services.recommender import get_recommendations
+from recommender import get_recommendations
 
 
 def get_worker_recommendations(
@@ -87,12 +87,14 @@ def get_worker_recommendations(
 
     worker_df = pd.DataFrame(worker_list)
 
-    # Filter by radius before ranking when coordinates are supplied.
-    if radius_km is not None:
+    
+    # Apply radius filtering only when the customer location is available.
+    if radius_km is not None and user_lat is not None and user_lon is not None:
         worker_df = worker_df[
             worker_df["distance_km"].notna()
             & (worker_df["distance_km"] <= radius_km)
         ].copy()
+
 
     if worker_df.empty:
         return pd.DataFrame()
