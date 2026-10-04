@@ -13,3 +13,4 @@ email-validator
 python-jose
 passlib
 python-multipart
+requests
