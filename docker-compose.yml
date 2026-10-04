@@ -20,15 +20,15 @@ services:
       - db
     environment:
       - DATABASE_URL=postgresql+psycopg://${DB_USER:-user}:${DB_PASSWORD:-password}@db:5432/${DB_NAME:-kaushal_konnect}
-      - SECRET_KEY=${SECRET_KEY:-super-secret-key}
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY:-}
     ports:
-      - "8000:10000"
+      - "8000:8000"
 
   frontend:
     build:
       context: ./frontend
       args:
-        VITE_API_URL: http://localhost:8000
+        VITE_GOOGLE_MAPS_KEY: ${GOOGLE_MAPS_API_KEY:-}
     container_name: kk_frontend
     restart: always
     depends_on:
