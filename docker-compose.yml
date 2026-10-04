@@ -22,7 +22,7 @@ services:
       - DATABASE_URL=postgresql+psycopg://${DB_USER:-user}:${DB_PASSWORD:-password}@db:5432/${DB_NAME:-kaushal_konnect}
       - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY:-}
     ports:
-      - "8000:8000"
+      - "8000:10000"
 
   frontend:
     build:

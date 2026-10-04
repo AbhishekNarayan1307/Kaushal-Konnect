@@ -82,16 +82,10 @@ app.include_router(
     tags=["Auth"]
 )
 app.include_router(
-    geocode.router,
-    prefix="/geocode",
-    tags=["Geocoding"]
-)
-app.include_router(
     routes.router,
     prefix="/routes",
     tags=["Routes"]
 )
-
 
 
 
