@@ -6,7 +6,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.v1.endpoints import workers, bookings, recommendations, auth
+from app.api.v1.endpoints import workers, bookings, recommendations, auth, geocode, routes
 
 
 app = FastAPI(
@@ -23,6 +23,7 @@ FRONTEND_URL = os.getenv(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "http://localhost",
         "https://kaushal-konnect-frontend.onrender.com",
         "http://localhost:5173",
         "http://localhost:3000",
@@ -50,16 +51,18 @@ async def global_exception_handler(request: Request, exc: Exception):
     )
 
 
-app.include_router(
-    auth.router,
-    prefix="/auth",
-    tags=["Authentication"]
-)
+from app.api.v1.endpoints.locations import router as locations_router
 
 app.include_router(
     workers.router,
     prefix="/workers",
     tags=["Workers"]
+)
+
+app.include_router(
+    locations_router,
+    prefix="/locations",
+    tags=["Locations"]
 )
 
 app.include_router(
@@ -73,6 +76,17 @@ app.include_router(
     prefix="/recommendations",
     tags=["Recommendations"]
 )
+app.include_router(
+    auth.router,
+    prefix="/auth",
+    tags=["Auth"]
+)
+app.include_router(
+    routes.router,
+    prefix="/routes",
+    tags=["Routes"]
+)
+
 
 
 @app.get("/")

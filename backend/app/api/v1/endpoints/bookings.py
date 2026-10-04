@@ -3,11 +3,14 @@ from sqlalchemy.orm import Session
 from typing import List
 import uuid
 from app.db.session import get_db
-from app.models import Booking, BookingStatus, User, Payment, UserRole
+from app.models import (
+    Booking, BookingStatus, User, Payment, UserRole, CustomerLocation
+)
 from app.schemas.booking import BookingCreate, BookingRead
 from app.api.deps import get_current_user
 
 router = APIRouter()
+
 
 @router.post("/", response_model=BookingRead)
 def create_booking(
@@ -16,26 +19,62 @@ def create_booking(
     current_user: User = Depends(get_current_user)
 ):
     if current_user.role != UserRole.customer:
-        raise HTTPException(status_code=403, detail="Only customers can create bookings")
+        raise HTTPException(
+            status_code=403,
+            detail="Only customers can create bookings"
+        )
 
     try:
-        # 1. Create the Booking record first
         booking_data = booking_in.model_dump()
-        payment_method = booking_data.pop("payment_method", "card")
+        payment_method = booking_data.pop("payment_method", None) or "card"
 
+        # Extract location fields before creating the Booking object.
+        location_id = booking_data.pop("customer_location_id", None)
+        service_address = booking_data.pop("service_address", None)
+        service_latitude = booking_data.pop("service_latitude", None)
+        service_longitude = booking_data.pop("service_longitude", None)
+
+        # If a saved location was selected, verify that it belongs
+        # to the currently authenticated customer.
+        if location_id is not None:
+            saved_location = (
+                db.query(CustomerLocation)
+                .filter(
+                    CustomerLocation.id == location_id,
+                    CustomerLocation.user_id == current_user.id
+                )
+                .first()
+            )
+
+            if not saved_location:
+                raise HTTPException(
+                    status_code=400,
+                    detail="Selected location was not found for this customer"
+                )
+
+            # Use the saved location as the source of truth.
+            service_address = saved_location.address
+            service_latitude = saved_location.latitude
+            service_longitude = saved_location.longitude
+
+        # Save a snapshot of the service location on the booking.
         db_booking = Booking(
             **booking_data,
             customer_id=current_user.id,
-            status=BookingStatus.ACCEPTED
+            status=BookingStatus.ACCEPTED,
+            customer_location_id=location_id,
+            service_address=service_address,
+            service_latitude=service_latitude,
+            service_longitude=service_longitude
         )
-        db.add(db_booking)
-        db.flush() # Flush to get the booking id without committing
 
-        # 2. Create the Payment record
+        db.add(db_booking)
+        db.flush()
+
         payment = Payment(
             booking_id=db_booking.id,
             amount=booking_in.amount or 0,
-            payment_method=booking_in.payment_method or "card",
+            payment_method=payment_method,
             status="SUCCESS"
         )
         db.add(payment)
@@ -43,12 +82,17 @@ def create_booking(
         db.commit()
         db.refresh(db_booking)
         return db_booking
-    except Exception as e:
+
+    except HTTPException:
+        db.rollback()
+        raise
+    except Exception:
         db.rollback()
         raise HTTPException(
             status_code=500,
-            detail=f"Booking failed: {str(e)}"
+            detail="Booking failed due to a server error"
         )
+
 
 @router.get("/", response_model=List[BookingRead])
 def read_bookings(

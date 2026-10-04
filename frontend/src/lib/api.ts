@@ -1,4 +1,6 @@
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://kaushal-konnect.onrender.com';
+//export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://kaushal-konnect.onrender.com';
+
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 async function authenticatedFetch(url: string, options: RequestInit = {}) {
   const token = localStorage.getItem('auth_token');
@@ -25,7 +27,10 @@ export async function getRecommendedWorkers(
   category: string,
   zone: string,
   budget: number,
-  topN: number = 10
+  topN: number = 10,
+  userLat?: number,
+  userLon?: number,
+  radiusKm?: number
 ) {
   const params = new URLSearchParams({
     category,
@@ -33,6 +38,14 @@ export async function getRecommendedWorkers(
     budget: budget.toString(),
     top_n: topN.toString(),
   });
+
+  if (userLat !== undefined && userLon !== undefined) {
+    params.append('user_lat', userLat.toString());
+    params.append('user_lon', userLon.toString());
+    if (radiusKm !== undefined) {
+      params.append('radius_km', radiusKm.toString());
+    }
+  }
 
   const response = await authenticatedFetch(
     `${API_BASE_URL}/recommendations/?${params}`
@@ -60,6 +73,7 @@ export async function createBooking(bookingData: {
   slot: string;
   booking_date: string;
   payment_method: string;
+  customer_location_id?: string;
 }) {
   const response = await authenticatedFetch(`${API_BASE_URL}/bookings`, {
     method: 'POST',

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CalendarDays, Clock, CreditCard, ShieldCheck, Star } from "lucide-react";
+import { CalendarDays, Clock, CreditCard, ShieldCheck, Star, MapPin } from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useLocations } from "@/hooks/useLocations";
+import { useAuth } from "@/hooks/use-auth";
 import {
   Select,
   SelectContent,
@@ -23,7 +25,6 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { currency, timeSlots, type Booking, type Worker } from "@/lib/dashboard-data";
 import { createBooking } from "@/lib/api";
-import { useAuth } from "@/hooks/use-auth";
 
 type Props = {
   worker: Worker | null;
@@ -37,6 +38,10 @@ const today = new Date().toISOString().slice(0, 10);
 
 export function BookingFlow({ worker, serviceName, location, onClose, onConfirm }: Props) {
   const { user } = useAuth();
+  const { locations } = useLocations(user?.id ?? null);
+  const [selectedLocId, setSelectedLocId] = useState<string>('');
+  const selectedLoc = locations.find((l) => l.id === selectedLocId);
+  const displayLocation = selectedLoc?.address ?? selectedLoc?.name ?? location ?? 'Location not set';
   const [step, setStep] = useState<"schedule" | "payment">("schedule");
   const [date, setDate] = useState(today);
   const [slot, setSlot] = useState(timeSlots[1]!);
@@ -65,14 +70,23 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
 
     setIsLoading(true);
     try {
-      const bookingData = {
-  worker_id: worker.id,
-  service_id: worker.serviceId,
-  amount: total,
-  slot,
-  booking_date: new Date(`${date}T${slot.slice(0, 5)}:00`).toISOString(),
-  payment_method: method,
-};
+
+          if (!selectedLocId) {
+            toast.error("Please select a saved service address");
+            setIsLoading(false);
+            return;
+          }
+
+          const bookingData = {
+            worker_id: worker.id,
+            service_id: worker.serviceId,
+            amount: total,
+            slot,
+            booking_date: new Date(`${date}T${slot.slice(0, 5)}:00`).toISOString(),
+            payment_method: method,
+            customer_location_id: selectedLocId,
+          };
+
 
       const result = await createBooking(bookingData);
 
@@ -117,13 +131,54 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
             {step === "schedule" ? `Book ${worker.name}` : "Payment"}
           </DialogTitle>
           <DialogDescription>
-            {serviceName} · {currency(worker.pricePerHour)}/hr ·{" "}
-            {location || "location not set"}
+            {serviceName} · {currency(worker.pricePerHour)}/hr · {" "}
+            {displayLocation || "location not set"}
           </DialogDescription>
         </DialogHeader>
 
         {step === "schedule" ? (
           <div className="space-y-4">
+            <div className="space-y-2">
+              <Label className="flex items-center gap-2">
+                <MapPin className="size-4 text-primary" /> Location
+              </Label>
+              <div className="flex gap-2">
+                <Select
+                  value={selectedLocId}
+                  onValueChange={setSelectedLocId}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select address" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {locations.map((l) => (
+                      <SelectItem key={l.id} value={l.id}>
+                        {l.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    if (!navigator.geolocation) {
+                      toast.error("Geolocation not supported");
+                      return;
+                    }
+                    navigator.geolocation.getCurrentPosition(
+                      (pos) => {
+                        setSelectedLocId("");
+                      },
+                      () => toast.error("Unable to retrieve your location")
+                    );
+                  }}
+                >
+                  Use Current
+                </Button>
+              </div>
+            </div>
+
             <div className="space-y-2">
               <Label htmlFor="date" className="flex items-center gap-2">
                 <CalendarDays className="size-4 text-primary" /> Date
@@ -175,7 +230,10 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
             <div className="rounded-lg bg-muted/60 p-4 text-sm">
               <Row label="Worker" value={worker.name} />
               <Row label="Schedule" value={`${date} · ${slot}`} />
-              <Row label={`${qty} hr × ${currency(worker.pricePerHour)}`} value={currency(subtotal)} />
+              <Row
+                label={`${qty} hr × ${currency(worker.pricePerHour)}`}
+                value={currency(subtotal)}
+              />
               <Row label="Platform fee" value={currency(fee)} />
               <Separator className="my-3" />
               <Row label="Total payable" value={currency(total)} strong />
@@ -201,17 +259,12 @@ export function BookingFlow({ worker, serviceName, location, onClose, onConfirm 
             </p>
           </div>
         )}
-
         <DialogFooter>
           {step === "schedule" ? (
-            <Button onClick={() => setStep("payment")}>
-              Continue · {currency(subtotal)}
-            </Button>
+            <Button onClick={() => setStep("payment")}>Continue · {currency(subtotal)}</Button>
           ) : (
             <>
-              <Button variant="outline" onClick={() => setStep("schedule")}>
-                Back
-              </Button>
+              <Button variant="outline" onClick={() => setStep("schedule")}>Back</Button>
               <Button onClick={pay} disabled={isLoading}>
                 {isLoading ? "Processing..." : `Pay ${currency(total)}`}
               </Button>
