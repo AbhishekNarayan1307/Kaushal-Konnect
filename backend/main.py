@@ -23,6 +23,7 @@ FRONTEND_URL = os.getenv(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "http://localhost",
         "https://kaushal-konnect-frontend.onrender.com",
         "http://localhost:5173",
         "http://localhost:3000",
@@ -74,6 +75,11 @@ app.include_router(
     recommendations.router,
     prefix="/recommendations",
     tags=["Recommendations"]
+)
+app.include_router(
+    auth.router,
+    prefix="/auth",
+    tags=["Auth"]
 )
 
 
