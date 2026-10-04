@@ -143,6 +143,8 @@ def get_worker_recommendations(
             "worker_zone": w.city,
             "city": w.city,
             "locality": w.locality,
+            "latitude": float(w.latitude) if w.latitude is not None else None,
+            "longitude": float(w.longitude) if w.longitude is not None else None,
             "distance_km": (
                 float(distance)
                 if distance is not None and pd.notna(distance)
